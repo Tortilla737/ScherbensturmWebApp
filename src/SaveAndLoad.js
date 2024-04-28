@@ -741,6 +741,7 @@ function repaintLevel() {
 	$("#CharLevelSPmod").html(charData.spMod);
 	$("#CharLevelPPmod").html(charData.ppMod);
 	$("#CharLevelMSPmod").html(charData.mspMod);
+	//xxx LevelModText for descriptions
 	saveLocalData();
 
 	if (currentSPscore > spTotal || currentPPscore > ppTotal || currentMSPscore > mspTotal) {
@@ -762,7 +763,7 @@ function repaintConditions() {
 				<button onclick="openDeleteModal('deleteCondition(${i})'); event.stopPropagation();"><div class="icon-trash smaller-text margin-center"></div></button>
 			</div>
 			<div class="collapsed-beneath">
-				<textarea id="condiIDtext${i}" onblur="${charData.conditions[i].text} = this.value; saveLocalData();" placeholder="Beschreibe den Statuseffekt.">${charData.conditions[i].text}</textarea>
+				<textarea id="condiIDtext${i}" onblur="getCharData().conditions[${i}].text = this.value; saveLocalData();" placeholder="Beschreibe den Statuseffekt.">${charData.conditions[i].text}</textarea>
 			</div>
 		</div>
 		<div class="vertical-spacing"></div>
