@@ -17,7 +17,7 @@
     "weight": "",
     "faith": "",
     "money": [{"name": "Goldstücke", "amount": 0, "conversion": 1}],
-    "hitzones": [],
+    "hitzones": [{"name": "Kopf", "value": "01-10"}, {"name": "Rumpf", "value": "11-50"}, {"name": "Linker Arm", "value": "51-62"}, {"name": "Rechter Arm", "value": "63-74"}, {"name": "Linkes Bein", "value": "75-87"}, {"name": "Rechtes Bein", "value": "88-100"}],
     "personality": "",
     "look": "",
     "abilities": "",

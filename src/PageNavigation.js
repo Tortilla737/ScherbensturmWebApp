@@ -372,6 +372,7 @@ function saveItem(indexN, indexP) {
       "damage": $("#genIDitemdamage").text(),
       "hit": $("#genIDitemhit").text(),
       "armor": $("#genIDitemarmor").text(),
+      "features": charData.bags[indexN].items[indexP].features,
       "imgurl": $("#itemImageURL").text()
     });
     getCharData().bags[indexN].items.splice(indexP, 1);
