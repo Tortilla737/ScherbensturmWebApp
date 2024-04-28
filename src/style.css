@@ -1,6 +1,6 @@
 :root {
   --accent-color: #ffcc6e;
-  --gap-small-vw: 0.3em;
+  --gap-small-vw: 0.5em;
   --gap-large-vw: 0.9em;
   --box-gap: 10px;
   --box-padding: 10px;
@@ -504,8 +504,9 @@ input {
 }
 .first-table-row {
   color: var(--text-dim-color);
-  font-size: 0.9em;
+  font-size: 0.8em;
   text-align: center;
+  padding: 0 var(--box-padding);
 }
 .gradient-line-top {
   border-top: solid;
@@ -645,7 +646,7 @@ input {
 }
 .action-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 4fr 5px 1fr 5px 2fr;
   font-size: 0.8em;
   min-height: calc(var(--min-entry-height) * 0.8);
   border-radius: var(--radius-main);
@@ -660,7 +661,17 @@ input {
   max-height: calc(var(--min-entry-height) * 1.5);
 }
 .action-power-grid {
-  grid-template-columns: 3fr 1fr 2fr 2fr;
+  grid-template-columns: 4fr 5px 2fr 5px 1.5fr 5px 3fr; 
+}
+.action-title-grid, .action-power-title-grid {
+  display: grid;
+  font-size: 0.8em;
+  color: var(--text-dim-color);
+  padding: 0 var(--box-padding);
+  grid-template-columns: 4fr 5px 1fr 5px 2fr;
+}
+.action-power-title-grid {
+  grid-template-columns: 4fr 5px 2fr 5px 1.5fr 5px 3fr; 
 }
 .equal-flex-row {
   display: flex;

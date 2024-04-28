@@ -586,8 +586,10 @@ function repaintActions() {
 				weaponActions += `
 					<div class="action-grid" onclick="openItemsPanel(${i}, ${j});">
 						<p>${itemN.name}</p>
-						<p>${calcTextInput(itemN.hit)}</p>
-						<p>${calcTextInput(itemN.damage)}</p>
+            <p class="small-text">&#128900;</p>
+						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
+            <p class="small-text">&#128900;</p>
+						<p class="text-middle">${calcTextInput(itemN.damage)}</p>
 					</div>
 					<div class="vertical-spacing"></div>
 		`;
@@ -600,9 +602,12 @@ function repaintActions() {
 			powerActions += `
 				<div class="action-grid action-power-grid" onclick="openPowersPanel(${i});">
 					<p>${powerN.name}</p>
-					<p>${calcTextInput(powerN.cost)}</p>
-					<p>${calcTextInput(powerN.hit)}</p>
-					<p>${calcTextInput(powerN.damage)}</p>
+					<p class="small-text">&#128900;</p>
+					<p class="text-middle">${calcTextInput(powerN.cost)}</p>
+					<p class="small-text">&#128900;</p>
+					<p class="text-middle">${calcTextInput(powerN.hit)}</p>
+					<p class="small-text">&#128900;</p>
+					<p class="text-middle">${calcTextInput(powerN.damage)}</p>
 				</div>
 				<div class="vertical-spacing"></div>
 			`;

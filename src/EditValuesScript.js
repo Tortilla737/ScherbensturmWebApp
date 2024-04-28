@@ -131,8 +131,15 @@ function processInput(fieldID){
     repaintInventory();
   }
   else if(fieldID.startsWith('genIDitemfeature')){
-    //only add features to charData on "save (item)"? xxx
     charData.bags[getEntryIndex()].items[getAugmentIndex()].features[fieldID.slice(16)] = $("#"+fieldID).html();
+    charData.bags[getEntryIndex()].items[getAugmentIndex()].features.sort(function(a, b){
+      let x = a.toLowerCase();
+      let y = b.toLowerCase();
+      if (x < y) {return -1;}
+      if (x > y) {return 1;}
+      return 0;
+    });
+    $("#itemFeaturesContainer").html(paintItemFeatures(getEntryIndex(), getAugmentIndex()));
   }
   else if(fieldID.startsWith('genIDpowercolor')) {
     document.getElementById('colorShow').style.backgroundColor = $("#genIDpowercolor").html();
