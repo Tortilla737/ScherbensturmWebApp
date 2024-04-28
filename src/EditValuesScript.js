@@ -193,8 +193,13 @@ function processInput(fieldID){
     repaintLevel();
   }
   else if(fieldID.startsWith('descID')){
-    charData[fieldID.slice(6)] = $("#"+fieldID).html();
-    repaintSecondaries();
+    if(fieldID.startsWith('descIDsizeClass')) {
+      charData.sizeClass = checkNumInput($("#descIDsizeClass").html());
+      repaintSecondaries();
+    }
+    else {
+      charData[fieldID.slice(6)] = $("#"+fieldID).html();
+    }
   }
   else if(fieldID.startsWith('condiIDname')){
     charData.conditions[fieldID.slice(11)].name = $("#"+fieldID).html();
@@ -280,7 +285,7 @@ function getVarVal(input) {
 function fullCalc(expression) {
   expression = expression.replace(/\s/g, '');
   expression = expression.replace(/[^-()\d/*+.]/g, '');
-  return calcHelper(Array.from(expression), 0).toFixed(1);
+  return calcHelper(Array.from(expression), 0).toFixed(0); //Always rounded down
 }
 function calcHelper(s, idx) {
   var stk = [];

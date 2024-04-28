@@ -351,7 +351,7 @@ function saveItem(indexN, indexP) {
   if(indexN == $("#newBagChoice").val()){
     getCharData().bags[indexN].items[indexP].name = $("#genIDitemname").text();
     getCharData().bags[indexN].items[indexP].shorttext = $("#genIDitemshorttext").text();
-    getCharData().bags[indexN].items[indexP].weight = $("#genIDitemweight").text().replace(/,/g, '.');
+    getCharData().bags[indexN].items[indexP].weight = checkNumInput($("#genIDitemweight").text());
     getCharData().bags[indexN].items[indexP].count = $("#genIDitemcount").text();
     getCharData().bags[indexN].items[indexP].type = $("#genIDitemtype").val();
     getCharData().bags[indexN].items[indexP].damage = $("#genIDitemdamage").text();
@@ -363,7 +363,7 @@ function saveItem(indexN, indexP) {
   else{
     getCharData().bags[$("#newBagChoice").val()].items.push({
       "name": $("#genIDitemname").text(),
-      "weight": $("#genIDitemweight").text(),
+      "weight": checkNumInput($("#genIDitemweight").text()),
       "shorttext": $("#genIDitemshorttext").text(),
       "longtext": $("#genIDitemlongtext").val(),
       "count": $("#genIDitemcount").text(),

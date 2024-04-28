@@ -676,11 +676,11 @@
             </div>
             <p>Anzahl:</p>
             <div class="horizontal-container big-text">
-              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count--; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count); repaintInventory();" style="width: 30px;">-</button>
+              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count--; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">-</button>
               <div class="editable-num-div stretchy text-middle" onclick="editText(event, this)">
                 <p id="genIDitemcount">0</p>
               </div>
-              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count++; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count); repaintInventory();" style="width: 30px;">+</button>
+              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count++; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">+</button>
             </div>
             <p>Tasche wechseln:</p>
             <select id="newBagChoice"></select>
