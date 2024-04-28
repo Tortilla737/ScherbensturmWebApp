@@ -860,7 +860,7 @@ input {
   max-height: 300px;
 }
 .content-beneath { /*bag*/
-  max-height: 400px; /*variabel? xxx*/
+  max-height: 600px; /*variabel? xxx*/
   overflow-x: hidden;
   overflow-y: auto;
   transition: 0.3s;

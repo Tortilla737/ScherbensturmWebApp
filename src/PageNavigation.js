@@ -336,7 +336,7 @@ function showItemExtra() {
 }
 function paintItemFeatures(n, p) {
   let item = getCharData().bags[n].items[p];
-  let featureContent = "";
+  let featureContent = ``;
   for(let i in item.features) {
     featureContent += `
       <div class="editable-num-div" onclick="editText(event, this)">
@@ -421,8 +421,7 @@ function addItemFeature(indexN, indexP) {
     if (x > y) {return 1;}
     return 0;
   });
-  saveItem(indexN, indexP);
-  openItemsPanel(indexN, indexP);
+  $("#itemFeaturesContainer").html(paintItemFeatures(indexN, indexP));
 }
 //#region bags
 function addNewBag() {

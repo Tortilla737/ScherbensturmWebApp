@@ -530,7 +530,7 @@ function repaintGear() {
 				`;
 				for (let k in itemN.features) {
 					allWeapons += `
-						<p>${calcTextInput(itemN.features[k])}</p>
+						<p>&#128900; ${calcTextInput(itemN.features[k])}</p>
 					`;
 				}
 				allWeapons += `
@@ -554,7 +554,7 @@ function repaintGear() {
 				`;
 				for (let k in itemN.features) {
 					allArmor += `
-									<p>${calcTextInput(itemN.features[k])}</p>
+									<p>&#128900; ${calcTextInput(itemN.features[k])}</p>
 					`;
 				}
 				allArmor += `
