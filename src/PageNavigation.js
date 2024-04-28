@@ -129,10 +129,10 @@ function deleteSkill(indexN) {
 function addNewSkill() {
   getCharData().skills.push({
     "name": "Neue Fertigkeit",
-    "basecost": 1,
+    "basecost": 0,
     "rank": 1,
     "expertise": 0,
-    "attributes": "leer",
+    "attributes": "",
     "mod": 0,
     "text": ""
   });
@@ -254,7 +254,10 @@ function addNewPower() {
     "augments": []
   });
   openPowersPanel(getCharData().powers.length-1);
+  let state = charData.sort;
+  charData.sort = false;
   repaintPowers();
+  charData.sort = state;
 }
 //#region augment panel
 function openAugmentsPanel(indexN, indexP) {
@@ -398,7 +401,10 @@ function addNewItem(indexN){
     "imgurl": "https://cdn2.iconfinder.com/data/icons/video-game-items-concepts/128/loot-box-512.png"
   });
   openItemsPanel(indexN, getCharData().bags[indexN].items.length-1);
+  let state = charData.sort;
+  charData.sort = false;
   repaintInventory();
+  charData.sort = state;
   $("#newBagChoice").val(indexN);
 }
 function deleteItemFeature(indexN, indexP, indexQ) {

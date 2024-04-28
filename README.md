@@ -46,7 +46,10 @@ Der Scherbensturm Charakterbogen als Webapp.
 - Schreibt mir zu Bugs, denen ihr begegnet am Besten über Discord.
 
 ### Bekannte Fehler
+- Es ist nicht möglich mehrere Charakterbögen nebeneinander zu öffnen.
+- Es nur die "offiziellen" Talente. (In der Zwischenzeit bitte mit Fertigkeiten oder Kräften lösen und eine Notiz machen)
 - Modulare Talente (z.B. Umgang \[Personengruppe\]) können nur einmal freigeschaltet werden.
 - Man kann mehr SP/PP/MsP augeben, als einem zur Verfügung stehen. (Die Levelanzeige wird dann rot)
 - Man kann einen höheren Talentgrad freischalten, bevor man den vorherigen freigeschaltet hat.
 - Es wird nicht geprüft, ob die Voraussetzungen zum Freischalten von Fertigkeiten, Graden oder Talenten erfüllt sind.
+- Umlaute werden falsch eindortiert.
