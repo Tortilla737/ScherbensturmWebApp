@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Brand X",
+        "text": "Einmal pro Runde, entweder beim zugefügtem Brand, oder am Ende des Zuges, verliert das betroffene Ziel LP in Höhe des Brands. Am Ende des Zuges steigt der Brand um die Zehnerstelle +1.\n Wenn ein Charakter brennt, so muss er zu Beginn seines Zuges einen Test auf die Fertigkeit Wille bestehen gegen die Schwierigkeit 40. Gelingt dieser nicht, so muss sich der Charakter löschen! Um sich vom Brand zu befreien kann man entweder eine volle Aktion aufwenden, oder in einer Standardaktion mit Agilität gegen die Schwierigkeit 40 testen.\nBrand kann nur maximal 100 sein. "
+    },
+    {
+        "name": "Eingeschüchtert",
+        "text": "Das Ziel hat -20 auf alle offensiven Tests wie Angriffe oder Zauber, solange die Quelle der Angst wahrgenommen wird. Es kann sich der Quelle der Angst nicht nähern, außer es gelingt zuvor ein Mut(WK)-Wurf gegen 50.\nAm Ende seines Zuges kann das Ziel den ursprünglichen Mut-Test wiederholen, um den Status zu beenden. Dieser Test hat +20, wenn die Quelle der Angst nicht mehr wahrgenommen wird."
+    },
+    {
+        "name": "Geblendet",
+        "text": "Das Ziel hat -20 auf alle Tests, bei denen der eingeschränkte Sehsinn von spürbarem Nachteil ist. Dies umfasst zum Beispiel die meisten Trefferwürfe und Tests auf koordinierende Werte.\nAm Rundenende testet das Ziel auf Resistenz(WK) gegen 50. Bei einem Erfolg wird der Statuseffekt entfernt. Die Schwierigkeit dieses Tests sinkt nach jeder Niederlage um 10.\nWiderstandswürfe geschehen in den meisten Fällen mit Reflex(WA)."
+    },
+    {
+        "name": "Kälte",
+        "text": "Kälte funktioniert ähnlich wie Brand, nur dass Kälte sich um die Zehnerstelle +1 am Ende jeder Runde verringert. Zusätzlich muss ein Charakter nicht auf die Fertigkeit Wille testen, um sich von Kälte zu befreien, denn dies ist weitaus schwerer, als sich von Brand zu löschen. Um sich von Kälte zu befreien muss sich nahe einer Wärmequelle aufgehalten werden. Üblicherweise verringert das ausharren an einem Lagerfeuer Kälte um 10 pro Runde.\nIst ein Charakter einmal von Kälte betroffen, so verringert sich seine Gewandtheit temporär für jeden zweiten Punkt Kälte um 1. Dies bedeutet, dass Kälte (20) die Gewandtheit des betroffenen um 10 senkt. Außerdem verringert jede 20 Kälte die Grundbewegung des Betroffenen um 1.\nKälte kann nur maximal 100 sein."
+    },
+    {
+        "name": "Nässe",
+        "text": "Das Ziel hat -10 Rüstung gegen Kälte- und Blitzschaden sowie +10 Rüstung gegen Feuerschaden an der betroffenen Körperzone. Das Ziel ist außerdem immun gegen Brand an der betroffenen Körperstelle.\nZum Entfernen des Statuseffektes muss die Körperzone trocknen, was üblicherweise erst außerhalb eines Kampfes geschehen kann."
+    },
+    {
+        "name": "Schock",
+        "text": "Wenn man geschockt wird, so redet man in der Regel von einem elektrischen Einfluss, der den Körper des Betroffenen kurzzeitig lähmt. Wird der Statuseffekt nicht widerstanden, so hat man -20 auf alle physischen Tests bis zum Ende der Runde. Danach ist das betroffene Ziel nicht mehr geschockt.\nWird man von Schock allerdings kritisch getroffen, oder schlägt der Resistenztest kritisch fehl, so gilt man als betäubt (Stun) und somit als wehrlos!"
+    },
+    {
+        "name": "Schwanken",
+        "text": "Dem Ziel steht ein Standhaftigkeit(ST oder GW)-Wurf (oder vergleichbares) gegen die angegebene Schwierigkeit zu. Bei einer Niederlage darf es als Reaktion eine Schnellaktion aufbringen, um sein Gleichgewicht wiederherzustellen. Tut es dies nicht, so wird es umgeworfen. Danach ist der Statuseffekt beendet.\nWird Schwanken während der Aktion eines Ziels ausgelöst und wird das Ziel umgeworfen, so wird die Aktion abgebrochen, wenn eine Bewegung oder Stand dafür notwendig ist."
+    },
+    {
+        "name": "Stich",
+        "text": "Beim Anwenden zugefügter Lebenspunkteverlust kann nicht geheilt werden, solange der Stich-verursachende Gegenstand steckt."
+    },
+    {
+        "name": "Wucht",
+        "text": "Dem Ziel steht ein Standhaftigkeit(ST)-Wurf (oder vergleichbares) gegen den erlittenen Einschlagschaden oder eine genannte Schwierigkeit zu. Bei einer Niederlage wird es umgeworfen. Danach ist der Statuseffekt beendet.\nWird Wucht während der Aktion eines Ziels ausgelöst und das Ziel umgeworfen, so wird die Aktion abgebrochen, wenn eine Bewegung oder Stand dafür notwendig ist."
+    }
+]

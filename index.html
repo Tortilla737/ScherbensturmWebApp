@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Scherbensturm</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Voltaire|PT+Sans|Ubuntu">
+  </head>
+  <body>
+    <!--MARK: top row/modal-->
+    <div id="BackgroundImage" class="bg-image"></div>
+    <div id="deleteModal" class="modal">
+      <div class="modal-content">
+        <div class="text-middle">
+          <h2>Löschen</h2>
+          <p>Löschen bestätigen?</p>
+          <div class="horizontal-container">
+            <button class="in-panel-btn" onclick="document.getElementById('deleteModal').style.display='none'">Abbrechen</button>
+            <div id="confirmDeleteButton">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-box">
+      <button id="leftpanelbtn" class="openbtn" onclick="openNav('1', true)"><p>&#9776;</p></button>
+      <button id="rightpanelbtn" class="openbtn" onclick="openNav('2', true)"><p>&#11164;</p></button><!--&#10594;-->
+      <div class="decorative-line">
+        <div class="scaling-svg-container">
+          <svg id="decorative-top-line" class="scaling-svg" viewBox="0 0 1267 68">
+            <path d="M576.652,35.447l45.429,32.172l-49.755,-13.106l-539.477,0l-32.849,-35.786l46.74,16.72l529.912,0Zm-1.239,8.207l-535.809,-0.128l-11.632,-6.188l10.296,9.363l536.022,-0l13.313,4.544l-12.19,-7.591Zm113.998,-8.207l529.912,0l46.74,-16.72l-32.849,35.786l-539.477,0l-49.755,13.106l45.429,-32.172Zm1.239,8.207l-12.19,7.591l13.313,-4.544l536.022,-0l10.296,-9.363l-11.632,6.188l-535.809,0.128Zm-63.581,18.748l-35.389,-34.201l19.364,-19.864l16.025,54.065Zm-11.942,-19.981l-5.891,-19.875l-7.118,7.302l13.009,12.573Zm25.19,19.981l16.025,-54.065l19.364,19.864l-35.389,34.201Zm11.942,-19.981l13.009,-12.573l-7.118,-7.302l-5.891,19.875Zm-18.121,19.708l-12.687,-61.681l11.018,5.676l11.518,-6.123l-9.849,62.128Z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="text-middle" style="max-width: 800px; margin: auto;">
+        <h1>Scherbensturm Charakterbogen</h1>
+      </div>
+    </div>
+    <!--MARK: left panel-->
+    <div id="leftSidepanel" class="sidepanel">
+      <div>
+        <a href="javascript:void(0)" onclick="openDeleteModal('removeLocalData()')">Neuer Charakter</a>
+        <a href="javascript:void(0)" onclick="saveTemplateAsFile(getCharData().name +' Character Sheet.json', getCharData())">Speichern</a>
+        <div class="pointer-div">
+          <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+            <a onclick="fileinput.dispatchEvent(new MouseEvent('click', { bubbles: true }))">Charakter laden</a>
+            <input style="display: none;" id="fileinput" type="file" onchange="loadFile();"/>
+          </form>
+        </div>
+        <hr>
+        <div class="panel-main-grid">
+          <p>Regelwerk:</p>
+          <select id="rulesChoice" onchange="getCharData().rulesset = this.value; repaintRulesSpecifics(); saveLocalData();">
+            <option value="of">Offiziell</option>
+            <option value="ed">Enthone Darkness</option>
+            <!--"no" excluded talents-->
+          </select>
+          <p>Nachtmodus:</p>
+          <div id="darkmodeContainer"></div>
+          <p class="small-text">Fertigkeiten, Kräfte, Items alphabetisch sortieren:</p>
+          <div id="sortContainer"></div>
+          <p>Akzentfarbe:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="customColor">00</p>
+          </div>
+          <p>Hintergrundbild:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="customImageLink">www</p>
+          </div>
+        </div>
+        <hr>
+        <a href="https://docs.google.com/document/d/1RDDg0GAoxDKXbB7gxZFhEnVuOOqbZqovSyUiVfg_pHY/edit" target="_blank"><u>Regelwerk</u> &#11127;</a>
+        <a class="rulesED" href="https://docs.google.com/document/d/1bGxPNrDozp0PAeE6GktE6ikESHS4IRTxdggvKE2wTN8/edit?usp=sharing" target="_blank"><u>Enthrone Regelungen</u> &#11127;</a>
+        <a href="https://www.w3schools.com/colors/colors_converter.asp" target="_blank"><u>Farbenfinder</u> &#11127;</a>
+        <a href="https://tortilla737.github.io/ScherbensturmWebApp/" target="_blank"><u>Git-Page</u> &#11127;</a>
+        <div class="openBeneath" style="margin-top: 200px;">
+          <button class="transpbtn" onclick="openBeneath(this.parentNode); this.firstElementChild.classList.toggle('open-content-rotate');"><p class="transition-div dark-text">&#x2BC8;</p></button>
+        </div>
+        <div class="collapsed-beneath">
+          <a href="javascript:void(0)" onclick="repaintAll()">Reload</a>
+          <a href="javascript:void(0)" onclick="checkLocalData()">Load local</a>
+          <a href="javascript:void(0)" onclick="localStorage.removeItem('LocalCharacter');">Clear cache</a>
+          <div class="flex-container">
+            <p>Max. Zwischenspeicher: </p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="maxSaves">10</p>
+            </div>
+          </div>
+        </div>
+        <div class="rulesOF"></div> <!--rulesOF and rulesED have to have the same number of objects-->
+      </div>
+    </div>
+    <!--right panel-->
+    <div id="rightSidepanel" class="sidepanel">
+      <!--MARK: Level Panel-->
+      <div id="levelPanelPage" class="panel-content">
+        <h2>Charakterstufe</h2>
+        <div class="vertical-container">
+          <div id="charLeveldiv" class="biggest-text editable-num-div" onclick="editText(event, this)">
+            <p id="CharLevel">0</p>
+          </div>
+          <div style="position: relative; height: 30px; width: 300px;">
+            <div class="icon-line-seperator"></div>
+          </div>
+          <p>Erfahrungspunkte</p>
+          <div id="xpBarContainer">
+            <div id="xpBar">
+              <div class="xpLabel-div">
+                <div class="editable-num-div" onclick="editText(event, this)">
+                  <p id="xpLabel">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="hr-width">
+        <div class="panel-main-grid">
+          <p>Steigerungspunkte:</p>
+          <div class="flex-container margin-center">
+            <p id="SPcurrent">00</p>
+            <p>/</p>
+            <p id="SPtotal">00</p>
+          </div>
+          <p>Praxispunkte:</p>
+          <div class="flex-container margin-center">
+            <p id="PPcurrent">00</p>
+            <p>/</p>
+            <p id="PPtotal">00</p>
+          </div>
+          <p>Meisterschaftspunkte:</p>
+          <div class="flex-container margin-center">
+            <p id="MSPcurrent">00</p>
+            <p>/</p>
+            <p id="MSPtotal">00</p>
+          </div>
+        </div>
+        <hr class="hr-width">
+        <div class="panel-main-grid">
+          <p>SP Modifikator:</p>
+          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <p id="CharLevelSPmod">00</p>
+          </div>
+          <p>PP Modifikator:</p>
+          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <p id="CharLevelPPmod">00</p>
+          </div>
+          <p>MsP Modifikator:</p>
+          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <p id="CharLevelMSPmod">00</p>
+          </div>
+        </div>
+      </div>
+      <!--MARK: Strength panel-->
+      <div id="strengthPanelPage" class="panel-content StrContainer">
+        <h2>Stärke</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkStr">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialStr">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingStr">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModStr">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankStr">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Constitution panel-->
+      <div id="constitutionPanelPage" class="panel-content ConContainer">
+        <h2>Konstitution</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkCon">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialCon">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingCon">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModCon">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankCon">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Accuracy panel-->
+      <div id="accuracyPanelPage" class="panel-content AccContainer">
+        <h2>Präzision</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkAcc">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialAcc">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingAcc">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModAcc">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankAcc">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Agility panel-->
+      <div id="agilityPanelPage" class="panel-content AgiContainer">
+        <h2>Gewandtheit</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkAgi">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialAgi">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingAgi">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModAgi">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankAgi">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Perception panel-->
+      <div id="perceptionPanelPage" class="panel-content PerContainer">
+        <h2>Wahrnehmung</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkPer">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialPer">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingPer">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModPer">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankPer">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Expression panel-->
+      <div id="expressionPanelPage" class="panel-content ExpContainer">
+        <h2>Ausdruck</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkExp">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialExp">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingExp">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModExp">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankExp">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Intelligence panel-->
+      <div id="intelligencePanelPage" class="panel-content IntContainer">
+        <h2>Intelligenz</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkInt">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialInt">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingInt">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModInt">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankInt">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Willpower panel-->
+      <div id="willpowerPanelPage" class="panel-content WilContainer">
+        <h2>Willenskraft</h2>
+        <div class="panel-main-grid">
+          <p>Volkswert:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrFolkWil">0</p>
+          </div>
+          <p>Potential:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrPotentialWil">0</p>
+          </div>
+          <p>Training:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrTrainingWil">0</p>
+          </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModWil">0</p>
+          </div>
+          <p>Grad:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrRankWil">1</p>
+          </div>
+          <p>Notiz:</p>
+        </div>
+        <textarea id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();"></textarea>
+      </div>
+      <!--MARK: Secondary Mod panel-->
+      <div id="secondaryPanelPage" class="panel-content">
+        <h2>Modifikatoren von Sekundärwerten:</h2>
+        <div class="panel-main-grid">
+          <p>LP Maximum Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDHPmaxMod">0</p>
+          </div>
+          <p>mLP Maximum Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDMHmaxMod">0</p>
+          </div>
+          <p>AP Maximum Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDEPmaxMod">0</p>
+          </div>
+          <p>FP Maximum Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDFPmaxMod">0</p>
+          </div>
+          <p>Verwundungsschwelle Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDwoundCapMod">0</p>
+          </div>
+          <p>Taumaschwelle Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDtraumaCapMod">0</p>
+          </div>
+          <p>Initiative Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDinitiativeMod">0</p>
+          </div>
+          <p>Bewegung Mod.:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="modIDmovementMod">0</p>
+          </div>
+        </div>
+        <hr class="hr-width">
+        <textarea id="secondaryNote" onblur="getCharData().secondaryNote = this.value; saveLocalData();" placeholder="Beschreibe welche Effekte welchen Bonus oder Malus ausmachen."></textarea>
+      </div>
+      <!--MARK: Magic Bonus panel-->
+      <div id="magicBonusPanelPage" class="panel-content">
+        <h2>Zauberbonus:</h2>
+        <div class="panel-main-grid">
+          <p>Attribut</p>
+          <div class="horizontal-container">
+            <p>Talent</p>
+            <p>Sonstiges</p>
+          </div>
+        </div>
+        <hr class="hr-width">
+        <div class="panel-main-grid">
+          <p>Stärke:</p>
+          <div class="talent-grid StrContainer">
+            <p id="mbTalentStr" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDstr">0</p>
+            </div>
+          </div>
+          <p>Konstitution:</p>
+          <div class="talent-grid ConContainer">
+            <p id="mbTalentCon" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDcon">0</p>
+            </div>
+          </div>
+          <p>Präzision:</p>
+          <div class="talent-grid AccContainer">
+            <p id="mbTalentAcc" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDacc">0</p>
+            </div>
+          </div>
+          <p>Gewandtheit:</p>
+          <div class="talent-grid AgiContainer">
+            <p id="mbTalentAgi" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDagi">0</p>
+            </div>
+          </div>
+          <p>Wahrnehmung:</p>
+          <div class="talent-grid PerContainer">
+            <p id="mbTalentPer" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDper">0</p>
+            </div>
+          </div>
+          <p>Ausdruck:</p>
+          <div class="talent-grid ExpContainer">
+            <p id="mbTalentExp" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDexp">0</p>
+            </div>
+          </div>
+          <p>Intelligenz:</p>
+          <div class="talent-grid IntContainer">
+            <p id="mbTalentInt" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDint">0</p>
+            </div>
+          </div>
+          <p>Willenskraft:</p>
+          <div class="talent-grid WilContainer">
+            <p id="mbTalentWil" class="non-breaking-text text-middle">0</p>
+            <p>+</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="mbIDwil">0</p>
+            </div>
+          </div>
+        </div>
+        <textarea id="mbNote" onblur="getCharData().magicBonusMod.mbNote = this.value; saveLocalData();" placeholder="Notiere zusätzliche Infos zu deinen Boni."></textarea>
+      </div>
+      <!--MARK: Skill Panel-->
+      <div id="skillPanelPage" class="panel-content">
+        <h2>Fertigkeit:</h2>
+        <div class="vertical-container">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+            <p id="genIDskillname"></p>
+          </div>
+          <div class="vertical-spacing"></div>
+          <div class="panel-main-grid">
+            <p>Expertise:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDskillexpertise"></p>
+            </div>
+            <p>Kosten zum Erlernen:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDskillbasecost"></p>
+            </div>
+            <p>Grad:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDskillrank"></p>
+            </div>
+            <p>Zugehörige Attribute:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDskillattributes"></p>
+            </div>
+            <p>Bonus/ Modifikatoren:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDskillmod"></p>
+            </div>
+            <div class="grid-span-2">
+              <p>Beschreibung:</p>
+            </div>
+          </div>
+          <textarea id="genIDskilltext"></textarea>
+          <hr class="hr-width">
+          <div class="horizontal-container big-text">
+            <button class="in-panel-btn savebtn" onclick="saveSkill(getEntryIndex())">Speichern</button>
+            <button class="in-panel-btn" onclick="openDeleteModal('deleteSkill(getEntryIndex())')">Löschen</button>
+          </div>
+        </div>
+      </div>
+      <!--MARK: Talent Panel-->
+      <div id="talentPanelPage" class="panel-content">
+        <h2>Talente:</h2>
+        <div class="horizontal-container">
+          <p>Attribut:</p>
+          <select id="attributeChoice" onchange="openTalentPanel();">
+            <option value="all">Alle</option>
+            <option value="str">Stärke</option>
+            <option value="con">Konstitution</option>
+            <option value="acc">Präzision</option>
+            <option value="agi">Gewandtheit</option>
+            <option value="per">Wahrnehmung</option>
+            <option value="exp">Ausdruck</option>
+            <option value="int">Intelligenz</option>
+            <option value="wil">Willenskraft</option>
+          </select>
+        </div>
+        <div class="vertical-spacing"></div>
+        <div id="fullTalentList">
+
+        </div>
+      </div>
+      <!--MARK: Power Panel-->
+      <div id="powerPanelPage" class="panel-content">
+        <h2>Kraft:</h2>
+        <div class="vertical-container">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+            <p id="genIDpowername"></p>
+          </div>
+          <div class="vertical-spacing"></div>
+          <div class="panel-main-grid">
+            <p>Art:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowertype"></p>
+            </div>
+            <p>Aktionskosten:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowertime"></p>
+            </div>
+            <p>Kosten:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowercost"></p>
+            </div>
+            <p>Rang:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowerrank"></p>
+            </div>
+            <p>Meisterschaft:</p>
+            <div>
+              <input type="checkbox" id="genIDpowermastery"></input>
+            </div>
+            <p>Fertigkeit/Scherbe:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowerskill"></p>
+            </div>
+            <p>Trefferwert:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowerhit"></p>
+            </div>
+            <p>Schadenswert:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowerdamage"></p>
+            </div>
+            <p>Cooldown:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowercooldown"></p>
+            </div>
+            <p>Farbe:</p>
+            <div id="colorShow" class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDpowercolor"></p>
+            </div>
+            <p class="grid-span-2">Beschreibung:</p>
+          </div>
+          <div class="growing-text-wrap">
+            <textarea id="genIDpowertext" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+          </div>
+          <hr class="hr-width">
+          <div class="horizontal-container">
+            <button class="in-panel-btn savebtn" onclick="savePower(getEntryIndex())">Speichern</button>
+            <button class="in-panel-btn" onclick="openDeleteModal('deletePower(getEntryIndex())')">Löschen</button>
+          </div>
+          <hr class="hr-width">
+          <div>
+            <button class="in-panel-btn" onclick="addNewAugment(getEntryIndex())">+ Augment hinzufügen</button>
+          </div>
+        </div>
+      </div>
+      <div id="augmentPanelPage" class="panel-content">
+        <h2>Augment:</h2>
+        <div class="vertical-container">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+            <p id="genIDaugmentname"></p>
+          </div>
+          <div class="panel-main-grid">
+            <p>Kosten:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDaugmentcost"></p>
+            </div>
+            <p>Rang:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDaugmentrank"></p>
+            </div>
+            <p>Art:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDaugmenttype"></p>
+            </div>
+            <p>Meisterschaft:</p>
+            <div>
+              <input type="checkbox" id="genIDaugmentmastery"></input>
+            </div>
+            <p class="grid-span-2">Beschreibung:</p>
+          </div>
+          <textarea id="genIDaugmenttext"></textarea>
+          <hr class="hr-width">
+          <div class="horizontal-container">
+            <button class="in-panel-btn savebtn" onclick="saveAugment(getEntryIndex(), getAugmentIndex())">Speichern</button>
+            <button class="in-panel-btn" onclick="openDeleteModal('deleteAugment(getEntryIndex(), getAugmentIndex())')">Löschen</button>
+          </div>
+        </div>
+      </div>
+      <!--MARK: Inventory Panel-->
+      <div id="inventoryPanelPage" class="panel-content">
+        <h2>Item:</h2>
+        <div class="vertical-container">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+            <p id="genIDitemname"></p>
+          </div>
+          <div class="vertical-spacing"></div>
+          <div class="panel-main-grid">
+            <p>Kurzbeschreibung:</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDitemshorttext"></p>
+            </div>
+            <p>Gewicht (pro Stück):</p>
+            <div class="editable-num-div" onclick="editText(event, this)">
+              <p id="genIDitemweight"></p>
+            </div>
+            <p>Anzahl:</p>
+            <div class="horizontal-container big-text">
+              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count--; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count); repaintInventory();" style="width: 30px;">-</button>
+              <div class="editable-num-div stretchy text-middle" onclick="editText(event, this)">
+                <p id="genIDitemcount">0</p>
+              </div>
+              <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count++; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count); repaintInventory();" style="width: 30px;">+</button>
+            </div>
+            <p>Tasche wechseln:</p>
+            <select id="newBagChoice"></select>
+            <p>Art:</p>
+            <select id="genIDitemtype" onchange="showItemExtra();">
+              <option value="item">Gegenstand</option>
+              <option value="armor">Rüstung</option>
+              <option value="weapon">Waffe</option>
+            </select>
+          </div>
+          <div id="weapon-extra" style="width: 100%;">
+            <div class="panel-main-grid">
+              <p>Waffenschaden:</p>
+              <div class="editable-num-div" onclick="editText(event, this)">
+                <p id="genIDitemdamage"></p>
+              </div>
+              <p>Trefferwert:</p>
+              <div class="editable-num-div" onclick="editText(event, this)">
+                <p id="genIDitemhit"></p>
+              </div>
+            </div>
+          </div>
+          <div id="armor-extra" style="width: 100%;">
+            <div class="panel-main-grid">
+              <p>Rüstungswert:</p>
+              <div class="editable-num-div" onclick="editText(event, this)">
+                <p id="genIDitemarmor"></p>
+              </div>
+            </div>
+          </div>
+          <hr class="hr-width">
+          <div id="itemFeaturesContainer" class="features-grid"></div>
+          <div class="vertical-spacing"></div>
+          <button class="in-panel-btn" onclick="addItemFeature(getEntryIndex(), getAugmentIndex());">Eigenschaft hinzufügen +</button>
+          <hr class="hr-width">
+          <div class="features-grid"><p>Beschreibung:</p></div>
+          <div class="growing-text-wrap">
+            <textarea id="genIDitemlongtext" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+          </div>
+          <div class="vertical-spacing"></div>
+          <div class="horizontal-container">
+            <button class="in-panel-btn savebtn" onclick="saveItem(getEntryIndex(), getAugmentIndex());">Speichern</button>
+            <button class="in-panel-btn" onclick="openDeleteModal('deleteItem(getEntryIndex(), getAugmentIndex())');">Löschen</button>
+          </div>
+          <div class="vertical-spacing"></div>
+          <div class="border-item vertical-container">
+            <img class="pointer-div" id="itemImage" src="/src/img/Item-image.png" alt="Item Image URL" onclick="openBeneath(this)">
+            <div id="itemURLdiv" class="editable-num-div collapsed-beneath" onclick="editText(event, this)">
+              <p id="itemImageURL">Bild URL einfügen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--MARK: Money Panel-->
+      <div id="moneyPanelPage" class="panel-content">
+        <h2>Vermögen:</h2>
+        <div class="vertical-container">
+          <div id="moneyGridContent" class="money-main-grid">
+            
+          </div>
+          <hr class="hr-width">
+          <div class="rulesOF">
+            <div id="moneyConversionContent" class="money-conversion-grid">
+  
+            </div>
+          </div>
+          <div class="rulesED">
+            <div class="ED-conversion-grid">
+              <p class="text-right">1 </p>
+              <div class="icon-money-m"></div>
+              <p> = </p>
+              <p class="text-right">144</p>
+              <div class="icon-money-g"></div>
+              <p class="text-right">1 </p>
+              <div class="icon-money-w"></div>
+              <p> = </p>
+              <p class="text-right">12</p>
+              <div class="icon-money-g"></div>
+              <p class="text-right">12 </p>
+              <div class="icon-money-s"></div>
+              <p> = </p>
+              <p class="text-right">1</p>
+              <div class="icon-money-g"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--MARK: Hitzones Panel-->
+      <div id="hitzonesPanelPage" class="panel-content">
+        <h2>Trefferzonen:</h2>
+        <div class="vertical-container">
+          <div id="hitzonesGridContent" class="money-main-grid">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--MARK: Character Sheet-->
+    <div class="sheet-box">
+      <div id="left-content" class="bigbox-container">
+        <!--Name and Level-->
+        <div class="border-item first-box-container">
+          <div class="name-grid">
+            <div class="editable-num-div name-container" onclick="editText(event, this)">
+              <p id="CharName">Name</p>
+            </div>
+            <div class="editable-num-div title-container" onclick="editText(event, this)">
+              <p id="CharNameSub">Subtitle</p>
+            </div>
+          </div>
+          <button id="levelDisplaybtn" onclick="repaintLevel(); openPanelPage('levelPanelPage');">Lvl: 99</button>
+        </div>
+        <!--Attribute Section-->
+        <div class="attribute-row-box">
+          <div class="attribute-container StrContainer" onclick="openPanelPage('strengthPanelPage')">
+            <div class="attribute-name-div">
+              <p>ST</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrStrTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container ConContainer" onclick="openPanelPage('constitutionPanelPage')">
+            <div class="attribute-name-div">
+              <p>KO</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrConTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container AccContainer" onclick="openPanelPage('accuracyPanelPage')">
+            <div class="attribute-name-div">
+              <p>PR</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrAccTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container AgiContainer" onclick="openPanelPage('agilityPanelPage')">
+            <div class="attribute-name-div">
+              <p>GW</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrAgiTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container PerContainer" onclick="openPanelPage('perceptionPanelPage')">
+            <div class="attribute-name-div">
+              <p>WA</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrPerTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container ExpContainer" onclick="openPanelPage('expressionPanelPage')">
+            <div class="attribute-name-div">
+              <p>AU</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrExpTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container IntContainer" onclick="openPanelPage('intelligencePanelPage')">
+            <div class="attribute-name-div">
+              <p>IN</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrIntTotal">00</p>
+            </div>
+          </div>
+          <div class="attribute-container WilContainer" onclick="openPanelPage('willpowerPanelPage')">
+            <div class="attribute-name-div">
+              <p>WK</p>
+            </div>
+            <div class="attribute-num-div">
+              <p id="attrWilTotal">00</p>
+            </div>
+          </div>
+        </div>
+        <!--Token image and Secondary Attributes-->
+        <div class="horizontal-container">
+          <div class="undo-grid">
+            <button class="border-item transpbtn small-text round-box"  onclick="undoLast();">
+              <div class="icon-undo"></div>
+              <p class="voltaire small-text">Rückgängig</p>
+            </button>
+            <button class="border-item transpbtn round-box" onclick="replenishRessouces();">
+              <div class="icon-campfire"></div>
+              <p class="voltaire">Rast</p>
+            </button>
+          </div>
+          <div>
+            <a onclick="TokenImageLink.dispatchEvent(new MouseEvent('click', { bubbles: true }))">
+              <img class="pointer-div" id="CharTokenImg" src="./src/img/Token-image.png" alt="Token image">
+            </a>
+            <input style="display: none;" id="TokenImageLink" type="file" onchange="loadImage()"/>
+          </div>
+          <div class="grid-HP border-item">
+            <p class="voltaire grid-span-3">LEBENSPUNKTE</p>
+            <p class="voltaire grid-span-3 non-breaking-text">MENTALE LEBENSP.</p>
+            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+              <p id="ressourceHPcurrent">00</p>
+            </div>
+            <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
+              <p id="HPtotal">00</p>
+            </div>
+            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+              <p id="ressourceMHcurrent">00</p>
+            </div>
+            <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
+              <p id="MHtotal">00</p>
+            </div>
+            <p class="voltaire grid-span-3">AUSDAUERPUNKTE</p>
+            <p class="voltaire grid-span-3">FOKUSPUNKTE</p>
+            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+              <p id="ressourceEPcurrent">00</p>
+            </div>
+            <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
+              <p id="EPtotal">00</p>
+            </div>
+            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+              <p id="ressourceFPcurrent">00</p>
+            </div>
+            <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
+              <p id="FPtotal">00</p>
+            </div>
+          </div>
+        </div>
+        <!--Actions-->
+        <div class="border-item stretchy actions-container">
+          <div class="voltaire pointer-div" onclick="openTabNr(3)">
+            <p>SCHNELLÜBERSICHT - WAFFENANGRIFFE</p>
+          </div>
+          <div id="weaponActionContainer">
+            
+          </div>
+          <div class="voltaire pointer-div" onclick="openTabNr(2);">
+            <p>MANÖVER & ZAUBER</p>
+          </div>
+          <div id="powerActionContainer">
+            
+          </div>
+        </div>
+        <!--Conditions and ShortNote-->
+        <div class="equal-flex-row stretchy">
+          <div class="border-item">
+            <div class="voltaire">
+              <p>STATUSEFFEKTE</p>
+            </div>
+            <div id="conditionsContainer">
+  
+            </div>
+            <select style="width: 100%;" id="conditionChoice" onchange="addNewCondition(this.value); this.value = '-'"></select>
+          </div>
+          <div class="border-item">
+            <div class="voltaire">
+              <p>KURZNOTIZ</p>
+            </div>
+            <textarea id="shortNote" onblur="getCharData().shortNote = this.value; saveLocalData();"></textarea>
+          </div>
+        </div>
+      </div>
+      <div id="right-content" class="bigbox-container">
+        <!--Second Secondaries-->
+        <div class="second-second-box">
+          <div class="border-item armor-grid">
+            <p class="small-text voltaire">INITIATIVE</p>
+            <p class="small-text voltaire">BEWEGUNG</p>
+            <p class="small-text voltaire rulesED">RÜSTUNG</p>
+            <p class="small-text voltaire rulesOF">TREFFERZONEN</p>
+            <button onclick="openPanelPage('secondaryPanelPage')">
+              <p class="bigish-text" id="Initiative">00</p>
+              <div class="icon-timer"></div>
+            </button>
+            <button onclick="openPanelPage('secondaryPanelPage')">
+              <p class="bigish-text" id="Movement">5</p>
+              <div class="icon-run big-text"></div>
+            </button>
+            <div class="rulesED">
+              <p class="bigish-text text-middle" id="totalArmor">
+                <div class="shield-icon-container">
+                  <div class="icon-shield"></div>
+                </div>
+              </p>
+            </div>
+            <button class="rulesOF" onclick="openPanelPage('hitzonesPanelPage');"><div class="icon-body biggest-text margin-center"></div></button>
+          </div>
+          <!--right-->
+          <div class="border-item wound-grid">
+            <p class="small-text voltaire" onclick="openPanelPage('secondaryPanelPage')">VERWUNDUNGS SCHWELLE</p>
+            <button onclick="openPanelPage('secondaryPanelPage')">
+              <p id="WoundCap">00</p>
+            </button>
+            <p class="small-text voltaire" onclick="openPanelPage('secondaryPanelPage')">TRAUMA SCHWELLE</p>
+            <button onclick="openPanelPage('secondaryPanelPage')">
+              <p id="TraumaCap">00</p>
+            </button>
+            <p class="small-text voltaire">ERSCHÖPFUNG</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="tiredExhaustion">00</p>
+            </div>
+            <p class="small-text voltaire">ERMÜDUNG</p>
+            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+              <p id="tiredFatigue">00</p>
+            </div> 
+            <div class="icon-line-seperator"></div>
+          </div>
+        </div>
+        <!--MARK: Tabs-->
+        <div class="border-item stretchy">
+          <div class="tab-container voltaire">
+            <button class="tablink" onclick="openTabPage('SkillsTab', this)">FERTIGKEITEN</button>
+            <button class="tablink" onclick="openTabPage('TalentsTab', this)">TALENTE</button>
+            <button class="tablink" onclick="openTabPage('PowersTab', this)">KRÄFTE</button>
+            <button class="tablink" onclick="openTabPage('GearTab', this)">AUSRÜSTUNG</button>
+            <button class="tablink" onclick="openTabPage('InventoryTab', this)">INVENTAR</button>
+            <button class="tablink" onclick="openTabPage('DescriptionTab', this)">BESCHREIBUNG</button>
+            <button class="tablink" onclick="openTabPage('NotesTab', this)">NOTIZEN</button>
+          </div>
+          <!--skills / fertigkeiten-->
+          <div id="SkillsTab" class="tabcontent">
+            <div class="first-table-row skill-grid">
+              <p>Fertigkeit</p>
+              <p>Bonus</p>
+              <p>Grad</p>
+              <p>Attribute</p>
+            </div>
+            <div class="vertical-spacing"></div>
+            <div id="skillListContainer">
+                <!--this is where skills are generated into (found in SaveAndLoad.js repaintSkills())-->
+            </div>
+            <hr>
+            <button class="add-entry-btn" onclick="addNewSkill()">+</button>
+          </div>
+          <!--talents / Talente-->
+          <div id="TalentsTab" class="tabcontent">
+            <div id="talentListContainer">
+              
+            </div>
+            <hr>
+            <button class="add-entry-btn" onclick="openTalentPanel()">+</button>
+          </div>
+          <!--powers / Kräfte-->
+          <div id="PowersTab" class="tabcontent">
+            <div class="horizontal-container">
+              <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this.parentNode); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate'); this.classList.toggle('open-sibling');">
+                <div><p class="transition-div">&#x2BC8;</p></div>
+                <p class="non-breaking-text">Beschreibung deiner Scherben.</p>
+              </div>
+              <div class="flex-container pointer-div entry-wrapper" onclick="openPanelPage('magicBonusPanelPage');">
+                <div class="icon-magic"></div>
+                Zauberbonus
+              </div>
+            </div>
+            <div class="growing-text-wrap collapsed-beneath">
+              <textarea id="PowersTextArea" onInput="this.parentNode.dataset.replicatedValue = this.value;" onblur="getCharData().powersNote = this.value; saveLocalData();" placeholder="Beschreibe hier deine Kräfte oder Scherben."></textarea>
+            </div>
+            <div class="vertical-spacing"></div>
+            <div id="powerListContainer">
+              
+            </div>
+            <hr>
+            <button class="add-entry-btn" onclick="addNewPower()">+</button>
+          </div>
+          <!--gears / Ausrüstung-->
+          <div id="GearTab" class="tabcontent">
+            <h3 class="dim-text">Waffen</h3>
+            <div id="WeaponGearContainer">
+
+            </div>
+            <h3 class="dim-text">Rüstung</h3>
+            <div id="ArmorGearContainer">
+
+            </div>
+          </div>
+          <!--inventory / Inventar-->
+          <div id="InventoryTab" class="tabcontent">
+            <div class="horizontal-container" style="flex-wrap: wrap;">
+              <div class="flex-container entry-wrapper-non-click">
+                <p>Traglast:</p>
+                <p id="totalWeight" class="non-breaking-text"></p>
+              </div>
+              <button class="entry-wrapper flex-container" onclick="openPanelPage('moneyPanelPage');">
+                <p>Vermögen:</p>
+                <p id="moneyTotal">0</p>
+                <div class="rulesOF">
+                  <div class="icon-crystal"></div>
+                </div>
+                <div class="rulesED">
+                  <div class="icon-g-coin"></div>
+                </div>
+              </button>
+              <button class="entry-wrapper flex-container" onclick="addNewBag()">
+                <div class="icon-new-bag"></div>
+                <p class="non-breaking-text">Neue Tasche</p>
+              </button>
+            </div>
+            <hr>
+            <div id="inventoryContainer">
+              
+            </div>
+          </div>
+          <!--description / Beschreibung-->
+          <div id="DescriptionTab" class="tabcontent">
+            <div class="descriptions-grid">
+              <p>Voller Name: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfullname">-</p></div>
+              <p>Herkunft/Volk: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDheritage">-</p></div>
+              <p>Volksscherben: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfolkshards">-</p></div>
+              <p>Geschlecht: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDgender">-</p></div>
+              <p>Alter: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDage">-</p></div>
+              <p>Größe: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDheight">-</p></div>
+              <p>Größenkategorie: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDsizeClass">-</p></div>
+              <p>Gewicht: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDweight">-</p></div>
+              <p>Konfession: </p>
+              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfaith">-</p></div>
+            </div>
+            <hr>
+            <p>Persönlichkeit: </p>
+            <div class="growing-text-wrap">
+              <textarea id="descTxtpersonality" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().personality = this.value; saveLocalData();"></textarea>
+            </div>
+            <p>Erscheinung: </p>
+            <div class="growing-text-wrap">
+              <textarea id="descTxtlook" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().look = this.value; saveLocalData();"></textarea>
+            </div>
+            <p>Besonderheiten: </p>
+            <div class="growing-text-wrap">
+              <textarea id="descTxtabilities" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().abilities = this.value; saveLocalData();"></textarea>
+            </div>
+            <p>Werdegang: </p>
+            <div class="growing-text-wrap">
+              <textarea id="descTxtbackground" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().background = this.value; saveLocalData();"></textarea>
+            </div>
+          </div>
+          <!--notes / Notizen-->
+          <div id="NotesTab" class="tabcontent">
+            <div id="NotesContainer"></div>
+            <hr>
+            <button class="add-entry-btn" onclick="addNewNote()"><p>+</p></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="src/EditValuesScript.js"></script>
+    <script src="src/PageNavigation.js"></script>
+    <script src="src/TalentHandler.js"></script>
+    <script src="src/SaveAndLoad.js"></script>
+  </body>
+</html>
