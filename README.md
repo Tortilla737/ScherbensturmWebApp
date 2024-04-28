@@ -13,7 +13,7 @@ Der Scherbensturm Charakterbogen als Webapp.
 
 ### Bilder
 - Hintergrundbild und Itembilder werden als Link eingefügt.
-- Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse** kopieren und anschließend in das Textfeld einfügen.
+- Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
 - Der Charaktertoken kann direkt über das Token Bild als Datei hochgeladen werden.
 
 ### Einträge verändern
@@ -30,9 +30,9 @@ Der Scherbensturm Charakterbogen als Webapp.
   - z.B.: {{10-6}}
 - Text, der von zwei eckigen Klammern eingefasst ist, ruft den zugehörigen Wert ab.
   - z.B.: \[\[AU\]\], \[\[ZBST\]\], \[\[Ausweichen\]\]
-  - Zulässig sind Attribute (ST, KO, PR, ...), ZBon (ZBST, ZBKO, ZBPR, ...), und Fertigkeiten.
+  - Zulässig sind Attribute (ST, KO, PR, ...), ZBon (ZBST, ZBKO, ZBPR, ...), StBon (STBON) und Fertigkeiten.
   - Wichtig ist, die Fertigkeiten exakt so zu schreiben, wie sie eingetragen wurden.
-  - ZBon ist dabei nur der Bonus ohne Attribut.
+  - ZBon und StBon sind dabei nur der Bonus **ohne Attribut**.
 - Daraus ergibt sich z.B.: *"Trefferwert: {{\[\[PR\]\] + 10}}."* oder *"Diese Kraft trifft auf {{\[\[AU\]\] + \[\[Feuer\]\]}} und macht {{(\[\[ZBAU\]\] / 2) + 5}} Schaden."* oder *"{{33-((\[\[pr\]\]+\[\[zbpr\]\])/2)}}"*.
 - Diese Funktion ist zunächst nur für Trefferwerte, Schadenswerte, Beschreibungen, Itemfeatures und Kosten von Kräften verfügbar.
 

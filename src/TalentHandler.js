@@ -1,4 +1,4 @@
-let hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0;
+let hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0;
 let mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
 
 /*
@@ -133,6 +133,24 @@ function setTalentFactor(thisTalent) {
         }
         $("#mbTalentCon").html(mbTalent.con);
         repaintPowers();
+    }
+    else if("Mächtiger Schlag" == thisTalent.name) {
+        stbTalent = 0;
+        for(let j = 0; j<5; j++) {
+            if(thisTalent.ranks[j]) {
+                stbTalent += 10;
+            }
+        }
+        repaintInventory();
+    }
+    else if("Mächtiger Schlag (ED)" == thisTalent.name) {
+        stbTalent = 0;
+        for(let j = 0; j<5; j++) {
+            if(thisTalent.ranks[j]) {
+                stbTalent += 10;
+            }
+        }
+        repaintInventory();
     }
     else if("Machtladung" == thisTalent.name) {
         fpTalent = 0;

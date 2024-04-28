@@ -128,7 +128,7 @@ function processInput(fieldID){
   }
   else if(fieldID.startsWith('bagID')){
     charData.bags[fieldID.slice(5)].name = $("#"+fieldID).html();
-    saveLocalData();
+    repaintInventory();
   }
   else if(fieldID.startsWith('genIDitemfeature')){
     //only add features to charData on "save (item)"? xxx
@@ -265,6 +265,9 @@ function getVarVal(input) {
   else if(["ZBST", "ZBKO", "ZBPR", "ZBGW", "ZBWA", "ZBWK", "ZBIN", "ZBAU"].includes(varText.toUpperCase())) {
     let mbAtr = atrKeys[varText.toUpperCase().slice(2)];
     return getCharData().magicBonusMod[mbAtr] + mbTalent[mbAtr] + mbTalent.all;
+  }
+  else if(["STBON"].includes(varText.toUpperCase())) {
+    return stbTalent;
   }
   else if(skillNames.includes(varText)) {
     let skillP = getCharData().skills[skillNames.indexOf(varText)];
