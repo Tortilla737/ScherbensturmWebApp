@@ -277,7 +277,7 @@ function getVarVal(input) {
 function fullCalc(expression) {
   expression = expression.replace(/\s/g, '');
   expression = expression.replace(/[^-()\d/*+.]/g, '');
-  return calcHelper(Array.from(expression), 0);
+  return calcHelper(Array.from(expression), 0).toFixed(1);
 }
 function calcHelper(s, idx) {
   var stk = [];

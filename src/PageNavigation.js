@@ -421,6 +421,7 @@ function addItemFeature(indexN, indexP) {
     if (x > y) {return 1;}
     return 0;
   });
+  saveItem(indexN, indexP);
   openItemsPanel(indexN, indexP);
 }
 //#region bags
