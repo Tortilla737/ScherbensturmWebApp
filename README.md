@@ -53,3 +53,4 @@ Der Scherbensturm Charakterbogen als Webapp.
 - Man kann einen höheren Talentgrad freischalten, bevor man den vorherigen freigeschaltet hat.
 - Es wird nicht geprüft, ob die Voraussetzungen zum Freischalten von Fertigkeiten, Graden oder Talenten erfüllt sind.
 - Umlaute werden falsch eindortiert.
+- Zu lange Einträge in Textboxen (z.B. Links) sorgen auf schmaleren Bildschirmen für abgeschnittenen Text.

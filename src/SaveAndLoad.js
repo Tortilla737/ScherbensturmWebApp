@@ -294,7 +294,7 @@ function repaintSkills() {
 	for (let i in charData.skills) {
 		let asterisk = () => { if (charData.skills[i].mod > 0) { return "*"; } else { return ""; } };
 		allSkills += `
-			<div class="entry-wrapper skill-grid" onclick="openSkillPanel(${i})">
+			<div class="entry-wrapper skill-grid roboto-300" onclick="openSkillPanel(${i})">
 				<p>${charData.skills[i].name}</p>
 				<p class="text-middle">+${Number(charData.skills[i].expertise) + Number(charData.skills[i].mod)}${asterisk()/*maybe not? xxx*/}</p>
 				<p class="text-middle">${charData.skills[i].rank}</p>
@@ -339,7 +339,7 @@ function repaintTalents() {
 					}
 				}
 				paintTalents += `
-					<div class="entry-wrapper" onclick="openBeneath(this.firstElementChild)">
+					<div class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
 						<div class="talent-grid">
 							<div>${charData.talents[i].name}</div>
 							<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
@@ -386,7 +386,7 @@ function repaintPowers() {
 	for (let i in charData.powers) {
 		let powerN = charData.powers[i];
 		allPowers += `
-			<div class="power-entry" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
+			<div class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
 				<div>
 					<div class="power-grid">
 						<p class="power-name">${powerN.name}</p>
@@ -411,11 +411,11 @@ function repaintPowers() {
 		for (let j in powerN.augments) {
 			let augmentN = powerN.augments[j];
 			allPowers += `
-				<div class="augment-entry" onclick="openBeneath(this.firstElementChild)">
+				<div class="augment-entry roboto-300" onclick="openBeneath(this.firstElementChild)">
 					<div class="augment-grid gradient-line-top">
 						<p class="power-name">${augmentN.name}</p>
 						<p>${calcTextInput(augmentN.cost)}</p>
-						<p>- ${augmentN.type}</p>
+						<p>${augmentN.type}</p>
 						<p>T${augmentN.rank}</p>
 						<button onclick="openAugmentsPanel(${i}, ${j}); event.stopPropagation();"><div class="icon-edit"></div></button>
 					</div>
@@ -464,7 +464,7 @@ function repaintInventory() {
 			let itemN = charData.bags[i].items[j];
 			bagWeight += itemN.weight * itemN.count;
 			allItems += `
-				<div class="entry-wrapper item-grid" onclick="openItemsPanel(${i}, ${j});">
+				<div class="entry-wrapper item-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
 					<p>${itemN.name}</p>
 					<p class="text-middle small-text">${itemN.count}</p>
 					<p class="text-middle small-text">${itemN.weight} kg</p>
@@ -520,7 +520,7 @@ function repaintGear() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.type == 'weapon') {
 				allWeapons += `
-					<div class="entry-wrapper" onclick="openItemsPanel(${i}, ${j});">
+					<div class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 								<p class="power-name">${itemN.name}</p>
 								<p class="italic-text">${calcTextInput(itemN.damage)}</p>
@@ -544,7 +544,7 @@ function repaintGear() {
 			}
 			else if (itemN.type == 'armor') {
 				allArmor += `
-					<div class="entry-wrapper" onclick="openItemsPanel(${i}, ${j});">
+					<div class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 							<p class="power-name">${itemN.name}</p>
 							<p class="italic-text">Rüstung: ${itemN.armor}</p>
@@ -584,7 +584,7 @@ function repaintActions() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.equipped && itemN.type == "weapon") {
 				weaponActions += `
-					<div class="action-grid" onclick="openItemsPanel(${i}, ${j});">
+					<div class="action-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
 						<p>${itemN.name}</p>
             <p class="small-text">&#128900;</p>
 						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
@@ -600,7 +600,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid" onclick="openPowersPanel(${i});">
+				<div class="action-grid action-power-grid roboto-300" onclick="openPowersPanel(${i});">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>

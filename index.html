@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher|Voltaire|PT+Sans|Ubuntu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:wght@400;700&family=Roboto+Condensed:wght@100..900&family=Ubuntu:wght@300;400;500;700&family=Voltaire&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!--MARK: top row/modal-->
@@ -26,8 +28,6 @@
       </div>
     </div>
     <div class="header-box">
-      <button id="leftpanelbtn" class="openbtn" onclick="openNav('1', true)"><p>&#9776;</p></button>
-      <button id="rightpanelbtn" class="openbtn" onclick="openNav('2', true)"><p>&#11164;</p></button><!--&#10594;-->
       <div class="decorative-line">
         <div class="scaling-svg-container">
           <svg id="decorative-top-line" class="scaling-svg" viewBox="0 0 1267 68">
@@ -74,7 +74,7 @@
         <hr>
         <a href="https://docs.google.com/document/d/1RDDg0GAoxDKXbB7gxZFhEnVuOOqbZqovSyUiVfg_pHY/edit" target="_blank"><u>Regelwerk</u> &#11127;</a>
         <a class="rulesED" href="https://docs.google.com/document/d/1bGxPNrDozp0PAeE6GktE6ikESHS4IRTxdggvKE2wTN8/edit?usp=sharing" target="_blank"><u>Enthrone Regelungen</u> &#11127;</a>
-        <a href="https://www.w3schools.com/colors/colors_converter.asp" target="_blank"><u>Farbenfinder</u> &#11127;</a>
+        <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank"><u>Farbenfinder</u> &#11127;</a>
         <a href="https://github.com/Tortilla737/ScherbensturmWebApp" target="_blank"><u>Git-Page</u> &#11127;</a>
         <div class="openBeneath" style="margin-top: 200px;">
           <button class="transpbtn" onclick="openBeneath(this.parentNode); this.firstElementChild.classList.toggle('open-content-rotate');"><p class="transition-div dark-text">&#x2BC8;</p></button>
@@ -93,6 +93,7 @@
         <div class="rulesOF"></div> <!--rulesOF and rulesED have to have the same number of objects-->
       </div>
     </div>
+    <button id="leftpanelbtn" class="openbtn leftpanelbtn" onclick="openNav('1', true)"><p>&#9776;</p></button>
     <!--right panel-->
     <div id="rightSidepanel" class="sidepanel">
       <!--MARK: Level Panel-->
@@ -778,6 +779,7 @@
         </div>
       </div>
     </div>
+    <button id="rightpanelbtn" class="openbtn rightpanelbtn" onclick="openNav('2', true)"><p>&#11164;</p></button><!--&#10594;-->
     <!--MARK: Character Sheet-->
     <div class="sheet-box">
       <div id="left-content" class="bigbox-container">

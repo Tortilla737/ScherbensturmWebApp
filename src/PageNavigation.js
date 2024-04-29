@@ -6,30 +6,26 @@ function openNav(panelside, canClose) {
   if(panelside == '1' || panelside === 'left') {
     if (!leftOpen) {
       document.getElementById("leftSidepanel").style.width = "350px";
-      document.getElementById("leftpanelbtn").style.left = "350px";
       document.getElementById("leftpanelbtn").innerHTML = "&#10799;";
-      document.getElementById("leftpanelbtn").classList.add("openstate");
+      document.getElementById("leftpanelbtn").classList.add("leftOpen");
       leftOpen = true;
     } else if (leftOpen && canClose) {
       document.getElementById("leftSidepanel").style.width = "0px";
-      document.getElementById("leftpanelbtn").style.left = "0px";
       document.getElementById("leftpanelbtn").innerHTML = "&#9776;";
-      document.getElementById("leftpanelbtn").classList.remove("openstate");
+      document.getElementById("leftpanelbtn").classList.remove("leftOpen");
       leftOpen = false;
     }
   }
   else if(panelside == '2' || panelside === 'right') {
     if (!rightOpen) {
       document.getElementById("rightSidepanel").style.width = "350px";
-      document.getElementById("rightpanelbtn").style.right = "350px";
       document.getElementById("rightpanelbtn").innerHTML = "&#10799;";
-      document.getElementById("rightpanelbtn").classList.add("openstate");
+      document.getElementById("rightpanelbtn").classList.add("rightOpen");
       rightOpen = true;
     } else if (rightOpen && canClose) {
       document.getElementById("rightSidepanel").style.width = "0px";
-      document.getElementById("rightpanelbtn").style.right = "0px";
       document.getElementById("rightpanelbtn").innerHTML = "&#11164;";
-      document.getElementById("rightpanelbtn").classList.remove("openstate");
+      document.getElementById("rightpanelbtn").classList.remove("rightOpen");
       rightOpen = false;
     }
   }
