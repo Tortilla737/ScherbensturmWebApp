@@ -886,6 +886,10 @@ input {
   margin-bottom: calc(var(--box-padding) - var(--gap-small-vw));
   max-height: 300px;
 }
+.open-custom-talent {
+  max-height: 800px;
+  padding: var(--box-padding);
+}
 .content-beneath { /*bag*/
   max-height: 600px; /*variabel? xxx*/
   overflow-x: hidden;
@@ -1017,6 +1021,10 @@ input {
   font-size: 0.9em;
   gap: var(--gap-small-vw);
 }
+.custom-talent-wrapper {
+  border-radius: var(--radius-main);
+  background-color: var(--box-item-fill);
+}
 .talent-panel-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 25px;
@@ -1024,12 +1032,12 @@ input {
   align-items: center;
   gap: var(--gap-small-vw);
 }
-.talent-panel-grid button {
+.talent-panel-grid button, .custom-talent-wrapper button {
   border-radius: var(--radius-main);
   width: 100%;
   background-color: var(--box-item-highlight);
 }
-.talent-panel-grid button:hover {
+.talent-panel-grid button:hover, .custom-talent-wrapper button:hover {
   background-color: var(--box-overlay-dark);
 }
 .features-grid {
@@ -1063,6 +1071,9 @@ input {
 }
 .panel-content .growing-text-wrap {
   margin-bottom: var(--gap-large-vw);
+}
+.custom-talent-wrapper textarea {
+  min-width: 284px;
 }
 .in-panel-btn {
   min-width: 120px;

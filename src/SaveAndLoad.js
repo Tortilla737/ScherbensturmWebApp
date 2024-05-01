@@ -198,7 +198,6 @@ function loadImage() {
 
 //#region repaint
 function repaintAll() {
-	activeTalents = [];
 	repaintAttributes();
 	repaintSkills();
 	repaintPowers();
@@ -225,7 +224,6 @@ let attrTotal = { "str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "i
 function getAttrTotal() {
 	return attrTotal;
 }
-let activeTalents = [];
 //#region repaint attributes
 function repaintAttributes() {
 	let ats = ["Str", "Con", "Acc", "Agi", "Per", "Wil", "Int", "Exp"];
@@ -308,6 +306,11 @@ function repaintSkills() {
 }
 //#region repaint talents
 function repaintTalents() {
+	if(charData.talents.length > 0) { //remove after xxx
+		if(!charData.talents[0].hasOwnProperty("ranksPossible")){
+			charData.talents = [];
+		}
+	}
 	let paintTalents = "";
 	charData.talents.sort(function (a, b) {
 		let x = a.name.toLowerCase();
@@ -317,55 +320,44 @@ function repaintTalents() {
 		return 0;
 	});
 
-	activeTalents = talentData.filter(function (entry) {
-		for (let i in charData.talents) {
-			if (entry.name == charData.talents[i].name) {
-				let rankBoxes = "";
-				for (let tier in entry.ranks) {
-					if (entry.ranks[tier] == 0) {
-						rankBoxes += `<div>-</div>`;
-					}
-					else if (entry.ranks[tier] >= 1) {
-						let mastery = "";
-						if (entry.ranks[tier] >= 2) {
-							mastery = '*';
-						}
-						rankBoxes += `
-							<div style="display: flex; align-items: center;">
-								<input type="checkbox" onclick="event.stopPropagation();" onchange="getCharData().talents[${i}].ranks[${tier}] = !getCharData().talents[${i}].ranks[${tier}]; setTalentFactor(getCharData().talents[${i}]); repaintLevel();" ${isChecked(getCharData().talents[i].ranks[tier])}></input>
-								${mastery}
-							</div>
-						`;
-					}
+	for(let i in charData.talents) {
+		let thisT = charData.talents[i];
+		let rankBoxes = "";
+		for (let tier in thisT.ranksPossible) {
+			if (thisT.ranksPossible[tier] == 0) {
+				rankBoxes += `<div>-</div>`;
+			}
+			else if (thisT.ranksPossible[tier] >= 1) {
+				let mastery = "";
+				if (thisT.ranksPossible[tier] >= 2) {
+					mastery = '*';
 				}
-				paintTalents += `
-					<div class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
-						<div class="talent-grid">
-							<div>${charData.talents[i].name}</div>
-							<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
-							<div class="small-text">${entry.shorttext}</div>
-						</div>
-						<div class="info-beneath" onclick="event.stopPropagation()">
-							<div class="horizontal-container">
-								<p>Details:</p>
-								<button onclick="openDeleteModal('deleteTalent(${i})')"><div class="icon-trash"></div></button>
-							</div>
-							<p class="breaking-text">${entry.longtext}</p>
-						</div>
+				rankBoxes += `
+					<div style="display: flex; align-items: center;">
+						<input type="checkbox" onclick="event.stopPropagation();" onchange="getCharData().talents[${i}].ranks[${tier}] = !getCharData().talents[${i}].ranks[${tier}]; setTalentFactor(getCharData().talents[${i}]); repaintLevel();" ${isChecked(thisT.ranks[tier])}></input>
+						${mastery}
 					</div>
-					<div class="vertical-spacing"></div>
 				`;
-				return entry;
 			}
 		}
-	});
-	activeTalents.sort(function (a, b) {
-		let x = a.name.toLowerCase();
-		let y = b.name.toLowerCase();
-		if (x < y) { return -1; }
-		if (x > y) { return 1; }
-		return 0;
-	});
+		paintTalents += `
+			<div class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
+				<div class="talent-grid">
+					<div>${thisT.name}</div>
+					<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
+					<div class="small-text">${thisT.shorttext}</div>
+				</div>
+				<div class="info-beneath" onclick="event.stopPropagation()">
+					<div class="horizontal-container">
+						<p>Details:</p>
+						<button onclick="openDeleteModal('deleteTalent(${i})')"><div class="icon-trash"></div></button>
+					</div>
+					<p class="breaking-text">${thisT.longtext}</p>
+				</div>
+			</div>
+			<div class="vertical-spacing"></div>
+		`;
+	}
 	$("#talentListContainer").html(paintTalents);
 	repaintLevel();
 	//repaintSecondaries();
@@ -717,11 +709,17 @@ function repaintLevel() {
 			if (charData.powers[i].augments[j].mastery) { currentMSPscore++; }
 		}
 	}
-	for (let i in activeTalents) {
+	if(charData.talents.length > 0) { //remove after xxx
+		if(!charData.talents[0].hasOwnProperty("ranksPossible")){
+			charData.talents = [];
+		}
+	}
+	for (let i in charData.talents) {
+		let thisT = charData.talents[i];
 		for (let tier = 0; tier < 5; tier++) {
-			if (charData.talents[i].ranks[tier]) {
+			if (thisT.ranks[tier]) {
 				currentSPscore += Number(tier + 1);
-				if (activeTalents[i].ranks[tier] >= 2) {
+				if (thisT.ranksPossible[tier] >= 2) {
 					currentMSPscore++;
 				}
 			}

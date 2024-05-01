@@ -55,7 +55,7 @@
           <p>Regelwerk:</p>
           <select id="rulesChoice" onchange="getCharData().rulesset = this.value; repaintRulesSpecifics(); saveLocalData();">
             <option value="of">Offiziell</option>
-            <option value="ed">Enthone Darkness</option>
+            <option value="ed">Enthrone Darkness</option>
             <!--"no" excluded talents-->
           </select>
           <p>Nachtmodus:</p>
@@ -541,6 +541,44 @@
       <!--MARK: Talent Panel-->
       <div id="talentPanelPage" class="panel-content">
         <h2>Talente:</h2>
+        <div class="custom-talent-wrapper">
+          <div class="status-grid pointer-div" onclick="this.nextElementSibling.classList.toggle('open-custom-talent'); this.firstElementChild.classList.toggle('open-content-rotate');">
+            <p id="customTalentTri" class="text-middle transition-div">&#x2BC8;</p>
+            <p>Eigenes Talent</p>
+          </div>
+          <div id="customTalentContainer" class="collapsed-beneath">
+            <div class="panel-main-grid">
+              <p>Name:</p>
+              <div class="editable-num-div" onclick="editText(event, this)">
+                <p id="customTalentname"></p>
+              </div>
+              <p>Ränge:</p>
+              <div class="grid-5 talent-ranks-wrapper" style="margin-right: 20px;">
+                <input id="customTalentrank1" type="checkbox"></input>
+                <input id="customTalentrank2" type="checkbox"></input>
+                <input id="customTalentrank3" type="checkbox"></input>
+                <input id="customTalentrank4" type="checkbox"></input>
+                <input id="customTalentrank5" type="checkbox"></input>
+              </div>
+              <p>Meisterränge:</p>
+              <div class="grid-5 talent-ranks-wrapper" style="margin-right: 20px;">
+                <input id="customTalentmasteryrank1" type="checkbox"></input>
+                <input id="customTalentmasteryrank2" type="checkbox"></input>
+                <input id="customTalentmasteryrank3" type="checkbox"></input>
+                <input id="customTalentmasteryrank4" type="checkbox"></input>
+                <input id="customTalentmasteryrank5" type="checkbox"></input>
+              </div>
+              <p>Kurzbeschreibung:</p>
+              <div class="editable-num-div" onclick="editText(event, this)">
+                <p id="customTalentshorttext"></p>
+              </div>
+              <p class="grid-span-2">Volle Beschreibung:</p>
+            </div>
+            <textarea id="customTalentlongtext"></textarea>
+            <button class="add-entry-btn" onclick="addNewCustomTalent();">+ hinzufügen</button>
+          </div>
+        </div>
+        <hr class="hr-width">
         <div class="horizontal-container">
           <p>Attribut:</p>
           <select id="attributeChoice" onchange="openTalentPanel();">

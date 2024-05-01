@@ -81,6 +81,8 @@ function openDeleteModal(funct) {
   );
 }
 
+//element.scrollIntoView(); 
+
 //------------panel page content management--------------
 let entryIndex = 0;
 function getEntryIndex() {
@@ -158,7 +160,7 @@ function openTalentPanel(){
         }
       }
       for(let j in getCharData().talents) {
-        if(getCharData().talents[j].name == talentData[i].name /* && !talentData[i].name.containts("[") xxx*/) {
+        if(getCharData().talents[j].name == talentData[i].name) {
           addButton = "";
           break;
         }
@@ -178,19 +180,62 @@ function openTalentPanel(){
   }
   $("#fullTalentList").html(filteredTalents);
   openPanelPage('talentPanelPage');
-  //element.scrollIntoView(); 
 }
 function deleteTalent(indexN) {
   getCharData().talents.splice(indexN, 1);
   repaintTalents();
 }
 function addNewTalent(indexN) {
+  let newT = talentData[indexN];
   getCharData().talents.push({
-    "name": talentData[indexN].name,
-    "ranks": [false, false, false, false, false]
+    "name": newT.name,
+    "ranks": [false, false, false, false, false],
+    "ranksPossible": [newT.ranks[0], newT.ranks[1], newT.ranks[2], newT.ranks[3], newT.ranks[4]],
+    "shorttext": newT.shorttext,
+    "longtext": newT.longtext
   });
   repaintTalents();
   openNav(2, true); //maybe keep open, to add more talents?
+}
+function addNewCustomTalent() {
+  document.getElementById('customTalentContainer').classList.remove('open-custom-talent');
+  document.getElementById('customTalentTri').classList.remove('open-content-rotate');
+  function determineCustomRank(box, boxMastery) {
+    if(document.getElementById(box).checked){
+      if(document.getElementById(boxMastery).checked){
+        return 2;
+      }
+      else {
+        return 1;
+      }
+    }
+    else {
+      return 0;
+    }
+  }
+  getCharData().talents.push({
+    "name": $("#customTalentname").text(),
+    "ranks": [false, false, false, false, false],
+    "ranksPossible": [
+      determineCustomRank("customTalentrank1", "customTalentmasteryrank1"), 
+      determineCustomRank("customTalentrank2", "customTalentmasteryrank2"), 
+      determineCustomRank("customTalentrank3", "customTalentmasteryrank3"), 
+      determineCustomRank("customTalentrank4", "customTalentmasteryrank4"), 
+      determineCustomRank("customTalentrank5", "customTalentmasteryrank5")
+    ],
+    "shorttext": $("#customTalentshorttext").text(),
+    "longtext": $("#customTalentlongtext").val()
+  });
+  repaintTalents();
+  openNav(2, true);
+
+  $("#customTalentname").html(""); //reset panel
+  for(let i = 1; i <= 5; i++) {
+    document.getElementById("customTalentrank" + i).checked = false;
+    document.getElementById("customTalentmasteryrank" + i).checked = false;
+  }
+  $("#customTalentshorttext").text("");
+  $("#customTalentlongtext").val("");
 }
 //#region powers panel
 function openPowersPanel(indexN) {

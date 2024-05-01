@@ -32,9 +32,13 @@ Der Scherbensturm Charakterbogen als Webapp.
   - z.B.: \[\[AU\]\], \[\[ZBST\]\], \[\[Ausweichen\]\]
   - Zulässig sind Attribute (ST, KO, PR, ...), ZBon (ZBST, ZBKO, ZBPR, ...), StBon (STBON) und Fertigkeiten.
   - Wichtig ist, die Fertigkeiten exakt so zu schreiben, wie sie eingetragen wurden.
-  - ZBon und StBon sind dabei nur der Bonus **ohne Attribut**.
-- Daraus ergibt sich z.B.: *"Trefferwert: {{\[\[PR\]\] + 10}}."* oder *"Diese Kraft trifft auf {{\[\[AU\]\] + \[\[Feuer\]\]}} und macht {{(\[\[ZBAU\]\] / 2) + 5}} Schaden."* oder *"{{33-((\[\[pr\]\]+\[\[zbpr\]\])/2)}}"*.
+  - ZBon und StBon sind dabei nur der Bonus **ohne Attribut**. (Für den Fall, dass Attribute und Boni ungewöhnlich kombiniert werden)
 - Diese Funktion ist zunächst nur für Trefferwerte, Schadenswerte, Beschreibungen, Itemfeatures und Kosten von Kräften verfügbar.
+- Daraus ergibt sich z.B.: 
+*"Trefferwert: PR+10."* => *Trefferwert: {{\[\[PR\]\] + 10}}.*
+*"Diese Kraft trifft auf AU + Exp(Feuer) und macht (ZBon(AU) / 2) + 5 Schaden."* => *Diese Kraft trifft auf {{\[\[AU\]\] + \[\[Feuer\]\]}} und macht {{((\[\[AU\]\] + \[\[ZBAU\]\]) / 2) + 5}} Schaden.*
+*"33-(ZBon(PR)/2)"* => *{{33-((\[\[pr\]\]+\[\[zbpr\]\])/2)}}*
+*"Schaden: StBon+5 Schnittschaden + WK/2 Giftschaden"* => *Schaden: {{\[\[ST\]\] + \[\[stbon\]\] + 5}} Schnittschaden + {{\[\[Wk\]\] / 2}} Giftschaden*
 
 ### Regeln umschalten
 - Im Menü kann zwischen Regelvarianten hin und her gewechselt werden.
@@ -47,10 +51,9 @@ Der Scherbensturm Charakterbogen als Webapp.
 
 ### Bekannte Fehler
 - Es ist nicht möglich mehrere Charakterbögen nebeneinander zu öffnen.
-- Es nur die "offiziellen" Talente. (In der Zwischenzeit bitte mit Fertigkeiten oder Kräften lösen und eine Notiz machen)
-- Modulare Talente (z.B. Umgang \[Personengruppe\]) können nur einmal freigeschaltet werden.
+- Modulare Talente (z.B. Umgang \[Personengruppe\]) werden über custom Talente gelöst. Der Eintrag in der Talentliste dient als Referenz.
 - Man kann mehr SP/PP/MsP augeben, als einem zur Verfügung stehen. (Die Levelanzeige wird dann rot)
 - Man kann einen höheren Talentgrad freischalten, bevor man den vorherigen freigeschaltet hat.
 - Es wird nicht geprüft, ob die Voraussetzungen zum Freischalten von Fertigkeiten, Graden oder Talenten erfüllt sind.
-- Umlaute werden falsch eindortiert.
-- Zu lange Einträge in Textboxen (z.B. Links) sorgen auf schmaleren Bildschirmen für abgeschnittenen Text.
+- Umlaute werden manchmal falsch einsortiert.
+- Zu lange Einträge (z.B. Links) in Textboxen in der Charakterbeschreibung sorgen auf schmaleren Bildschirmen für abgeschnittenen Text.
