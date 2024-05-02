@@ -276,10 +276,12 @@ function getVarVal(input) {
   }
   else if(["ZBST", "ZBKO", "ZBPR", "ZBGW", "ZBWA", "ZBWK", "ZBIN", "ZBAU"].includes(varText.toUpperCase())) {
     let mbAtr = atrKeys[varText.toUpperCase().slice(2)];
-    return getCharData().magicBonusMod[mbAtr] + mbTalent[mbAtr] + mbTalent.all;
+    let baseAtr = getAttrTotal()[mbAtr];
+    return baseAtr + getCharData().magicBonusMod[mbAtr] + mbTalent[mbAtr] + mbTalent.all;
   }
   else if(["STBON"].includes(varText.toUpperCase())) {
-    return stbTalent;
+    let baseST = getAttrTotal()["str"];
+    return baseST + stbTalent;
   }
   else if(skillNames.includes(varText)) {
     let skillP = getCharData().skills[skillNames.indexOf(varText)];
