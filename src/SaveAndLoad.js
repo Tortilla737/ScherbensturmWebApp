@@ -113,7 +113,7 @@ async function checkLocalData() {
 	}
 }
 
-function removeLocalData() {
+function createNewCharacter() {
 	localStorage.removeItem("LocalCharacter");
 	checkLocalData();
 }
@@ -198,6 +198,11 @@ function loadImage() {
 
 //#region repaint
 function repaintAll() {
+	if(!charData.hasOwnProperty('levelText')) {
+		charData.levelText = "";
+	}
+
+	clearTalentFactor();
 	repaintAttributes();
 	repaintSkills();
 	repaintPowers();
@@ -563,7 +568,7 @@ function repaintGear() {
 	}
 	$("#WeaponGearContainer").html(allWeapons);
 	$("#ArmorGearContainer").html(allArmor);
-	$("#totalArmor").html(totalArmor + armorTalent);
+	$("#totalArmor").html(Number(totalArmor) + Number(armorTalent));
 	repaintActions();
 	saveLocalData();
 }
@@ -611,19 +616,19 @@ function repaintActions() {
 }
 //#region repaint description
 function repaintDescription() {
-	$("#descIDfullname").html(charData.fullname);
-	$("#descIDheritage").html(charData.heritage);
-	$("#descIDfolkshards").html(charData.folkshards);
-	$("#descIDgender").html(charData.gender);
-	$("#descIDage").html(charData.age);
-	$("#descIDheight").html(charData.height);
-	$("#descIDsizeClass").html(charData.sizeClass);
-	$("#descIDweight").html(charData.weight);
-	$("#descIDfaith").html(charData.faith);
-	$("#descTxtpersonality").html(charData.personality);
-	$("#descTxtlook").html(charData.look);
-	$("#descTxtabilities").html(charData.abilities);
-	$("#descTxtbackground").html(charData.background);
+	$("#descIDfullname").text(charData.fullname);
+	$("#descIDheritage").text(charData.heritage);
+	$("#descIDfolkshards").text(charData.folkshards);
+	$("#descIDgender").text(charData.gender);
+	$("#descIDage").text(charData.age);
+	$("#descIDheight").text(charData.height);
+	$("#descIDsizeClass").text(charData.sizeClass);
+	$("#descIDweight").text(charData.weight);
+	$("#descIDfaith").text(charData.faith);
+	$("#descTxtpersonality").val(charData.personality);
+	$("#descTxtlook").val(charData.look);
+	$("#descTxtabilities").val(charData.abilities);
+	$("#descTxtbackground").val(charData.background);
 	let event = new Event('input', { bubbles: true });
 	document.getElementById("descTxtpersonality").dispatchEvent(event);
 	document.getElementById("descTxtlook").dispatchEvent(event);
@@ -744,7 +749,7 @@ function repaintLevel() {
 	$("#CharLevelSPmod").html(charData.spMod);
 	$("#CharLevelPPmod").html(charData.ppMod);
 	$("#CharLevelMSPmod").html(charData.mspMod);
-	//xxx LevelModText for descriptions
+	$("#levelText").val(charData.levelText);
 	saveLocalData();
 
 	if (currentSPscore > spTotal || currentPPscore > ppTotal || currentMSPscore > mspTotal) {
@@ -804,9 +809,9 @@ function fillEditables() {
 	$("#modIDtraumaCapMod").html(charData.traumaCapMod);
 	$("#modIDinitiativeMod").html(charData.initiativeMod);
 	$("#modIDmovementMod").html(charData.movementMod);
-	$("#shortNote").html(charData.shortNote);
+	$("#shortNote").val(charData.shortNote);
 	$("#rulesChoice").val(charData.rulesset);
-	$("#secondaryNote").html(charData.secondaryNote);
+	$("#secondaryNote").val(charData.secondaryNote);
 	$("#maxSaves").html(charData.maxSaves);
 	maxSaves = charData.maxSaves;
 	let event = new Event('input', { bubbles: true });
@@ -908,7 +913,6 @@ function repaintRulesSpecifics() {
 			<div class="icon-money-s"></div>
 		`;
 	}
-	
 	
 	calculateMoney();
 	$("#moneyGridContent").html(moneys);

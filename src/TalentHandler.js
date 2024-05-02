@@ -24,6 +24,10 @@ Tiefes Bewusstsein - ZBon WA - mbTalent.per
 Vitalität - LP - hpTalent
 Zaubermacht - ZBon alle - mbTalent.all
 */
+function clearTalentFactor() {
+    hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0;
+    mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
+}
 
 function setTalentFactor(thisTalent) {
     if("Bereitschaft" == thisTalent.name) {

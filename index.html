@@ -42,7 +42,7 @@
     <!--MARK: left panel-->
     <div id="leftSidepanel" class="sidepanel">
       <div>
-        <a href="javascript:void(0)" onclick="openDeleteModal('removeLocalData()')">Neuer Charakter</a>
+        <a href="javascript:void(0)" onclick="openDeleteModal('createNewCharacter()')">Neuer Charakter</a>
         <a href="javascript:void(0)" onclick="saveTemplateAsFile(getCharData().name +' Character Sheet.json', getCharData())">Speichern</a>
         <div class="pointer-div">
           <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
@@ -153,6 +153,8 @@
             <p id="CharLevelMSPmod">00</p>
           </div>
         </div>
+        <hr class="hr-width">
+        <textarea id="levelText" onblur="getCharData().levelText = this.value; saveLocalData();" placeholder="Notiere, welche Faktoren deine SP/PP/MsP beeinflussen."></textarea>
       </div>
       <!--MARK: Strength panel-->
       <div id="strengthPanelPage" class="panel-content StrContainer">
