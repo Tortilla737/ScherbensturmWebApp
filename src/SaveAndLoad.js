@@ -198,7 +198,7 @@ function loadImage() {
 
 //#region repaint
 function repaintAll() {
-	if(!charData.hasOwnProperty('levelText')) {
+	if(!charData.hasOwnProperty('levelText')) { //remove later xxx
 		charData.levelText = "";
 	}
 
@@ -311,7 +311,7 @@ function repaintSkills() {
 }
 //#region repaint talents
 function repaintTalents() {
-	if(charData.talents.length > 0) { //remove after xxx
+	if(charData.talents.length > 0) { //remove later xxx
 		if(!charData.talents[0].hasOwnProperty("ranksPossible")){
 			charData.talents = [];
 		}
@@ -383,7 +383,7 @@ function repaintPowers() {
 	for (let i in charData.powers) {
 		let powerN = charData.powers[i];
 		allPowers += `
-			<div class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
+			<div id="scrollIDpower${i}" class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
 				<div>
 					<div class="power-grid">
 						<p class="power-name">${powerN.name}</p>
@@ -517,7 +517,7 @@ function repaintGear() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.type == 'weapon') {
 				allWeapons += `
-					<div class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
+					<div id="scrollIDweapon${i}_${j}" class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 								<p class="power-name">${itemN.name}</p>
 								<p class="italic-text">${calcTextInput(itemN.damage)}</p>
@@ -576,12 +576,13 @@ function repaintGear() {
 function repaintActions() {
 	let weaponActions = "";
 	let powerActions = "";
+	//this.scrollIntoView(); 
 	for (let i in charData.bags) {
 		for (let j in charData.bags[i].items) {
 			itemN = charData.bags[i].items[j];
 			if (itemN.equipped && itemN.type == "weapon") {
 				weaponActions += `
-					<div class="action-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
+					<div class="action-grid roboto-300" onclick="openItemsPanel(${i}, ${j}); openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView();">
 						<p>${itemN.name}</p>
             <p class="small-text">&#128900;</p>
 						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
@@ -597,7 +598,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid roboto-300" onclick="openPowersPanel(${i});">
+				<div class="action-grid action-power-grid roboto-300" onclick="openPowersPanel(${i}); openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView();">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>
@@ -714,7 +715,7 @@ function repaintLevel() {
 			if (charData.powers[i].augments[j].mastery) { currentMSPscore++; }
 		}
 	}
-	if(charData.talents.length > 0) { //remove after xxx
+	if(charData.talents.length > 0) { //remove later xxx
 		if(!charData.talents[0].hasOwnProperty("ranksPossible")){
 			charData.talents = [];
 		}

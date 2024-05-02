@@ -58,7 +58,9 @@ function openTabPage(pageName, elmnt) {
   document.getElementById(pageName).style.display = "block";
 
   // Add the specific color to the button used to open the tab content
-  elmnt.classList.add("tab-clicked");
+  if(elmnt) {
+    elmnt.classList.add("tab-clicked");
+  }
 }
 function openTabNr(n) {
   document.getElementsByClassName("tablink")[n].click(); 
@@ -80,8 +82,6 @@ function openDeleteModal(funct) {
     `<button class="in-panel-btn savebtn" onclick="${funct}; document.getElementById('deleteModal').style.display='none';">Löschen</button>`
   );
 }
-
-//element.scrollIntoView(); 
 
 //------------panel page content management--------------
 let entryIndex = 0;
