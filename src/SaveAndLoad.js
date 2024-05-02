@@ -582,7 +582,7 @@ function repaintActions() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.equipped && itemN.type == "weapon") {
 				weaponActions += `
-					<div class="action-grid roboto-300" onclick="openItemsPanel(${i}, ${j}); openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView();">
+					<div class="action-grid roboto-300" onclick="openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView();">
 						<p>${itemN.name}</p>
             <p class="small-text">&#128900;</p>
 						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
@@ -598,7 +598,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid roboto-300" onclick="openPowersPanel(${i}); openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView();">
+				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView();">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>
