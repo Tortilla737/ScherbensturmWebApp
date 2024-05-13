@@ -78,29 +78,41 @@ body {
   background: var(--box-overlay-highlight);
 }
 /*-----*/
-h1 {
+.titel-h1 {
   color: #360101;
   text-shadow: 0 0 2px #dbdbdb;
   margin: 0;
   font-size: 2rem;
 }
 @media (max-width: 752px) {
-  h1 {
+  .titel-h1 {
     font-size: 4.2vw;
   }
 }
-h2 {
+.panel-h2 {
   color: var(--text-dim-color);
 }
-h3 {
-  margin: var(--box-gap);
-}
 p {
-  margin: 1% 1%;
+  margin: 1% 0;
 }
 img {
   max-width: 100%;
   height: auto;
+}
+img[alt$=">"] {
+  float: right;
+}
+
+img[alt$="<"] {
+  float: left;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
 }
 .bg-image{
   min-height: 100%;
@@ -233,6 +245,9 @@ input {
 }
 .margin-center {
   margin: auto;
+}
+.gap-margin {
+  margin: var(--box-gap);
 }
 .round-box {
   border-radius: var(--radius-main);
@@ -524,6 +539,12 @@ input {
   background-color: var(--box-item-fill);
   width: 30%;
   margin: auto;
+  margin-bottom: 300px;
+}
+@media (max-width: 752px) {
+  .add-entry-btn {
+    margin-bottom: 0;
+  }
 }
 /*MARK: skills & talents
 */
@@ -1039,6 +1060,9 @@ input {
 }
 .talent-panel-grid button:hover, .custom-talent-wrapper button:hover {
   background-color: var(--box-overlay-dark);
+}
+.custom-talent-wrapper button { /*because it's .add-entry-btn*/
+  margin-bottom: 0;
 }
 .features-grid {
   display: grid;

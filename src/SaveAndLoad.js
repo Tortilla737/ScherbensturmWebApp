@@ -357,7 +357,7 @@ function repaintTalents() {
 						<p>Details:</p>
 						<button onclick="openDeleteModal('deleteTalent(${i})')"><div class="icon-trash"></div></button>
 					</div>
-					<p class="breaking-text">${thisT.longtext}</p>
+					<div>${fullTextConvert(thisT.longtext)}</div>
 				</div>
 			</div>
 			<div class="vertical-spacing"></div>
@@ -401,7 +401,7 @@ function repaintPowers() {
 				</div>
 				<div class="info-beneath" onclick="event.stopPropagation()">
 					<p class="dim-text">Beschreibung:</p>
-					<p class="breaking-text">${calcTextInput(powerN.text)}</p>
+					<div>${fullTextConvert(powerN.text)}</div>
 				</div>
 			</div>
 			`
@@ -418,7 +418,7 @@ function repaintPowers() {
 					</div>
 					<div class="info-beneath" onclick="event.stopPropagation()">
 						<p class="dim-text">Beschreibung:</p>
-						<p class="breaking-text">${calcTextInput(augmentN.text)}</p>
+						<div>${fullTextConvert(augmentN.text)}</div>
 					</div>
 				</div>
 				`;
@@ -461,7 +461,7 @@ function repaintInventory() {
 			let itemN = charData.bags[i].items[j];
 			bagWeight += itemN.weight * itemN.count;
 			allItems += `
-				<div class="entry-wrapper item-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
+				<div id="scrollItem${i}_${j}" class="entry-wrapper item-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
 					<p>${itemN.name}</p>
 					<p class="text-middle small-text">${itemN.count}</p>
 					<p class="text-middle small-text">${itemN.weight} kg</p>
@@ -471,7 +471,7 @@ function repaintInventory() {
 		`;
 		}
 		allBags += `
-		<div class="bag-wrapper">
+		<div id="scrollBag${i}" class="bag-wrapper">
 			<div class="bag-grid">
 				<button id="closeBagbtn${i}" onclick="closeContentBeneath(this.parentNode); getCharData().bags[${i}].open = !getCharData().bags[${i}].open;"><div class="transition-div"><p>&#x2BC6;</p></div></button>
 				<div class="editable-num-div" onclick="editText(event, this)"><p id="bagID${i}">${charData.bags[i].name}</p></div>
@@ -533,7 +533,7 @@ function repaintGear() {
 				allWeapons += `
 						</div>
 						<div class="small-text gradient-line-top">
-							<p class="breaking-text">${calcTextInput(itemN.longtext)}</p>
+							<div>${fullTextConvert(itemN.longtext)}</div>
 						</div>
 					</div>
 					<div class="vertical-spacing"></div>
@@ -544,25 +544,25 @@ function repaintGear() {
 					<div class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 							<p class="power-name">${itemN.name}</p>
-							<p class="italic-text">Rüstung: ${itemN.armor}</p>
+							<p class="italic-text">Rüstung: ${calcTextInput(itemN.armor)}</p>
 						</div>
 						<div class="item-feature-flex gradient-line-top small-text">
 							<div><input type="checkbox" onchange="getCharData().bags[${i}].items[${j}].equipped = !getCharData().bags[${i}].items[${j}].equipped; repaintGear();" onclick="event.stopPropagation()" ${isChecked(itemN.equipped)}></input></div>
-				`;
+							`;
 				for (let k in itemN.features) {
 					allArmor += `
-									<p>&#128900; ${calcTextInput(itemN.features[k])}</p>
+							<p>&#128900; ${calcTextInput(itemN.features[k])}</p>
 					`;
 				}
 				allArmor += `
 						</div>
 						<div class="small-text gradient-line-top">
-							<p class="breaking-text">${calcTextInput(itemN.longtext)}</p>
+							<div>${fullTextConvert(itemN.longtext)}</div>
 						</div>
 					</div>
 					<div class="vertical-spacing"></div>
 				`;
-				if (itemN.equipped) totalArmor += Number(itemN.armor);
+				if (itemN.equipped) totalArmor += Number(calcTextInput(itemN.armor));
 			}
 		}
 	}
@@ -582,7 +582,7 @@ function repaintActions() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.equipped && itemN.type == "weapon") {
 				weaponActions += `
-					<div class="action-grid roboto-300" onclick="openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView();">
+					<div class="action-grid roboto-300" onclick="openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
 						<p>${itemN.name}</p>
             <p class="small-text">&#128900;</p>
 						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
@@ -590,7 +590,7 @@ function repaintActions() {
 						<p class="text-middle">${calcTextInput(itemN.damage)}</p>
 					</div>
 					<div class="vertical-spacing"></div>
-		`;
+				`;
 			}
 		}
 	}
@@ -598,7 +598,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView();">
+				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>
@@ -626,15 +626,16 @@ function repaintDescription() {
 	$("#descIDsizeClass").text(charData.sizeClass);
 	$("#descIDweight").text(charData.weight);
 	$("#descIDfaith").text(charData.faith);
-	$("#descTxtpersonality").val(charData.personality);
-	$("#descTxtlook").val(charData.look);
-	$("#descTxtabilities").val(charData.abilities);
-	$("#descTxtbackground").val(charData.background);
+	if(charData.hasOwnProperty("look")) { //remove later xxx
+		charData.personality = "### Persönlichkeit\n" + charData.personality + "\n### Erscheinung\n" + charData.look + "\n### Besonderheiten\n" + charData.abilities + "\n### Werdegang\n" + charData.background;
+		delete charData.look;
+		delete charData.abilities;
+		delete charData.background;
+	}
+	$("#txtDescPersonality").val(charData.personality);
+	$("#descPersonality").html(fullTextConvert(charData.personality));
 	let event = new Event('input', { bubbles: true });
-	document.getElementById("descTxtpersonality").dispatchEvent(event);
-	document.getElementById("descTxtlook").dispatchEvent(event);
-	document.getElementById("descTxtabilities").dispatchEvent(event);
-	document.getElementById("descTxtbackground").dispatchEvent(event);
+	document.getElementById("txtDescPersonality").dispatchEvent(event);
 	saveLocalData();
 }
 //#region repaint notes

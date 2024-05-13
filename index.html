@@ -16,7 +16,7 @@
     <div id="deleteModal" class="modal">
       <div class="modal-content">
         <div class="text-middle">
-          <h2>Löschen</h2>
+          <h2 class="panel-h2">Löschen</h2>
           <p>Löschen bestätigen?</p>
           <div class="horizontal-container">
             <button class="in-panel-btn" onclick="document.getElementById('deleteModal').style.display='none'">Abbrechen</button>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="text-middle" style="max-width: 800px; margin: auto;">
-        <h1>Scherbensturm Charakterbogen</h1>
+        <h1 class="titel-h1">Scherbensturm Charakterbogen</h1>
       </div>
     </div>
     <!--MARK: left panel-->
@@ -98,7 +98,7 @@
     <div id="rightSidepanel" class="sidepanel">
       <!--MARK: Level Panel-->
       <div id="levelPanelPage" class="panel-content">
-        <h2>Charakterstufe</h2>
+        <h2 class="panel-h2">Charakterstufe</h2>
         <div class="vertical-container">
           <div id="charLeveldiv" class="biggest-text editable-num-div" onclick="editText(event, this)">
             <p id="CharLevel">0</p>
@@ -158,7 +158,7 @@
       </div>
       <!--MARK: Strength panel-->
       <div id="strengthPanelPage" class="panel-content StrContainer">
-        <h2>Stärke</h2>
+        <h2 class="panel-h2">Stärke</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -186,7 +186,7 @@
       </div>
       <!--MARK: Constitution panel-->
       <div id="constitutionPanelPage" class="panel-content ConContainer">
-        <h2>Konstitution</h2>
+        <h2 class="panel-h2">Konstitution</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -214,7 +214,7 @@
       </div>
       <!--MARK: Accuracy panel-->
       <div id="accuracyPanelPage" class="panel-content AccContainer">
-        <h2>Präzision</h2>
+        <h2 class="panel-h2">Präzision</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -242,7 +242,7 @@
       </div>
       <!--MARK: Agility panel-->
       <div id="agilityPanelPage" class="panel-content AgiContainer">
-        <h2>Gewandtheit</h2>
+        <h2 class="panel-h2">Gewandtheit</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -270,7 +270,7 @@
       </div>
       <!--MARK: Perception panel-->
       <div id="perceptionPanelPage" class="panel-content PerContainer">
-        <h2>Wahrnehmung</h2>
+        <h2 class="panel-h2">Wahrnehmung</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -298,7 +298,7 @@
       </div>
       <!--MARK: Expression panel-->
       <div id="expressionPanelPage" class="panel-content ExpContainer">
-        <h2>Ausdruck</h2>
+        <h2 class="panel-h2">Ausdruck</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -326,7 +326,7 @@
       </div>
       <!--MARK: Intelligence panel-->
       <div id="intelligencePanelPage" class="panel-content IntContainer">
-        <h2>Intelligenz</h2>
+        <h2 class="panel-h2">Intelligenz</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -354,7 +354,7 @@
       </div>
       <!--MARK: Willpower panel-->
       <div id="willpowerPanelPage" class="panel-content WilContainer">
-        <h2>Willenskraft</h2>
+        <h2 class="panel-h2">Willenskraft</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -382,7 +382,7 @@
       </div>
       <!--MARK: Secondary Mod panel-->
       <div id="secondaryPanelPage" class="panel-content">
-        <h2>Modifikatoren von Sekundärwerten:</h2>
+        <h2 class="panel-h2">Modifikatoren von Sekundärwerten:</h2>
         <div class="panel-main-grid">
           <p>LP Maximum Mod.:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
@@ -422,7 +422,7 @@
       </div>
       <!--MARK: Magic Bonus panel-->
       <div id="magicBonusPanelPage" class="panel-content">
-        <h2>Zauberbonus:</h2>
+        <h2 class="panel-h2">Zauberbonus:</h2>
         <div class="panel-main-grid">
           <p>Attribut</p>
           <div class="horizontal-container">
@@ -501,7 +501,7 @@
       </div>
       <!--MARK: Skill Panel-->
       <div id="skillPanelPage" class="panel-content">
-        <h2>Fertigkeit:</h2>
+        <h2 class="panel-h2">Fertigkeit:</h2>
         <div class="vertical-container">
           <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
             <p id="genIDskillname"></p>
@@ -542,7 +542,7 @@
       </div>
       <!--MARK: Talent Panel-->
       <div id="talentPanelPage" class="panel-content">
-        <h2>Talente:</h2>
+        <h2 class="panel-h2">Talente:</h2>
         <div class="custom-talent-wrapper">
           <div class="status-grid pointer-div" onclick="this.nextElementSibling.classList.toggle('open-custom-talent'); this.firstElementChild.classList.toggle('open-content-rotate');">
             <p id="customTalentTri" class="text-middle transition-div">&#x2BC8;</p>
@@ -602,7 +602,7 @@
       </div>
       <!--MARK: Power Panel-->
       <div id="powerPanelPage" class="panel-content">
-        <h2>Kraft:</h2>
+        <h2 class="panel-h2">Kraft:</h2>
         <div class="vertical-container">
           <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
             <p id="genIDpowername"></p>
@@ -666,7 +666,7 @@
         </div>
       </div>
       <div id="augmentPanelPage" class="panel-content">
-        <h2>Augment:</h2>
+        <h2 class="panel-h2">Augment:</h2>
         <div class="vertical-container">
           <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
             <p id="genIDaugmentname"></p>
@@ -700,7 +700,7 @@
       </div>
       <!--MARK: Inventory Panel-->
       <div id="inventoryPanelPage" class="panel-content">
-        <h2>Item:</h2>
+        <h2 class="panel-h2">Item:</h2>
         <div class="vertical-container">
           <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
             <p id="genIDitemname"></p>
@@ -777,7 +777,7 @@
       </div>
       <!--MARK: Money Panel-->
       <div id="moneyPanelPage" class="panel-content">
-        <h2>Vermögen:</h2>
+        <h2 class="panel-h2">Vermögen:</h2>
         <div class="vertical-container">
           <div id="moneyGridContent" class="money-main-grid">
             
@@ -811,7 +811,7 @@
       </div>
       <!--MARK: Hitzones Panel-->
       <div id="hitzonesPanelPage" class="panel-content">
-        <h2>Trefferzonen:</h2>
+        <h2 class="panel-h2">Trefferzonen:</h2>
         <div class="vertical-container">
           <div id="hitzonesGridContent" class="money-main-grid">
             
@@ -1086,7 +1086,7 @@
             <div class="horizontal-container">
               <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this.parentNode); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate'); this.classList.toggle('open-sibling');">
                 <div><p class="transition-div">&#x2BC8;</p></div>
-                <p class="non-breaking-text">Beschreibung deiner Scherben.</p>
+                <p class="non-breaking-text">Beschreibung deiner Scherben</p>
               </div>
               <div class="flex-container pointer-div entry-wrapper" onclick="openPanelPage('magicBonusPanelPage');">
                 <div class="icon-magic"></div>
@@ -1105,11 +1105,11 @@
           </div>
           <!--gears / Ausrüstung-->
           <div id="GearTab" class="tabcontent">
-            <h3 class="dim-text">Waffen</h3>
+            <h3 class="dim-text gap-margin">Waffen</h3>
             <div id="WeaponGearContainer">
 
             </div>
-            <h3 class="dim-text">Rüstung</h3>
+            <h3 class="dim-text gap-margin">Rüstung</h3>
             <div id="ArmorGearContainer">
 
             </div>
@@ -1164,22 +1164,15 @@
               <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfaith">-</p></div>
             </div>
             <hr>
-            <p>Persönlichkeit: </p>
-            <div class="growing-text-wrap">
-              <textarea id="descTxtpersonality" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().personality = this.value; saveLocalData();"></textarea>
+            <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate');">
+              <div><p class="transition-div">&#x2BC8;</p></div>
+              <p class="non-breaking-text">Charakterbeschreibung</p>
             </div>
-            <p>Erscheinung: </p>
-            <div class="growing-text-wrap">
-              <textarea id="descTxtlook" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().look = this.value; saveLocalData();"></textarea>
+            <div class="growing-text-wrap collapsed-beneath">
+              <textarea id="txtDescPersonality" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().personality = this.value; repaintDescription();"></textarea>
             </div>
-            <p>Besonderheiten: </p>
-            <div class="growing-text-wrap">
-              <textarea id="descTxtabilities" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().abilities = this.value; saveLocalData();"></textarea>
-            </div>
-            <p>Werdegang: </p>
-            <div class="growing-text-wrap">
-              <textarea id="descTxtbackground" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().background = this.value; saveLocalData();"></textarea>
-            </div>
+            <div class="vertical-spacing"></div>
+            <div id="descPersonality" class="small-text"></div>
           </div>
           <!--notes / Notizen-->
           <div id="NotesTab" class="tabcontent">
@@ -1191,6 +1184,7 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
     <script src="src/EditValuesScript.js"></script>
     <script src="src/PageNavigation.js"></script>
     <script src="src/TalentHandler.js"></script>

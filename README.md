@@ -11,17 +11,26 @@ Der Scherbensturm Charakterbogen als Webapp.
 - Manuelles Speichern über das Menü, lädt den Bogen als Datei herunter.
 - Auf diese Art kann man mehrere Charakterbögen speichern und teilen (z.b. über Dropbox).
 
-### Bilder
-- Hintergrundbild und Itembilder werden als Link eingefügt.
-- Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
-- Der Charaktertoken kann direkt über das Token Bild als Datei hochgeladen werden.
-
 ### Einträge verändern
 - Bei Zahlenfeldern könnt ihr entweder direkt die Zahl eingeben, oder mit - oder + Werte abziehen bzw. addieren.
 - Wenn ein Eintrag erstellt oder verändert wurde, nicht vergessen beim Eintrag auf **Speichern** zu drücken!
 - Bereiche, die durch obskure Regeln oder unvollständige Funktionen nicht vorhanden sind, können durch manuelle Modifikatoren gelöst werden.
   - z.B. manuelle Mods. SP, PP, Bewegung, LP-Max. etc...
   - Nutze die Notizboxen, um die Quellen der Modifikatoren festzuhalten.
+
+### Markdown
+- Die Beschreibungstexte unterstützen Markdown Formatierung.
+  - Die Textboxen von *Kräften*, *Talenten*, *Waffen*, *Rüstungen* und der *Charakterbeschreibung* können formatiert werden.
+- Die Markdown Basics findest du [hier](https://www.markdownguide.org/cheat-sheet/).
+  - Und weitere Infos zu [Dos and Don'ts](https://www.markdownguide.org/basic-syntax/).
+
+### Bilder
+- Hintergrundbild und Itembilder werden direkt als Link eingefügt.
+- Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
+- Der Charaktertoken kann direkt über das Token Bild als Datei hochgeladen werden. 
+- Bilder im Markdown Text können weiter formatiert werden.
+  - "!\[bild\](bildURL.jpg =100x*)" In diesem Beispiel ist die Breite auf 100px festgelegt und die Höhe wird automatisch proportional gesetzt.
+  - "!\[bild alt >\](bildURL.jpg)" macht das Bild rechtsbündig. ("alt <" für linksbündig, "alt ><" für mittig)
 
 ### Automatische Berechnung von Werten
 - Die meisten Werte werden automatisch berechnet, wie z.B. ausgegebene SP und PP, oder Attribute.

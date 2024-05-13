@@ -82,6 +82,18 @@ function openDeleteModal(funct) {
     `<button class="in-panel-btn savebtn" onclick="${funct}; document.getElementById('deleteModal').style.display='none';">Löschen</button>`
   );
 }
+//#region search
+/*
+function searchText() {
+  onInput(function() {
+    toDisplay = [];
+    if([Names].includes("input") || [Texts].includes("input") || [Skills].includes("input")) {
+      toDisplay.push(found);
+    }
+  })
+}
+
+*/
 
 //------------panel page content management--------------
 let entryIndex = 0;
@@ -421,6 +433,11 @@ function saveItem(indexN, indexP) {
   repaintInventory();
   $("#newBagChoice").val(indexN);
   openNav(2, true);
+  document.getElementById('scrollItem'+indexN+'_'+indexP).scrollIntoView({
+    behavior: 'auto',
+    block: 'center',
+    inline: 'center'
+  });
 }
 function deleteItem(indexN, indexP) {
   getCharData().bags[indexN].items.splice(indexP, 1);
@@ -448,6 +465,11 @@ function addNewItem(indexN){
   repaintInventory();
   charData.sort = state;
   $("#newBagChoice").val(indexN);
+  document.getElementById('scrollItem'+indexN+'_'+(getCharData().bags[indexN].items.length-1)).scrollIntoView({
+    behavior: 'auto',
+    block: 'center',
+    inline: 'center'
+  });
 }
 function deleteItemFeature(indexN, indexP, indexQ) {
   getCharData().bags[indexN].items[indexP].features.splice(indexQ, 1);
@@ -467,6 +489,7 @@ function addNewBag() {
     "items": []
   });
   repaintInventory();
+  //document.getElementById('scrollBag'+??).scrollIntoView();
 }
 function deleteBag(indexN) {
   getCharData().bags.splice(indexN, 1);

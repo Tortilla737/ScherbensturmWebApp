@@ -28,6 +28,18 @@ function clearTalentFactor() {
     hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0;
     mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
 }
+function repaintMBPanelTalents() {
+    $("#mbTalentStr").html(Number(mbTalent.str) + Number(mbTalent.all));
+    $("#mbTalentCon").html(Number(mbTalent.con) + Number(mbTalent.all));
+    $("#mbTalentAcc").html(Number(mbTalent.acc) + Number(mbTalent.all));
+    $("#mbTalentAgi").html(Number(mbTalent.agi) + Number(mbTalent.all));
+    $("#mbTalentPer").html(Number(mbTalent.per) + Number(mbTalent.all));
+    $("#mbTalentExp").html(Number(mbTalent.wil) + Number(mbTalent.all));
+    $("#mbTalentInt").html(Number(mbTalent.int) + Number(mbTalent.all));
+    $("#mbTalentWil").html(Number(mbTalent.exp) + Number(mbTalent.all));
+    repaintPowers();
+    repaintGear();
+}
 
 function setTalentFactor(thisTalent) {
     if("Bereitschaft" == thisTalent.name) {
@@ -64,8 +76,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.int += 10;
             }
         }
-        $("#mbTalentInt").html(mbTalent.int);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Dicke Haut" == thisTalent.name) {
         armorTalent = 0;
@@ -92,8 +103,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.acc += 10;
             }
         }
-        $("#mbTalentAcc").html(mbTalent.acc);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Hervorrufung" == thisTalent.name) {
         mbTalent.wil = 0;
@@ -102,8 +112,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.wil += 10;
             }
         }
-        $("#mbTalentWil").html(mbTalent.wil);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Integrität" == thisTalent.name) {
         mhTalent = 0;
@@ -135,8 +144,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.con += 10;
             }
         }
-        $("#mbTalentCon").html(mbTalent.con);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Mächtiger Schlag" == thisTalent.name) {
         stbTalent = 0;
@@ -172,8 +180,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.exp += 10;
             }
         }
-        $("#mbTalentExp").html(mbTalent.exp);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Magiestrom" == thisTalent.name) {
         mbTalent.agi = 0;
@@ -182,8 +189,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.agi += 10;
             }
         }
-        $("#mbTalentAgi").html(mbTalent.agi);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Mobilität" == thisTalent.name) {
         moveTalent = 0;
@@ -228,8 +234,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.str += 10;
             }
         }
-        $("#mbTalentStr").html(mbTalent.str);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Starke Nerven" == thisTalent.name) {
         traumaTalent = 0;
@@ -247,8 +252,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.per += 10;
             }
         }
-        $("#mbTalentPer").html(mbTalent.per);
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Vitalität" == thisTalent.name) {
         hpTalent = 0;
@@ -271,7 +275,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.all += 10;
             }
         }
-        repaintPowers();
+        repaintMBPanelTalents();
     }
     else if("Zaubermacht (ED)" == thisTalent.name) {
         mbTalent.all = 0;
@@ -280,7 +284,7 @@ function setTalentFactor(thisTalent) {
                 mbTalent.all += 10;
             }
         }
-        repaintPowers();
+        repaintMBPanelTalents();
     }
 }
 /* 

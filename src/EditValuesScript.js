@@ -206,6 +206,7 @@ function processInput(fieldID){
     }
     else {
       charData[fieldID.slice(6)] = $("#"+fieldID).html();
+      saveLocalData();
     }
   }
   else if(fieldID.startsWith('condiIDname')){
@@ -237,10 +238,28 @@ function replenishRessouces() {
   charData.FPcurrent = Number(charData.FPmaxMod) + fpTalent + attrTotal.wil;
   repaintSecondaries();
 }
+
+//#region markdown converter
+var mdConverter = new showdown.Converter();
+mdConverter.setOption('parseImgDimensions', 'true');
+mdConverter.setOption('strikethrough', 'true');
+mdConverter.setOption('tables', 'true');
+mdConverter.setOption('smartIndentationFix', 'true');
+mdConverter.setOption('simpleLineBreaks', 'true');
+mdConverter.setOption('requireSpaceBeforeHeadingText', 'true');
+mdConverter.setOption('openLinksInNewWindow', 'true');
+mdConverter.setOption('emoji', 'true');
+function fullTextConvert(text) {
+  let convertText = text;
+  convertText = parseSingles(convertText);
+  convertText = parseCalculations(convertText);
+  convertText = mdConverter.makeHtml(convertText);
+  //filter XSS?
+  return convertText;
+}
 //#region text calculations
 function calcTextInput(text){
   return parseCalculations(parseSingles(text));
-  //return parseSingles(text);
 }
 function parseSingles(text) {
   if(text.includes("[[")) {
