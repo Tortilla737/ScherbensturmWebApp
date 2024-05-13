@@ -50,7 +50,7 @@
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+20 beim Blocken für andere.",
-        "longtext": "Verringert den Abzug beim Blocken für andere um 20. (von -20)",
+        "longtext": "Verringert den Abzug beim Blocken für andere um 20. \n(von -20)",
         "flavor": "Du beschränkst dich nicht nur auf deine eigene Verteidigung, sondern gewährleistest auch die Sicherheit deiner Mitstreiter."
     },
     {
@@ -59,7 +59,7 @@
         "ranks": [1, 0, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+10 beim Blocken für andere.",
-        "longtext": "(Rang 1): Verringert den Abzug beim Blocken für andere um 10. (von -20)\n(Rang 3): Verringert den Abzug um weitere 10 und verringert die Aktionskosten auf eine freie Aktion (von einer schnellen).",
+        "longtext": "**Rang 1**: Verringert den Abzug beim Blocken für andere um 10. (von -20)\n**Rang 3**: Verringert den Abzug um weitere 10 und verringert die Aktionskosten auf eine freie Aktion (von einer schnellen).",
         "flavor": "Du beschränkst dich nicht nur auf deine eigene Verteidigung, sondern gewährleistest auch die Sicherheit deiner Mitstreiter."
     },
     {
@@ -86,7 +86,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["per", "all"],
         "shorttext": "+10 gegen Abzüge beim Angriff um die Ecke.",
-        "longtext": "Abzüge bei Angriffen um die Ecke oder über Deckung hinweg, die keine Automaten auslösen, werden um 10 pro Stufe verringert. (von 20)",
+        "longtext": "Abzüge bei Angriffen um die Ecke oder über Deckung hinweg, die keine Automaten auslösen, werden um 10 pro Stufe verringert. \n(von 20)",
         "flavor": "Das Vertrauen in deine Waffe trifft auch ohne dein Visier."
     },
     {
@@ -95,7 +95,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+10 hastige Attacken und schneidende Attacken gegen Ausweichen.",
-        "longtext": "Gegner haben -10 auf Ausweichen-Tests gegen deine schneidenden Attacken.\nDeine Attacken haben +10 zum Treffen bei hastigen Angriffen.",
+        "longtext": "- Gegner haben -10 auf Ausweichen-Tests gegen deine schneidenden Attacken.\n- Deine Attacken haben +10 zum Treffen bei hastigen Angriffen.",
         "flavor": "Durch langes Training hast du das Geheimnis der schneidenden Attacken entdeckt:\nDu musst mit deiner Waffe richtig schnell herumfuchteln!"
     },
     {
@@ -104,7 +104,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["int", "wil", "all"],
         "shorttext": "ZBon(IN) +10.",
-        "longtext": "Erhöht deinen ZBon(IN) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(IN) um 10.",
         "flavor": "Du hast eine intuitive Einsicht in die komplexeren Muster deiner Magie erlangt."
     },
     {
@@ -131,7 +131,7 @@
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "Extra Verteidigung für 4FP + 4AP.",
-        "longtext": "Du darfst 4 AP und 4 FP zahlen, um einen zusätzlichen Abwehrversuch gegen den Trefferwurf eines Gegners zu starten. Dabei würfelst du gegen die gleiche Schwierigkeit wie beim ersten Test, musst aber eine andere Fertigkeit oder einen anderen Gegenstand verwenden und hast einen zusätzlichen Abzug von 20.\nGelingt der zusätzliche Wurf, so zählt dein neues Ergebnis und der Treffer ist erfolgreich abgewehrt.\nMisslingt der zusätzliche Wurf, so hat er keinen Effekt und das ursprüngliche Ergebnis des ersten Wurfes wird beibehalten.",
+        "longtext": "Du darfst **4 AP** und **4 FP** zahlen, um einen zusätzlichen Abwehrversuch gegen den Trefferwurf eines Gegners zu starten. Dabei würfelst du gegen die gleiche Schwierigkeit wie beim ersten Test, musst aber eine andere Fertigkeit oder einen anderen Gegenstand verwenden und hast einen zusätzlichen Abzug von 20.\n- Gelingt der zusätzliche Wurf, so zählt dein neues Ergebnis und der Treffer ist erfolgreich abgewehrt.\n- Misslingt der zusätzliche Wurf, so hat er keinen Effekt und das ursprüngliche Ergebnis des ersten Wurfes wird beibehalten.",
         "flavor": "Eine gute Verteidigung ist vielschichtig. Wenn eine Defensive fehlschlägt, greifst du auf die nächste zu."
     },
     {
@@ -149,7 +149,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+10 gegen Flächenangriffe und Ausweichen von schlangenden Attacken.",
-        "longtext": "Du hast +10 auf Ausweichen-Tests gegen schlagende Attacken.\nDu hast +10 auf Abwehrwürfe gegen Flächenangriffe.",
+        "longtext": "- Du hast +10 auf Ausweichen-Tests gegen schlagende Attacken.\n- Du hast +10 auf Abwehrwürfe gegen Flächenangriffe.",
         "flavor": "Du bist geübt im Entrinnen von Flächenangriffen und somit gewappnet gegen Explosionen, Meteoriteneinschläge und die Faustschläge von Riesen."
     },
     {
@@ -167,7 +167,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["exp", "all"],
         "shorttext": "+10 Mut und Entschlossenheit für Verbündete.",
-        "longtext": "Du gewährst verbündeten Zielen, die dich gut wahrnehmen können, +10 auf Mut- und Entschlossenheitstests gegen negative Moraleffekte, solange du nicht selbst unter einem solchen Effekt stehst oder handlungsunfähig bist.\n(Beispiele für negative Moraleffekte sind: Angst, Zorn, Wahnsinn und Lethargie.)\nUnterschiedliche Instanzen dieses Talents stapeln sich auf einem Ziel maximal bis zu einem Bonus von +20.",
+        "longtext": "Du gewährst verbündeten Zielen, die dich gut wahrnehmen können, +10 auf Mut- und Entschlossenheitstests gegen negative Moraleffekte, solange du nicht selbst unter einem solchen Effekt stehst oder handlungsunfähig bist.\n*(Beispiele für negative Moraleffekte sind: Angst, Zorn, Wahnsinn und Lethargie.)*\nUnterschiedliche Instanzen dieses Talents stapeln sich auf einem Ziel maximal bis zu einem Bonus von +20.",
         "flavor": "Du bist eine Inspiration für deine Verbündeten - jemand, an dem sie sich festhalten und ein Beispiel nehmen können."
     },
     {
@@ -203,7 +203,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "wil", "all"],
         "shorttext": "ZBon(PR) +10.",
-        "longtext": "Erhöht deinen ZBon(PR) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(PR) um 10.",
         "flavor": "Dein scharfer Fokus macht auch die Spitzen und Klingen deiner Magie besonders scharf."
     },
     {
@@ -230,7 +230,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "+20 vor einem Test.",
-        "longtext": "Du hast einen zusätzlichen Glückspunkt.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n -\tDirekt bevor du den Test auswürfelst, darfst du dir zusätzliche +20 auf den Test geben.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt.",
+        "longtext": "Du hast einen zusätzlichen *Glückspunkt*.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n - Direkt bevor du den Test auswürfelst, darfst du dir zusätzliche +20 auf den Test geben.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt.",
         "flavor": "Ein Moment von entschlossener Führung der eigenen Geschichte."
     },
     {
@@ -239,7 +239,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "Wiederhole einen Test.",
-        "longtext": "Du hast einen zusätzlichen Glückspunkt.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n -\tNachdem das Ergebnis ausgewürfelt wurde, aber bevor die Konsequenzen des Ergebnisses ausgeführt wurden, darfst du den Würfelwurf neu würfeln. Das neue Ergebnis ist bindend.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt. ",
+        "longtext": "Du hast einen zusätzlichen *Glückspunkt*.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n - Nachdem das Ergebnis ausgewürfelt wurde, aber bevor die Konsequenzen des Ergebnisses ausgeführt wurden, darfst du den Würfelwurf neu würfeln. Das neue Ergebnis ist bindend.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt. ",
         "flavor": "Sei es göttlicher Beistand oder auch nicht: Du hast Glück! Hurra!"
     },
     {
@@ -248,7 +248,7 @@
         "ranks": [0, 0, 0, 0, 1],
         "attributes": ["str", "all"],
         "shorttext": "+20 einhändig mit Zeihandwaffe.",
-        "longtext": "Verringert den Trefferabzug beim einhändigen Führen von zweihändigen Waffen um 20. (von -30)",
+        "longtext": "Verringert den Trefferabzug beim einhändigen Führen von zweihändigen Waffen um 20. \n(von -30)",
         "flavor": "Deine legendäre Stärke erlaubt es dir, zweihändige Waffen effektiv mit nur einer Hand führen zu können."
     },
     {
@@ -257,7 +257,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["wil", "int", "all"],
         "shorttext": "ZBon(WK) +10.",
-        "longtext": "Erhöht deinen ZBon(WK) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(WK) um 10.",
         "flavor": "Das Heraufbeschwören des Potenzials, das am tiefsten liegt, benötigt einen starken Willen. Du bist in der Lage, die magischen Ströme deines Seins hervorzurufen und an die Oberfläche zu bringen."
     },
     {
@@ -284,7 +284,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "mLP Maximum +40/60.",
-        "longtext": "(Rang 2): Erhöht dein mLP-Maximum um 40.\n(Rang 3): Erhöht dein mLP-Maximum um 60.",
+        "longtext": "**Rang 2**: Erhöht das Maximum deiner mentalen Lebenspunkte um 40.\n**Rang 3**: Erhöht das Maximum deiner mentalen Lebenspunkte um 60.",
         "flavor": "Durch eine gewisse Ruhe, die dir innewohnt, verträgst du mehr Stress als andere."
     },
     {
@@ -311,7 +311,7 @@
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "AP Maximum +10.",
-        "longtext": "Erhöht dein AP-Maximum um 10.",
+        "longtext": "Erhöht das Maximum deiner Ausdauerpunkte um 10.",
         "flavor": "Dieses Talent verleiht größere Ausdauerreserven, um mehr körperliche Kräfte ausführen zu können."
     },
     {
@@ -320,7 +320,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "per", "all"],
         "shorttext": "Kritische Ziffer +1.",
-        "longtext": "Erhöht die kritische Ziffer deiner Trefferwürfe um 1. (von 1)",
+        "longtext": "Erhöht die kritische Ziffer deiner Trefferwürfe um 1. \n(von 1)",
         "flavor": "Deine tödliche Präzision erlaubt es dir, häufiger die Schwachstellen deiner Gegner zu treffen."
     },
     {
@@ -329,7 +329,7 @@
         "ranks": [1, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "Erhöht volle Bewegung.",
-        "longtext": "Du hast zusätzliche Grundbewegung x 0,2m Lauf-Bewegung bei vollen Bewegungen. (Im Normalfall also 1m)",
+        "longtext": "Du hast zusätzliche Grundbewegung x 0,2m Lauf-Bewegung bei vollen Bewegungen. \n(Im Normalfall also 1m)",
         "flavor": "Du kannst schnell rennen. Ja, das ist alles!"
     },
     {
@@ -338,7 +338,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["con", "wil", "all"],
         "shorttext": "ZBon(KO) +10.",
-        "longtext": "Erhöht deinen ZBon(KO) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(KO) um 10.",
         "flavor": "Deine Magie ist von reinem Lebenswillen erfüllt, der deine Heilung oder Schöpfung verstärkt."
     },
     {
@@ -347,7 +347,7 @@
         "ranks": [0, 0, 0, 1, 0],
         "attributes": ["acc", "int", "all"],
         "shorttext": "Maximale Qualität: Legendär.",
-        "longtext": " Erhöht die maximale Qualität deiner mit Handwerk oder Kunst hergestellten Gegenstände von „Meisterhaft“ auf „Legendär“.",
+        "longtext": " Erhöht die maximale Qualität deiner mit Handwerk oder Kunst hergestellten Gegenstände von *„Meisterhaft“* auf *„Legendär“*.",
         "flavor": "Mit Geschick, Geduld und Blick auf filigrane Details bist du einer derjenigen, die wahrlich legendäre Dinge erschaffen können."
     },
     {
@@ -356,7 +356,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["per", "all"],
         "shorttext": "+20 gegen Abzug durch Schlaf.",
-        "longtext": "Verringert die Abzüge auf WA-Tests durch Schlaf um 20. (von -30)\nVerringert die Abzüge auf Tests, während du wach werden musst, um 20. (von -20)",
+        "longtext": "- Verringert die Abzüge auf WA-Tests durch Schlaf um 20. (von -30)\n- Verringert die Abzüge auf Tests, während du wach werden musst, um 20. (von -20)",
         "flavor": "Für diejenigen, die auch beim Schlafen gern ein Ohr offen haben."
     },
     {
@@ -383,7 +383,7 @@
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["str", "acc", "agi", "all"],
         "shorttext": "+10 Nahkampfschaden.",
-        "longtext": "Deine Nahkampfattacken verursachen zusätzliche 10 Schaden. (Nur die primäre Schadensart wird erhöht.)",
+        "longtext": "Deine Nahkampfattacken verursachen 10 zusätzlichen Schaden. \n(Nur die primäre Schadensart wird erhöht.)",
         "flavor": "Sei es durch Kraft oder durch Finesse - deine Nahkampfattacken jeglicher Art verursachen größeren Schaden."
     },
     {
@@ -392,7 +392,7 @@
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["str", "acc", "agi", "all"],
         "shorttext": "+10 Nahkampfschaden.",
-        "longtext": "Deine Nahkampfattacken verursachen zusätzliche 10 Schaden. (Nur die primäre Schadensart wird erhöht.)",
+        "longtext": "Deine Nahkampfattacken verursachen 10 zusätzlichen Schaden. \n(Nur die primäre Schadensart wird erhöht.)",
         "flavor": "Sei es durch Kraft oder durch Finesse - deine Nahkampfattacken jeglicher Art verursachen größeren Schaden."
     },
     {
@@ -401,7 +401,7 @@
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "FP Maximum +10.",
-        "longtext": "Erhöht dein FP-Maximum um 10.",
+        "longtext": "Erhöht das Maximum deiner Fokuspunkte um 10.",
         "flavor": "Du kannst mehr Konzentration aufbringen, ehe es deinen Geist zu stark erschöpft."
     },
     {
@@ -410,7 +410,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["exp", "wil", "all"],
         "shorttext": "ZBon(AU) +10.",
-        "longtext": "Erhöht deinen ZBon(AU) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(AU) um 10.",
         "flavor": "Deine Magie hat einen verstärkten Effekt bei der beeinflussung Anderer."
     },
     {
@@ -419,7 +419,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "wil", "all"],
         "shorttext": "ZBon(GW) +10.",
-        "longtext": "Erhöht deinen ZBon(GW) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(GW) um 10.",
         "flavor": "Du bist geübt darin, mit deine Magie fließen und strömen zu lassen und kannst somit Bewegungen verlängern und fließende Elemente wie Wasser und Wind verstärken."
     },
     {
@@ -446,7 +446,7 @@
         "ranks": [1, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "Erhöht schnelle Bewegung.",
-        "longtext": "Du hast zusätzliche Grundbewegung x 0,2m Lauf-Bewegung während deiner ersten schnellen Bewegung pro Runde. (Im Normalfall also 1m)",
+        "longtext": "Du hast zusätzliche Grundbewegung x 0,2m Lauf-Bewegung während deiner ersten schnellen Bewegung pro Runde.\n(Im Normalfall also 1m)",
         "flavor": "Schnelle, kurze Bewegungen liegen dir besonders gut."
     },
     {
@@ -464,7 +464,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "+10 auf Gelegenheitsangriffe und stoßende Attacken gegen Parieren.",
-        "longtext": "Gegner haben -10 auf Parieren-Tests gegen deine stoßenden Attacken.\nDeine Attacken haben +10 zum Treffen bei Gelegenheitsangriffen.",
+        "longtext": "- Gegner haben -10 auf Parieren-Tests gegen deine stoßenden Attacken.\n- Deine Attacken haben +10 zum Treffen bei Gelegenheitsangriffen.",
         "flavor": "Deine hohe Präzision erlaubt es dir, Lücken in den Paradeversuchen deiner Gegner gekonnt auszunutzen. In gleicher Weise bist du besonders fähig darin, Unachtsamkeiten zu bestrafen."
     },
     {
@@ -482,7 +482,7 @@
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["str", "con", "all"],
         "shorttext": "+10 gegen Abzüge durch Traglast.",
-        "longtext": "Verringert deine Abzüge durch Traglast um 10.",
+        "longtext": "Verringert die Abzüge auf Werte durch Traglast um 10.",
         "flavor": "Du bist es dermaßen gewohnt, Dinge umherzuschleppen, dass dein Körper eine gewisse Belastung einfach hinnimmt."
     },
     {
@@ -491,7 +491,7 @@
         "ranks": [1, 1, 1, 1, 0],
         "attributes": ["all"],
         "shorttext": "Ermöglicht Großmeistergrad freizuschalten.",
-        "longtext": "(Rang 1 bis 3): Kein Effekt.\n(Rang 4): Du darfst den Großmeistergrad des gewählten Attributes oder der gewählten Fertigkeit erlernen, sofern du die anderen Voraussetzungen erfüllst. (Du kriegst ihn nicht umsonst, du darfst ihn überhaupt kaufen!)",
+        "longtext": "**Rang 1 bis 3**: Kein Effekt.\n**Rang 4**: Du darfst den Großmeistergrad des gewählten Attributes oder der gewählten Fertigkeit erlernen, sofern du die anderen Voraussetzungen erfüllst. \n(Du kriegst ihn nicht umsonst, du darfst ihn überhaupt kaufen!)",
         "flavor": "Du setzt die letzten Feinschliffe zur Perfektion."
     },
     {
@@ -500,7 +500,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "+10 gegen volle Angriffe und Parieren gegen schneidende Attacken.",
-        "longtext": "Du hast +10 auf Parieren-Tests gegen schneidende Attacken.\nDu hast +10 auf Abwehrwürfe gegen Attacken, die Teil eines vollen Angriffs sind.",
+        "longtext": "- Du hast +10 auf Parieren-Tests gegen schneidende Attacken.\n- Du hast +10 auf Abwehrwürfe gegen Attacken, die Teil eines vollen Angriffs sind.",
         "flavor": "Durch deine hohe Konzentration und präzisen Bewegungen beim Parieren kannst du auch bei einem Hagel von generischen Attacken die Ruhe bewahren und die vorschnellen Bewegungsabläufe deines Gegners durch gekonntes Parieren bestrafen."
     },
     {
@@ -518,7 +518,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "wil", "all"],
         "shorttext": "ZBon(ST) +10.",
-        "longtext": "Erhöht deinen ZBon(ST) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(ST) um 10.",
         "flavor": "Die Entschlossenheit, deine Umwelt zu beherrschen und in Stücke zu reißen, manifestiert sich auf machtvolle Art und Weise in der von dir gewirkten Magie."
     },
     {
@@ -527,7 +527,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+10/20 gegen Angriffe aus der Flanke/Rücken.",
-        "longtext": "(Rang 2): Verringert die Abzüge auf Verteidigungswürfe gegen Angriffe in deiner Flanke um 10. (von -10)\n(Rang 3): Verringert die Abzüge auf Verteidigungswürfe gegen Angriffe in deinem Rücken um 20. (von -20)",
+        "longtext": "**Rang 2**: Verringert die Abzüge auf Verteidigungswürfe gegen Angriffe in deiner Flanke um 10. (von -10)\n**Rang 3**: Verringert die Abzüge auf Verteidigungswürfe gegen Angriffe in deinem Rücken um 20. (von -20)",
         "flavor": "Dieses Talent verstärkt deine Kampfchancen gegen eine Überzahl an Gegnern deutlich und schützt dich davor, ausmanövriert zu werden."
     },
     {
@@ -536,7 +536,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "Sicherer Erfolg bei 01 bis 05.",
-        "longtext": "Erhöht deine Chance auf einen sicheren Erfolg um 4. (von 01 auf 01 - 05)",
+        "longtext": "Erhöht deine Chance auf einen sicheren Erfolg um 4. \n(von 01 auf 01 - 05)",
         "flavor": "Du bist in der Lage, den vorgeschriebenen Pfad deines Schicksals zu brechen und gegen alle Wahrscheinlichkeit Erfolg zu haben."
     },
     {
@@ -563,7 +563,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+10 maximale Vorbereitung.",
-        "longtext": "Erhöht den maximalen Bonus durch Vorbereitung um 10. (von 20)",
+        "longtext": "Erhöht den maximalen Bonus durch Vorbereitung um 10. \n(von 20)",
         "flavor": "Dieses Talent verbessert deine Fähigkeit, dich auf etwas vorzubereiten. Die Anwendungsbereiche sind weitläufig. Beispiele sind Scharfschützen, Verteidiger und Meuchler. "
     },
     {
@@ -581,7 +581,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["all"],
         "shorttext": "+10 auf ein/zwei Attribute pro Spielrunde.",
-        "longtext": "(Rang 2): Zu Beginn der Spielrunde bestimmt der SL ein Hauptattribut. Dies kann auch durch Würfeln geschehen. Bis zur nächsten Spielrunde hast du +10 auf alle Tests, die dieses Attribut verwenden.\n(Rang 3): Der Spielleiter bestimmt stattdessen einen der folgenden vier Aspekte. Diese gewähren den Bonus von Rang 2 für zwei Attribute.\n- Aspekt der Athletik: ST und GW\n- Aspekt des Widerstandes: KO und WK\n- Aspekt der Genauigkeit: PR und WA\n- Aspekt der Schläue: AU und IN",
+        "longtext": "**Rang 2**: Zu Beginn der Spielrunde bestimmt der SL ein Hauptattribut. Dies kann auch durch Würfeln geschehen. Bis zur nächsten Spielrunde hast du +10 auf alle Tests, die dieses Attribut verwenden.\n**Rang 3**: Der Spielleiter bestimmt stattdessen einen der folgenden vier Aspekte. Diese gewähren den Bonus von Rang 2 für zwei Attribute.\n- Aspekt der Athletik: **ST** und **GW**\n- Aspekt des Widerstandes: **KO** und **WK**\n- Aspekt der Genauigkeit: **PR** und **WA**\n- Aspekt der Schläue: **AU** und **IN**",
         "flavor": "Du besitzt eine gewisse Launenhaftigkeit und deine Interessen springen von einer Sache zur nächsten. Dies gewährt dir Vorteile in bestimmten Fähigkeiten, solltest du entscheiden, diesen Launen zu folgen."
     },
     {
@@ -590,7 +590,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["per", "wil", "all"],
         "shorttext": "ZBon(WA) +10.",
-        "longtext": "Erhöht deinen ZBon(WA) um 10.",
+        "longtext": "Erhöht deinen Zauberbonus(WA) um 10.",
         "flavor": "Du hast gelernt, deinen magischen Einfluss weiter auszudehnen."
     },
     {
@@ -599,7 +599,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 Sturmangriffe und schlagende Angriffe gegen Blocken.",
-        "longtext": "Gegner haben -10 auf Blocken-Tests gegen deine schlagenden Attacken.\nDeine Attacken haben +10 auf Trefferwürfe bei Sturmangriffen.",
+        "longtext": "- Gegner haben -10 auf Blocken-Tests gegen deine schlagenden Attacken.\n- Deine Attacken haben +10 auf Trefferwürfe bei Sturmangriffen.",
         "flavor": "Du bist geübt darin, den Schwung deiner Waffe auszunutzen und kannst dadurch besonders effektiv die Verteidigung von blockenden Gegnern durchbrechen. "
     },
     {
@@ -662,7 +662,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "+40/60 LP Maximum.",
-        "longtext": "(Rang 2): Erhöht dein LP-Maximum um 40.\n(Rang 3): Erhöht dein LP-Maximum um 60.",
+        "longtext": "**Rang 2**: Erhöht das Maximum deiner Lebenspunkte um 40.\n**Rang 3**: Erhöht das Maximum deiner Lebenspunkte um 60.",
         "flavor": "Du hast mehr Lebenskraft als andere und kannst mehr Schaden verkraften, ehe du bewusstlos wirst. "
     },
     {
@@ -698,7 +698,7 @@
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "+10 nach einem Test.",
-        "longtext": "Du hast einen zusätzlichen Glückspunkt.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n -\tNachdem das Ergebnis ausgewürfelt wurde, aber bevor die Konsequenzen des Ergebnisses ausgeführt wurden, darfst du dir nachträglich +10 auf den Test geben.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt.",
+        "longtext": "Du hast einen zusätzlichen *Glückspunkt*.\nDu kannst einen Glückspunkt einsetzen, um einen deiner Tests zu manipulieren. Dieses Talent gewährt dir dafür folgende Option:\n - Nachdem das Ergebnis ausgewürfelt wurde, aber bevor die Konsequenzen des Ergebnisses ausgeführt wurden, darfst du dir nachträglich +10 auf den Test geben.\nDu darfst pro Test nur einen Glückspunkt verwenden. Alle verbrauchten Glückspunkte werden zu Beginn einer neuen Spielrunde wiederhergestellt.",
         "flavor": "Manchmal braucht es nur ein wenig Entschlossenheit, um eine Katastrophe zu einem Wunder zu wenden."
     },
     {
@@ -707,7 +707,7 @@
         "ranks": [0, 0, 1, 0, 1],
         "attributes": ["agi", "all"],
         "shorttext": "Mehr Attacken pro Angriff.",
-        "longtext": "(Rang 3): Erhöht deine Attackenanzahl bei vollen Angriffen um 1.\n(Rang 5): Erhöht deine Attackenanzahl bei vollen Angriffen und Standardangriffen um 1.",
+        "longtext": "**Rang 3**: Erhöht deine Attackenanzahl bei vollen Angriffen um 1.\n**Rang 5**: Erhöht deine Attackenanzahl bei vollen Angriffen und Standardangriffen um 1.",
         "flavor": "Du bist dazu fähig, deinen Gegnern mit einer schnellen Abfolge von Attacken zuzusetzen."
     },
     {
@@ -716,7 +716,7 @@
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "Alle ZBon Werte +10.",
-        "longtext": "Erhöht jeden deiner ZBon um 10.",
+        "longtext": "Erhöht jeden deiner Zauberboni um 10.",
         "flavor": "Dein Geist und deine Seele sind Fokus für die Ströme der Magie, die sich durch dich bewegt und manifestiert. Nur ein gefestigter Wille kann diese Ströme optimal leiten, um mächtige Magie hervorzurufen."
     },
     {
@@ -725,7 +725,7 @@
         "ranks": [0, 0, 2, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "Alle ZBon Werte +10.",
-        "longtext": "Erhöht jeden deiner ZBon um 10.",
+        "longtext": "Erhöht jeden deiner Zauberboni um 10.",
         "flavor": "Dein Geist und deine Seele sind Fokus für die Ströme der Magie, die sich durch dich bewegt und manifestiert. Nur ein gefestigter Wille kann diese Ströme optimal leiten, um mächtige Magie hervorzurufen."
     },
     {
@@ -752,7 +752,7 @@
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "-20 gegen Abzug durch Schießen in den Nahkampf.",
-        "longtext": "Verringert den Abzug beim Schießen in den Nahkampf um 20. (von -20)",
+        "longtext": "Verringert den Abzug beim Schießen in den Nahkampf um 20. \n(von -20)",
         "flavor": "Deine enorme Präzision erlaubt es dir, auch in wilde Kämpfe schießen zu können, ohne dein Ziel zu verfehlen und deine Verbündeten damit zu gefährden."
     },
     {
@@ -761,7 +761,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 gegen gezielte Attacken und Blocken gegen stoßende Attacken.",
-        "longtext": "Du hast +10 auf Blocken-Tests gegen stoßende Attacken.\nDu hast +10 auf Abwehrwürfe gegen Attacken, die auf eine Körperzone zielen.",
+        "longtext": "- Du hast +10 auf Blocken-Tests gegen stoßende Attacken.\n- Du hast +10 auf Abwehrwürfe gegen Attacken, die auf eine Körperzone zielen.",
         "flavor": "Mithilfe eines Schildes oder anderen Gegenstandes - womöglich deines eigenen Körpers - bist du in der Lage, deine Schwachstellen oder die deiner Verbündeten effektiv zu schützen."
     },
     {
@@ -770,7 +770,7 @@
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 gegen Attacken im Rücken und Blocken gegen stoßende Attacken.",
-        "longtext": "Du hast +10 auf Blocken-Tests gegen stoßende Attacken.\nDu hast +10 auf Abwehrwürfe gegen Attacken, die aus deiner Rückenzone kommen.",
+        "longtext": "- Du hast +10 auf Blocken-Tests gegen stoßende Attacken.\n- Du hast +10 auf Abwehrwürfe gegen Attacken, die aus deiner Rückenzone kommen.",
         "flavor": "Mithilfe eines Schildes oder anderen Gegenstandes - womöglich deines eigenen Körpers - bist du in der Lage, deine Schwachstellen oder die deiner Verbündeten effektiv zu schützen."
     }
 ]

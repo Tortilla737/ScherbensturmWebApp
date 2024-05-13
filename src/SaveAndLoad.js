@@ -346,7 +346,7 @@ function repaintTalents() {
 			}
 		}
 		paintTalents += `
-			<div class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
+			<div id="scrollTalent${thisT.name}" class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
 				<div class="talent-grid">
 					<div>${thisT.name}</div>
 					<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
@@ -383,7 +383,8 @@ function repaintPowers() {
 	for (let i in charData.powers) {
 		let powerN = charData.powers[i];
 		allPowers += `
-			<div id="scrollIDpower${i}" class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
+		<div id="scrollIDpower${i}">
+			<div class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
 				<div>
 					<div class="power-grid">
 						<p class="power-name">${powerN.name}</p>
@@ -423,7 +424,9 @@ function repaintPowers() {
 				</div>
 				`;
 		}
-		allPowers += `<div class="vertical-spacing"></div>`;
+		allPowers += `
+		</div>
+		<div class="vertical-spacing"></div>`;
 	}
 	$("#powerListContainer").html(allPowers);
 	repaintActions();
@@ -598,7 +601,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
+				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild.firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>

@@ -53,10 +53,9 @@
         <hr>
         <div class="panel-main-grid">
           <p>Regelwerk:</p>
-          <select id="rulesChoice" onchange="getCharData().rulesset = this.value; repaintRulesSpecifics(); saveLocalData();">
+          <select id="rulesChoice" onchange="getCharData().rulesset = this.value; repaintRulesSpecifics(); filterPanelTalents(); saveLocalData();">
             <option value="of">Offiziell</option>
             <option value="ed">Enthrone Darkness</option>
-            <!--"no" excluded talents-->
           </select>
           <p>Nachtmodus:</p>
           <div id="darkmodeContainer"></div>
@@ -583,7 +582,7 @@
         <hr class="hr-width">
         <div class="horizontal-container">
           <p>Attribut:</p>
-          <select id="attributeChoice" onchange="openTalentPanel();">
+          <select id="attributeChoice" onchange="filterPanelTalents();">
             <option value="all">Alle</option>
             <option value="str">Stärke</option>
             <option value="con">Konstitution</option>
@@ -593,7 +592,12 @@
             <option value="exp">Ausdruck</option>
             <option value="int">Intelligenz</option>
             <option value="wil">Willenskraft</option>
+            <!--"no" excluded talents-->
           </select>
+        </div>
+        <div class="horizontal-container">
+          <p>Suche:</p>
+          <input id="searchTalents" type="text" onkeyup="filterPanelTalents();">
         </div>
         <div class="vertical-spacing"></div>
         <div id="fullTalentList">
@@ -1083,10 +1087,13 @@
           </div>
           <!--powers / Kräfte-->
           <div id="PowersTab" class="tabcontent">
-            <div class="horizontal-container">
+            <div class="horizontal-container" style="flex-wrap: wrap;">
               <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this.parentNode); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate'); this.classList.toggle('open-sibling');">
                 <div><p class="transition-div">&#x2BC8;</p></div>
-                <p class="non-breaking-text">Beschreibung deiner Scherben</p>
+                <p class="non-breaking-text">Beschreibung</p>
+              </div>
+              <div class="entry-wrapper-non-click">
+                <input id="searchPowers" type="text" onkeyup="filterPowers();" placeholder="Suche">
               </div>
               <div class="flex-container pointer-div entry-wrapper" onclick="openPanelPage('magicBonusPanelPage');">
                 <div class="icon-magic"></div>

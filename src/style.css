@@ -584,6 +584,9 @@ input {
 
 /*MARK: powers
 */
+#searchPowers {
+  width: 10em;
+}
 .power-entry, .augment-entry {
   border-radius: var(--radius-main);
   background-color: var(--box-item-fill);

@@ -83,16 +83,47 @@ function openDeleteModal(funct) {
   );
 }
 //#region search
-/*
-function searchText() {
-  onInput(function() {
-    toDisplay = [];
-    if([Names].includes("input") || [Texts].includes("input") || [Skills].includes("input")) {
-      toDisplay.push(found);
+function filterPanelTalents() {
+  var searchTerm = $("#searchTalents").val().toLowerCase();
+  for(let i in talentData) {
+    if(
+      (talentData[i].name.toLowerCase().indexOf(searchTerm) > -1 ||
+      talentData[i].shorttext.toLowerCase().indexOf(searchTerm) > -1 ||
+      talentData[i].longtext.toLowerCase().indexOf(searchTerm) > -1) && 
+      talentData[i].rules.includes(getCharData().rulesset) && 
+      talentData[i].attributes.includes($("#attributeChoice").val())
+    ) {
+      $("#searchTalent"+i).show();
     }
-  })
+    else{
+      $("#searchTalent"+i).hide();
+    }
+  }
 }
-
+function filterPowers() {
+  var searchTerm = $("#searchPowers").val().toLowerCase();
+  for(let i in getCharData().powers) {
+    if(getCharData().powers[i].name.toLowerCase().indexOf(searchTerm) > -1 ||
+    getCharData().powers[i].skill.toLowerCase().indexOf(searchTerm) > -1 ||
+    getCharData().powers[i].text.toLowerCase().indexOf(searchTerm) > -1
+    ) {
+      $("#scrollIDpower"+i).show();
+    }
+    else{
+      $("#scrollIDpower"+i).hide();
+    }
+  }
+}
+/* 
+$(document).ready(function () {
+  $("#searchTalents").on("keyup", function () {
+    $('.searchTalent').hide();
+    var searchTerm = $(this).val().toLowerCase();
+    $('.searchTalent').filter(function () {
+      return $(this).find("p").text().toLowerCase().indexOf(searchTerm) > -1;
+    }).show();
+  });
+});
 */
 
 //------------panel page content management--------------
@@ -154,43 +185,44 @@ function addNewSkill() {
 }
 //#region talent panel
 function openTalentPanel(){
-  let attrFilter = document.getElementById("attributeChoice").value;
-  filteredTalents = "";
+  allTalents = "";
   for(let i in talentData) {
-    if(talentData[i].rules.includes(getCharData().rulesset) && talentData[i].attributes.includes(attrFilter)) {
-      rankContent = "";
-      addButton = `<button onclick="addNewTalent(${i})">+</button>`;
-      for(let t = 0; t<5; t++) {
-        if(talentData[i].ranks[t] == 1) {
-          rankContent += `<p>&#9671</p>`;
-        }
-        else if(talentData[i].ranks[t] == 2) {
-          rankContent += `<p>&#9672</p>`;
-        }
-        else {
-          rankContent += `<p>-</p>`;
-        }
+    rankContent = "";
+    addButton = `<button onclick="addNewTalent(${i})">+</button>`;
+    for(let t = 0; t<5; t++) {
+      if(talentData[i].ranks[t] == 1) {
+        rankContent += `<p>&#9671</p>`;
       }
-      for(let j in getCharData().talents) {
-        if(getCharData().talents[j].name == talentData[i].name) {
-          addButton = "";
-          break;
-        }
+      else if(talentData[i].ranks[t] == 2) {
+        rankContent += `<p>&#9672</p>`;
       }
-      filteredTalents += `
-        <div class="talent-panel-grid pointer-div gradient-line-top" onclick="openBeneath(this)">
-          <p>${talentData[i].name}</p>
-          <div class="grid-5 talent-ranks-wrapper">${rankContent}</div>
-          <div>${addButton}</div>
-        </div>
-        <div class="info-beneath">
-          <p class="breaking-text">${talentData[i].longtext}</p>
-          <p class="italic-text">${talentData[i].flavor}</p>
-        </div>
-      `;
+      else {
+        rankContent += `<p>-</p>`;
+      }
     }
+    for(let j in getCharData().talents) {
+      if(getCharData().talents[j].name == talentData[i].name) {
+        addButton = "";
+        break;
+      }
+    }
+    allTalents += `
+    <div id="searchTalent${i}">
+      <div class="talent-panel-grid pointer-div gradient-line-top" onclick="openBeneath(this)">
+        <p>${talentData[i].name}</p>
+        <div class="grid-5 talent-ranks-wrapper">${rankContent}</div>
+        <div>${addButton}</div>
+      </div>
+      <div class="info-beneath">
+        <div>${fullTextConvert(talentData[i].longtext)}</div>
+        <div class="vertical-spacing"></div>
+        <p class="italic-text">${talentData[i].flavor}</p>
+      </div>
+    </div>
+    `;
   }
-  $("#fullTalentList").html(filteredTalents);
+  $("#fullTalentList").html(allTalents);
+  filterPanelTalents();
   openPanelPage('talentPanelPage');
 }
 function deleteTalent(indexN) {
@@ -208,6 +240,11 @@ function addNewTalent(indexN) {
   });
   repaintTalents();
   openNav(2, true); //maybe keep open, to add more talents?
+  document.getElementById('scrollTalent'+newT.name).scrollIntoView({
+    behavior: 'auto',
+    block: 'center',
+    inline: 'center'
+  });
 }
 function addNewCustomTalent() {
   document.getElementById('customTalentContainer').classList.remove('open-custom-talent');
