@@ -49,7 +49,8 @@
 body {
   background: #2f353a; /*#253e52*/
   margin: 0;
-  font-family: "Ubuntu", sans-serif;
+  /* font-family: "Ubuntu", sans-serif; */
+  font-family: "Fira Sans", sans-serif;
   /* font-family: 'Trebuchet MS', 'Gill Sans MT', 'Gill Sans', Calibri, sans-serif; */
   color: var(--text-color);
   
@@ -294,9 +295,11 @@ input {
 }
 .small-text {
   font-size: 0.8em;
+  font-weight: 200;
 }
 .smaller-text {
   font-size: 0.6em;
+  font-weight: 200;
 }
 .italic-text {
   font-style: italic;

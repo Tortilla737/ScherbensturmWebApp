@@ -26,7 +26,7 @@ Der Scherbensturm Charakterbogen als Webapp.
 
 ### Bilder
 - Hintergrundbild und Itembilder werden direkt als Link eingefügt.
-- Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
+  - Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
 - Der Charaktertoken kann direkt über das Token Bild als Datei hochgeladen werden. 
 - Bilder im Markdown Text können weiter formatiert werden.
   - "!\[bild\](bildURL.jpg =100x*)" In diesem Beispiel ist die Breite auf 100px festgelegt und die Höhe wird automatisch proportional gesetzt.
