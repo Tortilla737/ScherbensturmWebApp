@@ -678,8 +678,9 @@ input {
 /*MARK: actions & statusfx
 */
 .actions-container {
+  padding: var(--box-padding) calc(var(--box-padding) - 6px);
   overflow-y: auto;
-  padding: var(--box-padding);
+  scrollbar-gutter: stable both-edges;
   flex: 1 1 35vh;
 }
 .action-grid {
@@ -725,8 +726,9 @@ input {
 }
 .equal-flex-row > * {
   flex-basis: 100%;
-  padding: var(--box-padding);
+  padding: var(--box-padding) calc(var(--box-padding) - 6px);
   overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
 }
 .status-wrapper {
   border-radius: var(--radius-main);
@@ -977,11 +979,12 @@ input {
 }
 .tabcontent {
   display: none;
-  padding: 8px;
+  padding: 8px 2px;
   /* background-color: var(--box-fill-color); */
   max-height: max(calc(100vh - 259px), calc(var(--min-big-box-height) - 150px));
   overflow-x: clip;
   overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
   transition: 0.3s;
 }
 @media (max-width: 752px) {
@@ -1001,6 +1004,7 @@ input {
   z-index: 3;
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
   top: 0;
   background-color: var(--panel-color);
   transition: 0.5s;
@@ -1075,6 +1079,9 @@ input {
   grid-template-columns: 278px 25px;
   gap: 4px;
   font-size: 0.8em;
+}
+#newBagChoice {
+  max-width: 150px;
 }
 #itemImage {
   border-radius: 0;

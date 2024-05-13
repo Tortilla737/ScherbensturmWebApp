@@ -9,13 +9,13 @@ Der Scherbensturm Charakterbogen als Webapp.
 ### Datei Speichern
 - Die Seite speichert den aktuellen Bogen automatisch im Browser-Cashe.
 - Manuelles Speichern über das Menü, lädt den Bogen als Datei herunter.
-- Auf diese Art kann man mehrere Charakterbögen speichern und teilen (z.b. über Dropbox).
+  - Auf diese Art kann man mehrere Charakterbögen speichern und teilen (z.b. über Dropbox).
 
 ### Einträge verändern
 - Bei Zahlenfeldern könnt ihr entweder direkt die Zahl eingeben, oder mit - oder + Werte abziehen bzw. addieren.
 - Wenn ein Eintrag erstellt oder verändert wurde, nicht vergessen beim Eintrag auf **Speichern** zu drücken!
 - Bereiche, die durch obskure Regeln oder unvollständige Funktionen nicht vorhanden sind, können durch manuelle Modifikatoren gelöst werden.
-  - z.B. manuelle Mods. SP, PP, Bewegung, LP-Max. etc...
+  - z.B. für SP, PP, Bewegung, LP-Max. etc...
   - Nutze die Notizboxen, um die Quellen der Modifikatoren festzuhalten.
 
 ### Markdown
@@ -29,8 +29,9 @@ Der Scherbensturm Charakterbogen als Webapp.
   - Dafür bei einem beliebigen Online-Bild mit Rechtsklick -> **Bildadresse kopieren** und anschließend in das Textfeld einfügen.
 - Der Charaktertoken kann direkt über das Token Bild als Datei hochgeladen werden. 
 - Bilder im Markdown Text können weiter formatiert werden.
-  - "!\[bild\](bildURL.jpg =100x*)" In diesem Beispiel ist die Breite auf 100px festgelegt und die Höhe wird automatisch proportional gesetzt.
-  - "!\[bild alt >\](bildURL.jpg)" macht das Bild rechtsbündig. ("alt <" für linksbündig, "alt ><" für mittig)
+  - **!\[titel\](bild-URL.jpg)** fügt ein Bild im Text ein.
+  - **!\[titel\](bild-URL.jpg =100x\*)** In diesem Beispiel ist die Breite auf 100px festgelegt und die Höhe wird automatisch proportional gesetzt.
+  - **!\[titel alt >\](bild-URL.jpg)** macht das Bild rechtsbündig. ("alt <" für linksbündig, "alt ><" für mittig)
 
 ### Automatische Berechnung von Werten
 - Die meisten Werte werden automatisch berechnet, wie z.B. ausgegebene SP und PP, oder Attribute.
@@ -40,9 +41,9 @@ Der Scherbensturm Charakterbogen als Webapp.
 - Text, der von zwei eckigen Klammern eingefasst ist, ruft den zugehörigen Wert ab.
   - z.B.: \[\[AU\]\], \[\[ZBST\]\], \[\[Ausweichen\]\]
   - Zulässig sind Attribute (ST, KO, PR, ...), ZBon (ZBST, ZBKO, ZBPR, ...), StBon (STBON) und Fertigkeiten (Ausweichen, FEUER, Schwert, ...).
-  - Wichtig ist, die Fertigkeiten exakt so zu schreiben, wie sie eingetragen wurden.
+  - Wichtig ist, die *Fertigkeiten* exakt so zu schreiben, wie sie eingetragen wurden.
   - ZBon und StBon schließen das jeweilige Attribut automatisch mit ein. (Für den Fall, dass Attribute und Boni ungewöhnlich kombiniert werden, am besten in der Rechnung das jeweilige Attribut wieder abziehen)
-- Diese Funktion ist zunächst nur für Trefferwerte, Schadenswerte, Beschreibungen, Itemfeatures und Kosten von Kräften verfügbar. Das heißt auch, dass ihr mitten im Text von Items oder Kräften Berechnungen schreiben könnt!
+- Diese Funktion ist zunächst nur für *Trefferwerte*, *Schadenswerte*, *Beschreibungen*, *Itemfeatures* und *Kosten von Kräften* verfügbar. Das heißt auch, dass ihr mitten im Text von Items oder Kräften Berechnungen schreiben könnt!
 - Beispiele findest du weiter unten.
 
 ### Regeln umschalten
