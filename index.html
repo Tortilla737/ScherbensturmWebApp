@@ -53,9 +53,10 @@
         <hr>
         <div class="panel-main-grid">
           <p>Regelwerk:</p>
-          <select id="rulesChoice" onchange="getCharData().rulesset = this.value; repaintRulesSpecifics(); filterPanelTalents(); saveLocalData();">
-            <option value="of">Offiziell</option>
-            <option value="ed">Enthrone Darkness</option>
+          <select id="rulesChoice" onchange="getCharData().rulesset = Number(this.value); repaintAttributes(); repaintRulesDisplay(); filterPanelTalents(); saveLocalData();">
+            <option value="0">Offiziell</option>
+            <option value="1">Enthrone Darkness</option>
+            <option value="2">Werkstatt</option>
           </select>
           <p>Nachtmodus:</p>
           <div id="darkmodeContainer"></div>
@@ -89,7 +90,6 @@
             </div>
           </div>
         </div>
-        <div class="rulesOF"></div> <!--rulesOF and rulesED have to have the same number of objects-->
       </div>
     </div>
     <button id="leftpanelbtn" class="openbtn leftpanelbtn" onclick="openNav('1', true)"><p>&#9776;</p></button>
@@ -124,8 +124,8 @@
             <p>/</p>
             <p id="SPtotal">00</p>
           </div>
-          <p>Praxispunkte:</p>
-          <div class="flex-container margin-center">
+          <p class="rulesOF rulesED">Praxispunkte:</p>
+          <div class="rulesOF rulesED flex-container margin-center" style="display: flex;">
             <p id="PPcurrent">00</p>
             <p>/</p>
             <p id="PPtotal">00</p>
@@ -143,8 +143,8 @@
           <div class="editable-num-div text-middle" onclick="editText(event, this)">
             <p id="CharLevelSPmod">00</p>
           </div>
-          <p>PP Modifikator:</p>
-          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">PP Modifikator:</p>
+          <div class="rulesOF rulesED editable-num-div text-middle" style="display: flex;" onclick="editText(event, this)">
             <p id="CharLevelPPmod">00</p>
           </div>
           <p>MsP Modifikator:</p>
@@ -167,21 +167,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialStr">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingStr">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModStr">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankStr">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModStr">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Constitution panel-->
       <div id="constitutionPanelPage" class="panel-content ConContainer">
@@ -195,21 +211,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialCon">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingCon">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModCon">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankCon">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModCon">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Accuracy panel-->
       <div id="accuracyPanelPage" class="panel-content AccContainer">
@@ -223,21 +255,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialAcc">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingAcc">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModAcc">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankAcc">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModAcc">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Agility panel-->
       <div id="agilityPanelPage" class="panel-content AgiContainer">
@@ -251,21 +299,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialAgi">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingAgi">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModAgi">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankAgi">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModAgi">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Perception panel-->
       <div id="perceptionPanelPage" class="panel-content PerContainer">
@@ -279,21 +343,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialPer">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingPer">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModPer">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankPer">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModPer">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Expression panel-->
       <div id="expressionPanelPage" class="panel-content ExpContainer">
@@ -307,21 +387,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialExp">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingExp">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModExp">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankExp">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModExp">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Intelligence panel-->
       <div id="intelligencePanelPage" class="panel-content IntContainer">
@@ -335,21 +431,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialInt">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingInt">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModInt">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankInt">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModInt">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Willpower panel-->
       <div id="willpowerPanelPage" class="panel-content WilContainer">
@@ -363,21 +475,37 @@
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrPotentialWil">0</p>
           </div>
-          <p>Training:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <p class="rulesOF rulesED">Training:</p>
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
             <p id="attrTrainingWil">0</p>
-          </div>
-          <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
-            <p id="attrModWil">0</p>
           </div>
           <p>Grad:</p>
           <div class="editable-num-div" onclick="editText(event, this)">
             <p id="attrRankWil">1</p>
           </div>
+          <p>Modifikatoren:</p>
+          <div class="editable-num-div" onclick="editText(event, this)">
+            <p id="attrModWil">0</p>
+          </div>
           <p>Notiz:</p>
         </div>
         <textarea id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();"></textarea>
+        <hr class="hr-width">
+        <div class="rulesOF rulesED">
+          <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
+          <p class="small-text dim-text">Grad 1: 20 Trainingsmaximum, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: 30 Trainingsmaximum, +3 SP</p>
+          <p class="small-text dim-text">Grad 3: 40 Trainingsmaximum, +4 SP</p>
+          <p class="small-text dim-text">Grad 4: 50 Trainingsmaximum, +5 SP</p>
+        </div>
+        <div class="rules02">
+          <p class="small-text dim-text">Grad 1: Block 1 = 5 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 2: Block 2 = 10 Training, +2 SP</p>
+          <p class="small-text dim-text">Grad 3: Block 3 = 15 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 4: Block 4 = 20 Training, +3 SP</p>
+          <p class="small-text dim-text">Grad 5: Block 5 = 25 Training, +4 SP</p>
+          <p class="small-text dim-text">Grad 6: Block 6 = 30 Training, +4 SP</p>
+        </div>
       </div>
       <!--MARK: Secondary Mod panel-->
       <div id="secondaryPanelPage" class="panel-content">
@@ -507,8 +635,8 @@
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
-            <p>Expertise:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <p class="rulesOF rulesED">Expertise:</p>
+            <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
               <p id="genIDskillexpertise"></p>
             </div>
             <p>Kosten zum Erlernen:</p>
@@ -787,7 +915,7 @@
             
           </div>
           <hr class="hr-width">
-          <div class="rulesOF">
+          <div class="rulesOF rules02">
             <div id="moneyConversionContent" class="money-conversion-grid">
   
             </div>
@@ -1012,7 +1140,7 @@
             <p class="small-text voltaire">INITIATIVE</p>
             <p class="small-text voltaire">BEWEGUNG</p>
             <p class="small-text voltaire rulesED">RÜSTUNG</p>
-            <p class="small-text voltaire rulesOF">TREFFERZONEN</p>
+            <p class="small-text voltaire rulesOF rules02">TREFFERZONEN</p>
             <button onclick="openPanelPage('secondaryPanelPage')">
               <p class="bigish-text" id="Initiative">00</p>
               <div class="icon-timer"></div>
@@ -1028,7 +1156,7 @@
                 </div>
               </p>
             </div>
-            <button class="rulesOF" onclick="openPanelPage('hitzonesPanelPage');"><div class="icon-body biggest-text margin-center"></div></button>
+            <button class="rulesOF rules02" onclick="openPanelPage('hitzonesPanelPage');"><div class="icon-body biggest-text margin-center"></div></button>
           </div>
           <!--right-->
           <div class="border-item wound-grid">
@@ -1074,6 +1202,7 @@
             <div id="skillListContainer">
                 <!--this is where skills are generated into (found in SaveAndLoad.js repaintSkills())-->
             </div>
+            <p class="small-text dim-text text-right">* modifiziert</p>
             <hr>
             <button class="add-entry-btn" onclick="addNewSkill()">+</button>
           </div>
@@ -1131,7 +1260,7 @@
               <button class="entry-wrapper flex-container" onclick="openPanelPage('moneyPanelPage');">
                 <p>Vermögen:</p>
                 <p id="moneyTotal">0</p>
-                <div class="rulesOF">
+                <div class="rulesOF rules02">
                   <div class="icon-crystal"></div>
                 </div>
                 <div class="rulesED">

@@ -201,6 +201,12 @@ function repaintAll() {
 	if(!charData.hasOwnProperty('levelText')) { //remove later xxx
 		charData.levelText = "";
 	}
+	if(charData.rulesset === "of") { //remove later xxx
+		charData.rulesset = 0;
+	}
+	else if(charData.rulesset === "ed") {
+		charData.rulesset = 1;
+	}
 
 	clearTalentFactor();
 	repaintAttributes();
@@ -219,7 +225,7 @@ function repaintAll() {
 	repaintLevel();
 	repaintCustomizations();
 	repaintDescription();
-	repaintRulesSpecifics();
+	repaintRulesDisplay();
 	document.title = (charData.name + ' Character Sheet');
 	// Open first Tab on startup
 	openTabNr(0);
@@ -241,11 +247,16 @@ function repaintAttributes() {
 		$("#attrNote" + ats[i]).html(charData.attrNote[ats[i].toLowerCase()]);
 
 		let training = 0;
-		if (charData.attrTraining[ats[i].toLowerCase()] > (charData.attrRank[ats[i].toLowerCase()] * 10 + attrMaxTalent)) {
-			training = charData.attrRank[ats[i].toLowerCase()] * 10;
+		if(charData.rulesset <= 1) { //older rules with individual training
+			if (charData.attrTraining[ats[i].toLowerCase()] > ((charData.attrRank[ats[i].toLowerCase()] + 1) * 10 + attrMaxTalent)) {
+				training = (charData.attrRank[ats[i].toLowerCase()] + 1) * 10;
+			}
+			else {
+				training = charData.attrTraining[ats[i].toLowerCase()];
+			}
 		}
-		else {
-			training = charData.attrTraining[ats[i].toLowerCase()];
+		else { //new rules with rank based training
+			training = 5 * charData.attrRank[ats[i].toLowerCase()];
 		}
 		attrTotal[ats[i].toLowerCase()] =
 			Number(charData.attrFolk[ats[i].toLowerCase()]) +
@@ -296,10 +307,18 @@ function repaintSkills() {
 	let allSkills = ``;
 	for (let i in charData.skills) {
 		let asterisk = () => { if (charData.skills[i].mod > 0) { return "*"; } else { return ""; } };
+		let expertise = () => {
+			if(charData.rulesset <= 1) { //older rules with individual expertise
+				return Number(charData.skills[i].expertise) + Number(charData.skills[i].mod);
+			}
+			else { //newer rank based expertise
+				return (charData.skills[i].rank - 1) * 10;
+			}
+		}
 		allSkills += `
 			<div class="entry-wrapper skill-grid roboto-300" onclick="openSkillPanel(${i})">
 				<p>${charData.skills[i].name}</p>
-				<p class="text-middle">+${Number(charData.skills[i].expertise) + Number(charData.skills[i].mod)}${asterisk()/*maybe not? xxx*/}</p>
+				<p class="text-middle">+${expertise()}${asterisk()/*maybe not? xxx*/}</p>
 				<p class="text-middle">${charData.skills[i].rank}</p>
 				<p class="text-middle small-text">${charData.skills[i].attributes}</p>
 			</div>
@@ -696,16 +715,25 @@ function repaintLevel() {
 	let currentPPscore = 0;
 	let currentMSPscore = 0;
 	for (let i in charData.skills) {
-		currentSPscore += Number(charData.skills[i].basecost);
 		for (let rc = charData.skills[i].rank; rc > 1; rc--) {
 			currentSPscore += Number(rc);
 		}
+		currentSPscore += Number(charData.skills[i].basecost);
 		currentPPscore += Number(Math.floor(charData.skills[i].expertise / 2));
 		if (charData.skills[i].rank >= 4) { currentMSPscore++; }
 	}
 	for (let attr in charData.attrRank) {
-		for (let rc = charData.attrRank[attr]; rc > 1; rc--) {
-			currentSPscore += Number(rc);
+		if(charData.rulesset <= 1) { //older system
+			for (let rc = charData.attrRank[attr]; rc > 0; rc--) {
+				currentSPscore += Number(rc) + 1;
+			}
+		}
+		else { //newer rank distribution
+			for (let rc = charData.attrRank[attr]; rc > 0; rc--) {
+				if(rc > 4) currentSPscore += 4;
+				else if(rc == 3 || rc == 4) currentSPscore += 3;
+				else currentSPscore += 2;
+			}
 		}
 		currentPPscore += Number(charData.attrTraining[attr]);
 		if (charData.attrRank[attr] >= 4) { currentMSPscore++; }
@@ -825,18 +853,27 @@ function fillEditables() {
 	document.getElementById("PowersTextArea").dispatchEvent(event);
 }
 //#region repaint rules
-function repaintRulesSpecifics() {
-	var contentOF, contentED;
-	let moneys = ``, conversions = ``, hitzones = ``;
-	contentOF = document.getElementsByClassName("rulesOF");
-	contentED = document.getElementsByClassName("rulesED");
-
-	if(charData.rulesset === "of") {
-		for (let i = 0; i < contentOF.length; i++) {
-			contentOF[i].style.display = "block";
-			contentED[i].style.display = "none";
+function repaintRulesDisplay() {
+	var setCollection = [
+		$(".rulesOF"), //"Official" Rules = 0
+		$(".rulesED"), //Enthrone Darkness = 1
+		$(".rules02") //Werkstatt = 2
+	];
+	for(let i in setCollection) {
+		setCollection[i].hide(); //disable all first, to prevent later removal
+	}
+	for(let i in setCollection) {
+		if(i == charData.rulesset) {
+			setCollection[i].show(); //show = block. flex elements need to reapply style="display:flex;"
 		}
+	}
 
+	repaintRulesSpecifics();
+}
+function repaintRulesSpecifics() {
+	let moneys = ``, conversions = ``, hitzones = ``;
+
+	if(charData.rulesset === 0 || charData.rulesset === 2) {
 		//Money
 		for (let i in charData.money) {
 			let thisMoney = charData.money[i];
@@ -879,14 +916,8 @@ function repaintRulesSpecifics() {
 			`;
 		}
 		hitzones += `<button onclick="addHitzone()" class="grid-span-3 in-panel-btn">+ Trefferzone</button>`;
-		//Talents if(talentPanel.diplay != none) openPanelPage(talentPanelPage);
-		//Homebrew Link einfügen
 	}
-	else if(charData.rulesset === "ed") {
-		for (let i = 0; i < contentOF.length; i++) {
-			contentOF[i].style.display = "none";
-			contentED[i].style.display = "block";
-		}
+	else if(charData.rulesset === 1) {
 		//Money
 		for (let i = 1; charData.money.length < 4; i++) {
 			charData.money.push({
@@ -926,17 +957,17 @@ function repaintRulesSpecifics() {
 }
 function calculateMoney() {
 	let total = 0;
-	if(charData.rulesset === "of") {
-		for (let i in charData.money) {
-			let thisMoney = charData.money[i];
-			total += Math.floor(thisMoney.amount * thisMoney.conversion);
-		}
-	}
-	else if(charData.rulesset === "ed") {
+	if(charData.rulesset === "ed") {
 		let facts = [144, 12, 1, (1/12)]; //ED specific
 		for (let i = 0; i < 4; i++) {
 			let thisMoney = charData.money[i];
 			total += Math.floor(thisMoney.amount * facts[i]);
+		}
+	}
+	else {
+		for (let i in charData.money) {
+			let thisMoney = charData.money[i];
+			total += Math.floor(thisMoney.amount * thisMoney.conversion);
 		}
 	}
 	$("#moneyTotal").text(total);

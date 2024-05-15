@@ -462,8 +462,9 @@ input {
 }
 .name-container {
   font-size: 2em;
+  font-family: "Ubuntu", sans-serif;
 }
-.name-container p {
+.name-container * {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;

@@ -1,7 +1,7 @@
 [
     {
         "name": "Abhärtung [Physisches Element]",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "+10 gegen Schaden und Tests des Elements.",
@@ -10,7 +10,7 @@
     },
     {
         "name": "Abhärtung [Mentaler Einfluss]",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "+10 gegen Schaden und Tests des Einflusses.",
@@ -19,7 +19,7 @@
     },
     {
         "name": "Aufspringen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "Aufstehen -1 Aktionsstufe.",
@@ -28,7 +28,7 @@
     },
     {
         "name": "Beidhändigkeit",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["str", "acc", "agi", "all"],
         "shorttext": "+10 gegen Abzüge der Nebenhand.",
@@ -37,7 +37,7 @@
     },
     {
         "name": "Bereitschaft",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["per", "int", "all"],
         "shorttext": "Initiative +10",
@@ -46,7 +46,7 @@
     },
     {
         "name": "Beschützer",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+20 beim Blocken für andere.",
@@ -55,7 +55,7 @@
     },
     {
         "name": "Beschützer (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [1, 0, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+10 beim Blocken für andere.",
@@ -64,7 +64,7 @@
     },
     {
         "name": "Bewegen in Rüstung",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 2, 0, 0],
         "attributes": ["str", "agi", "all"],
         "shorttext": "Verringert GW Abzug durch Rüstung um 10.",
@@ -73,7 +73,7 @@
     },
     {
         "name": "Bewegen in Rüstung (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 1, 2, 0, 0],
         "attributes": ["str", "agi", "all"],
         "shorttext": "Verringert Rüstungsabzug um 10.",
@@ -82,7 +82,7 @@
     },
     {
         "name": "Blind feuern",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["per", "all"],
         "shorttext": "+10 gegen Abzüge beim Angriff um die Ecke.",
@@ -91,7 +91,7 @@
     },
     {
         "name": "Blitzklinge",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+10 hastige Attacken und schneidende Attacken gegen Ausweichen.",
@@ -100,7 +100,7 @@
     },
     {
         "name": "Brillianz",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["int", "wil", "all"],
         "shorttext": "ZBon(IN) +10.",
@@ -109,7 +109,7 @@
     },
     {
         "name": "Dicke Haut",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["con", "all"],
         "shorttext": "+10 Rüstung",
@@ -118,7 +118,7 @@
     },
     {
         "name": "Durchhalten",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "-50 LP/mLP bis kampfunfähig.",
@@ -127,7 +127,7 @@
     },
     {
         "name": "Dynamische Verteidigung",
-        "rules": ["no"],
+        "rules": [-1],
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "Extra Verteidigung für 4FP + 4AP.",
@@ -136,7 +136,7 @@
     },
     {
         "name": "Ehrgeiz",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["all", "all"],
         "shorttext": "+1 Meisterschaftspunkt",
@@ -145,7 +145,7 @@
     },
     {
         "name": "Entrinnen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+10 gegen Flächenangriffe und Ausweichen von schlangenden Attacken.",
@@ -154,7 +154,7 @@
     },
     {
         "name": "Erholung",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "Doppelte LP Regeneration.",
@@ -163,7 +163,7 @@
     },
     {
         "name": "Ermutigende Präsenz",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["exp", "all"],
         "shorttext": "+10 Mut und Entschlossenheit für Verbündete.",
@@ -172,7 +172,7 @@
     },
     {
         "name": "Fahrzeugprofi",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+10 auf alle Fahrzeug-Fertigkeiten.",
@@ -181,7 +181,7 @@
     },
     {
         "name": "Fernschütze",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["acc", "per", "all"],
         "shorttext": "+20 gegen Reichweitenabzug.",
@@ -190,7 +190,7 @@
     },
     {
         "name": "Freimachen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "-1 Aktionsstufe beim Lösen.",
@@ -199,7 +199,7 @@
     },
     {
         "name": "Geschärfter Fokus",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "wil", "all"],
         "shorttext": "ZBon(PR) +10.",
@@ -208,7 +208,7 @@
     },
     {
         "name": "Gerüsteter Marsch",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 2, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "Verringert BEW durch Rüstung.",
@@ -217,7 +217,7 @@
     },
     {
         "name": "Gerüsteter Marsch (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 2, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "Verringert BEW durch Rüstung und Schlide.",
@@ -226,7 +226,7 @@
     },
     {
         "name": "Gewissheit",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "+20 vor einem Test.",
@@ -235,7 +235,7 @@
     },
     {
         "name": "Glück",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "Wiederhole einen Test.",
@@ -244,7 +244,7 @@
     },
     {
         "name": "Heldenarme",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 0, 0, 1],
         "attributes": ["str", "all"],
         "shorttext": "+20 einhändig mit Zeihandwaffe.",
@@ -253,7 +253,7 @@
     },
     {
         "name": "Hervorrufung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["wil", "int", "all"],
         "shorttext": "ZBon(WK) +10.",
@@ -262,7 +262,7 @@
     },
     {
         "name": "Improvisation",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+20 gegen Abzug ungelernter Fertigkeiten.",
@@ -271,7 +271,7 @@
     },
     {
         "name": "Improvisation (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+15 gegen Abzug ungelernter Fertigkeiten.",
@@ -280,7 +280,7 @@
     },
     {
         "name": "Integrität",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "mLP Maximum +40/60.",
@@ -289,7 +289,7 @@
     },
     {
         "name": "Kampf mit zwei Waffen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 2, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "-10 Teffer-Abzug mit meherern Händen",
@@ -298,7 +298,7 @@
     },
     {
         "name": "Kraftüberladung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["all"],
         "shorttext": "+1 die gleiche Ultimate nutzen.",
@@ -307,7 +307,7 @@
     },
     {
         "name": "Kraftreserve",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "AP Maximum +10.",
@@ -316,7 +316,7 @@
     },
     {
         "name": "Kritisches Auge",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "per", "all"],
         "shorttext": "Kritische Ziffer +1.",
@@ -325,7 +325,7 @@
     },
     {
         "name": "Läufer",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [1, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "Erhöht volle Bewegung.",
@@ -334,7 +334,7 @@
     },
     {
         "name": "Lebensfunke",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["con", "wil", "all"],
         "shorttext": "ZBon(KO) +10.",
@@ -343,7 +343,7 @@
     },
     {
         "name": "Legendärer Erschaffer",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 0, 1, 0],
         "attributes": ["acc", "int", "all"],
         "shorttext": "Maximale Qualität: Legendär.",
@@ -352,7 +352,7 @@
     },
     {
         "name": "Leichter Schlaf",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["per", "all"],
         "shorttext": "+20 gegen Abzug durch Schlaf.",
@@ -361,7 +361,7 @@
     },
     {
         "name": "Lexikon",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+10 Wissen und Allgemeinbildung.",
@@ -370,7 +370,7 @@
     },
     {
         "name": "Machtarsenal",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "+1 andere Ultimate nutzen.",
@@ -379,7 +379,7 @@
     },
     {
         "name": "Mächtiger Schlag",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["str", "acc", "agi", "all"],
         "shorttext": "+10 Nahkampfschaden.",
@@ -388,7 +388,7 @@
     },
     {
         "name": "Mächtiger Schlag (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["str", "acc", "agi", "all"],
         "shorttext": "+10 Nahkampfschaden.",
@@ -397,7 +397,7 @@
     },
     {
         "name": "Machtladung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "FP Maximum +10.",
@@ -406,7 +406,7 @@
     },
     {
         "name": "Machtvolle Ausstrahlung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["exp", "wil", "all"],
         "shorttext": "ZBon(AU) +10.",
@@ -415,7 +415,7 @@
     },
     {
         "name": "Magiestrom",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "wil", "all"],
         "shorttext": "ZBon(GW) +10.",
@@ -424,7 +424,7 @@
     },
     {
         "name": "Magiestudium",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "Magie-Fertigkeiten +10.",
@@ -433,7 +433,7 @@
     },
     {
         "name": "Mentale Stabilität",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["int", "wil", "all"],
         "shorttext": "+10 mentale Rüstung.",
@@ -442,7 +442,7 @@
     },
     {
         "name": "Mobilität",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [1, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "Erhöht schnelle Bewegung.",
@@ -451,7 +451,7 @@
     },
     {
         "name": "Mobilität (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "Erhöht BEW um 1.",
@@ -460,7 +460,7 @@
     },
     {
         "name": "Opportunist",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "+10 auf Gelegenheitsangriffe und stoßende Attacken gegen Parieren.",
@@ -469,7 +469,7 @@
     },
     {
         "name": "Optimierung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "Trainingsmaximum aller Attribute +5.",
@@ -478,7 +478,7 @@
     },
     {
         "name": "Packesel",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["str", "con", "all"],
         "shorttext": "+10 gegen Abzüge durch Traglast.",
@@ -487,7 +487,7 @@
     },
     {
         "name": "Perfektion [Hauptattribut oder Fertigkeit]",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 1, 1, 0],
         "attributes": ["all"],
         "shorttext": "Ermöglicht Großmeistergrad freizuschalten.",
@@ -496,7 +496,7 @@
     },
     {
         "name": "Resolute Abwehr",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "+10 gegen volle Angriffe und Parieren gegen schneidende Attacken.",
@@ -505,7 +505,7 @@
     },
     {
         "name": "Robustheit",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["str", "con", "all"],
         "shorttext": "VwS +10.",
@@ -514,7 +514,7 @@
     },
     {
         "name": "Rohe Kraft",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "wil", "all"],
         "shorttext": "ZBon(ST) +10.",
@@ -523,7 +523,7 @@
     },
     {
         "name": "Rundumabwehr",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "per", "all"],
         "shorttext": "+10/20 gegen Angriffe aus der Flanke/Rücken.",
@@ -532,7 +532,7 @@
     },
     {
         "name": "Schicksalsmacht",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "Sicherer Erfolg bei 01 bis 05.",
@@ -541,7 +541,7 @@
     },
     {
         "name": "Schnelles Nachladen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "-1 Aktionsstufe beim Nachladen.",
@@ -550,7 +550,7 @@
     },
     {
         "name": "Schnell ziehen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "Freie Aktion zum Waffe ziehen/wegstecken.",
@@ -559,7 +559,7 @@
     },
     {
         "name": "Sorgfältige Vorbereitung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "+10 maximale Vorbereitung.",
@@ -568,7 +568,7 @@
     },
     {
         "name": "Starke Nerven",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 1, 0],
         "attributes": ["wil", "all"],
         "shorttext": "TrS +10.",
@@ -577,7 +577,7 @@
     },
     {
         "name": "Tägliche Exzellenz",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["all"],
         "shorttext": "+10 auf ein/zwei Attribute pro Spielrunde.",
@@ -586,7 +586,7 @@
     },
     {
         "name": "Tiefes Bewusstsein",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["per", "wil", "all"],
         "shorttext": "ZBon(WA) +10.",
@@ -595,7 +595,7 @@
     },
     {
         "name": "Überwältigen",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 Sturmangriffe und schlagende Angriffe gegen Blocken.",
@@ -604,7 +604,7 @@
     },
     {
         "name": "Überwindung",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "Doppelte mLP Regeneration.",
@@ -613,7 +613,7 @@
     },
     {
         "name": "Umgang [Personengruppe]",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 0, 0, 0, 0],
         "attributes": ["exp", "all"],
         "shorttext": "+10 AU gegen Personengruppe.",
@@ -622,7 +622,7 @@
     },
     {
         "name": "Unvorhersehbare Bewegung",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+10 gegen Angriffe von Automaten.",
@@ -631,7 +631,7 @@
     },
     {
         "name": "Verheeren",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["str", "acc", "all"],
         "shorttext": "+50 maximaler kritischer Schaden.",
@@ -640,7 +640,7 @@
     },
     {
         "name": "Verheeren (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 0, 1, 1, 0],
         "attributes": ["str", "acc", "all"],
         "shorttext": "Verdoppelt den variablen kritischen Schaden.",
@@ -649,7 +649,7 @@
     },
     {
         "name": "Vielseitiges Handwerk",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [1, 1, 0, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "Alle Handwerksfertigkeiten +5.",
@@ -658,7 +658,7 @@
     },
     {
         "name": "Vitalität",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["con", "all"],
         "shorttext": "+40/60 LP Maximum.",
@@ -667,7 +667,7 @@
     },
     {
         "name": "Waffenmeister",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["int", "all"],
         "shorttext": "Alle Waffenfertigkeiten +10.",
@@ -676,7 +676,7 @@
     },
     {
         "name": "Waffenmeister ED",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 0, 0, 1, 0],
         "attributes": ["int", "all"],
         "shorttext": "Alle Waffenfertigkeiten +10.",
@@ -685,7 +685,7 @@
     },
     {
         "name": "Wendigkeit",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["agi", "all"],
         "shorttext": "+20 gegen Gelegenheitsangriffe.",
@@ -694,7 +694,7 @@
     },
     {
         "name": "Wendung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 1, 0, 0, 0],
         "attributes": ["all"],
         "shorttext": "+10 nach einem Test.",
@@ -703,7 +703,7 @@
     },
     {
         "name": "Wirbelsturm",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 1],
         "attributes": ["agi", "all"],
         "shorttext": "Mehr Attacken pro Angriff.",
@@ -712,7 +712,7 @@
     },
     {
         "name": "Zaubermacht",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "Alle ZBon Werte +10.",
@@ -721,7 +721,7 @@
     },
     {
         "name": "Zaubermacht (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 0, 2, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "Alle ZBon Werte +10.",
@@ -730,7 +730,7 @@
     },
     {
         "name": "Zaubern in Rüstung",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 2, 0, 0],
         "attributes": ["wil", "all"],
         "shorttext": "-10 ZBon Abzug durch Rüstung.",
@@ -739,7 +739,7 @@
     },
     {
         "name": "Zielgenauigkeit",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["acc", "per", "all"],
         "shorttext": "-20 gegen Abzüge durch Zielen auf Körperteile.",
@@ -748,7 +748,7 @@
     },
     {
         "name": "Zielmarkierung",
-        "rules": ["of", "ed"],
+        "rules": [0, 1],
         "ranks": [0, 0, 1, 0, 0],
         "attributes": ["acc", "all"],
         "shorttext": "-20 gegen Abzug durch Schießen in den Nahkampf.",
@@ -757,7 +757,7 @@
     },
     {
         "name": "Zonenschutz",
-        "rules": ["of"],
+        "rules": [0],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 gegen gezielte Attacken und Blocken gegen stoßende Attacken.",
@@ -766,7 +766,7 @@
     },
     {
         "name": "Zonenschutz (ED)",
-        "rules": ["ed"],
+        "rules": [1],
         "ranks": [0, 1, 1, 0, 0],
         "attributes": ["str", "all"],
         "shorttext": "+10 gegen Attacken im Rücken und Blocken gegen stoßende Attacken.",
