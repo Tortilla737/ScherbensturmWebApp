@@ -48,7 +48,8 @@ Der Scherbensturm Charakterbogen als Webapp.
 
 ### Regeln umschalten
 - Im Menü kann zwischen Regelvarianten hin und her gewechselt werden.
-- Damit ändert sich zur Zeit: Die verfügbaren Talente, die Währung und Trefferzonen bzw. Rüstung.
+- "Enthrone Darkness" ändert damit die verfügbaren Talente, die Währung und Trefferzonen bzw. Rüstung.
+- "Werkstatt" ändert damit den Umgang mit Training, Expertise und Graden.
 
 ### Zur Sicherheit
 - Auch wenn ich bereits viel gestestet habe, rechne ich damit, dass Fehler auftreten.
