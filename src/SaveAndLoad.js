@@ -727,6 +727,7 @@ function repaintLevel() {
 			for (let rc = charData.attrRank[attr]; rc > 0; rc--) {
 				currentSPscore += Number(rc) + 1;
 			}
+			if (charData.attrRank[attr] >= 3) { currentMSPscore++; }
 		}
 		else { //newer rank distribution
 			for (let rc = charData.attrRank[attr]; rc > 0; rc--) {
@@ -736,7 +737,6 @@ function repaintLevel() {
 			}
 		}
 		currentPPscore += Number(charData.attrTraining[attr]);
-		if (charData.attrRank[attr] >= 4) { currentMSPscore++; }
 	}
 	for (let i in charData.powers) {
 		currentSPscore += Number(charData.powers[i].rank);
