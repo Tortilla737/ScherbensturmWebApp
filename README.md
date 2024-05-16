@@ -7,8 +7,8 @@ Der Scherbensturm Charakterbogen als Webapp.
 **[Zur Anwendung](https://tortilla737.github.io/ScherbensturmWebApp/).**
 
 ### Datei Speichern
-- Die Seite speichert den aktuellen Bogen automatisch im Browser-Cashe.
-- Manuelles Speichern über das Menü, lädt den Bogen als Datei herunter.
+- Die App speichert den aktuellen Bogen automatisch im Browser-Cache.
+- Manuelles Speichern über das Menü lädt den Bogen als Datei herunter.
   - Auf diese Art kann man mehrere Charakterbögen speichern und teilen (z.b. über Dropbox).
 
 ### Einträge verändern

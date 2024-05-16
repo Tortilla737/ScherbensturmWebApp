@@ -5,10 +5,10 @@ function editText(e, t) {
   var $fieldID = t.firstElementChild.id;
   
   if(!isNaN($el.text())) { //if the content is a number we use the number input
-    var $input = $('<input onclick="event.stopPropagation();" class="num-input" type="numeric"/>').val('');
+    var $input = $(`<input id="${$fieldID}" onclick="event.stopPropagation();" class="num-input" type="numeric"/>`).val('');
   }
   else {
-    var $input = $('<input onclick="event.stopPropagation();" class="text-input"/>').val( $el.text() );
+    var $input = $(`<input id="${$fieldID}" onclick="event.stopPropagation();" class="text-input"/>`).val( $el.text() );
   }
   $el.replaceWith( $input );
     
