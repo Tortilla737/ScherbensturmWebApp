@@ -1,4 +1,4 @@
-//#region edit text
+//#region input text value
 function editText(e, t) {
   e.stopPropagation();
   var $el = $(t.firstElementChild);
@@ -12,7 +12,7 @@ function editText(e, t) {
   }
   $el.replaceWith( $input );
     
-  var save = function(){
+  var save = function() {
     if(($input.val().startsWith('-') || $input.val().startsWith('+')) && !isNaN($input.val())) {
       var $p = $('<p id="'+$fieldID+'"/>').text( Number($input.val()) + Number($el.text()));
     }
@@ -29,17 +29,25 @@ function editText(e, t) {
   };
 
   $input.on('keyup', function (e) {
-    if (e.key === 'Enter' || e.keyCode === 13) {
+    if(e.key === 'Enter' || e.keyCode === 13) {
+      save();
+    }
+  });
+  $input.on('keydown', function (e) {
+    if(e.keyCode === 9) {
       save();
     }
   });
 
   $input.one('blur', save).focus();
-    
 }
 
+$(".editable-num-div").focus(function(e) {
+  editText(e, this);
+});
+
 //zu repaint hinzufügen xxx
-function resizeToFit(elem) {
+function resizeToFit(elem) { //broken recursion
   var fontsize = parseFloat(elem.css('font-size'));
 
   if(fontsize > threshold) {

@@ -19,7 +19,7 @@
     "faith": "",
     "money": [{"name": "Goldstücke", "amount": 0, "conversion": 1}],
     "hitzones": [{"name": "Kopf", "value": "01-10"}, {"name": "Rumpf", "value": "11-50"}, {"name": "Linker Arm", "value": "51-62"}, {"name": "Rechter Arm", "value": "63-74"}, {"name": "Linkes Bein", "value": "75-87"}, {"name": "Rechtes Bein", "value": "88-100"}],
-    "personality": "### Persönlichkeit\n### Erscheinung\n###Besonderheiten\n### Werdegang",
+    "personality": "### Persönlichkeit\n### Erscheinung\n### Besonderheiten\n### Werdegang",
     "attrFolk": {"str": 20, "con": 20, "acc": 20, "agi": 20, "per": 20, "wil": 20, "int": 20, "exp": 20},
     "attrPotential": {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0},
     "attrTraining": {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0},

@@ -371,10 +371,10 @@ function repaintTalents() {
 					<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
 					<div class="small-text">${thisT.shorttext}</div>
 				</div>
-				<div class="info-beneath" onclick="event.stopPropagation()">
+				<div class="info-beneath" onclick="event.stopPropagation();">
 					<div class="horizontal-container">
 						<p>Details:</p>
-						<button onclick="openDeleteModal('deleteTalent(${i})')"><div class="icon-trash"></div></button>
+						<button onclick="openDeleteModal('deleteTalent(${i})');"><div class="icon-trash"></div></button>
 					</div>
 					<div>${fullTextConvert(thisT.longtext)}</div>
 				</div>

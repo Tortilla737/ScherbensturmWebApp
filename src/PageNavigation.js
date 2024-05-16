@@ -125,8 +125,23 @@ $(document).ready(function () {
   });
 });
 */
+//#region keys
+var pressedKeys = {};
+window.onkeydown = function (e) {
+  pressedKeys[e.keyCode] = true;
+  if (e.shiftKey) {pressedKeys['shift'] = true;}
+  if (e.altKey) {pressedKeys['alt'] = true;}
+  if (e.ctrlKey) {pressedKeys['ctrl'] = true;}
+}
+window.onkeyup = function (e) {
+  pressedKeys[e.keyCode] = false;
+  if (e.keyCode == 16) {pressedKeys['shift'] = false;}
+  if (e.keyCode == 18) {pressedKeys['alt'] = false;}
+  if (e.keyCode == 17) {pressedKeys['ctrl'] = false;}
+}
 
 //------------panel page content management--------------
+//#region panels
 let entryIndex = 0;
 function getEntryIndex() {
   return entryIndex;
@@ -188,7 +203,7 @@ function openTalentPanel(){
   allTalents = "";
   for(let i in talentData) {
     rankContent = "";
-    addButton = `<button onclick="addNewTalent(${i})">+</button>`;
+    addButton = `<button onclick="addNewTalent(${i}); event.stopPropagation();">+</button>`;
     for(let t = 0; t<5; t++) {
       if(talentData[i].ranks[t] == 1) {
         rankContent += `<p>&#9671</p>`;
@@ -239,7 +254,12 @@ function addNewTalent(indexN) {
     "longtext": newT.longtext
   });
   repaintTalents();
-  openNav(2, true); //maybe keep open, to add more talents?
+  if(!pressedKeys.shift) {
+    openNav(2, true); //press shift to add more talents
+  }
+  else {
+    openTalentPanel();
+  }
   document.getElementById('scrollTalent'+newT.name).scrollIntoView({
     behavior: 'auto',
     block: 'center',

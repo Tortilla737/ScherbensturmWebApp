@@ -160,28 +160,28 @@
         <h2 class="panel-h2">Stärke</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkStr">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialStr">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingStr">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankStr">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModStr">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -204,28 +204,28 @@
         <h2 class="panel-h2">Konstitution</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkCon">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialCon">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingCon">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankCon">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModCon">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -248,28 +248,28 @@
         <h2 class="panel-h2">Präzision</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkAcc">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialAcc">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingAcc">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankAcc">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModAcc">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -292,28 +292,28 @@
         <h2 class="panel-h2">Gewandtheit</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkAgi">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialAgi">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingAgi">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankAgi">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModAgi">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -336,28 +336,28 @@
         <h2 class="panel-h2">Wahrnehmung</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkPer">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialPer">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingPer">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankPer">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModPer">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -380,28 +380,28 @@
         <h2 class="panel-h2">Ausdruck</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkExp">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialExp">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingExp">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankExp">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModExp">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -424,28 +424,28 @@
         <h2 class="panel-h2">Intelligenz</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkInt">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialInt">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingInt">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankInt">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModInt">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -468,28 +468,28 @@
         <h2 class="panel-h2">Willenskraft</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
             <p id="attrFolkWil">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
             <p id="attrPotentialWil">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
             <p id="attrTrainingWil">0</p>
           </div>
           <p>Grad:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
             <p id="attrRankWil">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
             <p id="attrModWil">0</p>
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();"></textarea>
+        <textarea id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -630,49 +630,49 @@
       <div id="skillPanelPage" class="panel-content">
         <h2 class="panel-h2">Fertigkeit:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
             <p id="genIDskillname"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p class="rulesOF rulesED">Expertise:</p>
-            <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)">
+            <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="2">
               <p id="genIDskillexpertise"></p>
             </div>
             <p>Kosten zum Erlernen:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
               <p id="genIDskillbasecost"></p>
             </div>
             <p>Grad:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
               <p id="genIDskillrank"></p>
             </div>
             <p>Zugehörige Attribute:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
               <p id="genIDskillattributes"></p>
             </div>
             <p>Bonus/ Modifikatoren:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="6">
               <p id="genIDskillmod"></p>
             </div>
             <div class="grid-span-2">
               <p>Beschreibung:</p>
             </div>
           </div>
-          <textarea id="genIDskilltext"></textarea>
+          <textarea id="genIDskilltext" tabindex="7"></textarea>
           <hr class="hr-width">
           <div class="horizontal-container big-text">
-            <button class="in-panel-btn savebtn" onclick="saveSkill(getEntryIndex())">Speichern</button>
+            <button class="in-panel-btn savebtn" onclick="saveSkill(getEntryIndex())" tabindex="8">Speichern</button>
             <button class="in-panel-btn" onclick="openDeleteModal('deleteSkill(getEntryIndex())')">Löschen</button>
           </div>
           <div class="vertical-spacing" style="margin-bottom: 50px;"></div>
-          <div class="rulesOF rulesED">
+          <div class="rulesOF rulesED" style="width: 100%;">
             <p class="small-text dim-text">Grad 1: Novizengrad, 10 Expertisemaximum, +0 SP</p>
             <p class="small-text dim-text">Grad 2: Gesellengrad, 20 Expertisemaximum, +2 SP</p>
             <p class="small-text dim-text">Grad 3: Expertengrad, 30 Expertisemaximum, +3 SP</p>
             <p class="small-text dim-text">Grad 4: Meistergrad, 40 Expertisemaximum, +4 SP, +1 MsP</p>
           </div>
-          <div class="rules02">
+          <div class="rules02" style="width: 100%;">
             <p class="small-text dim-text">Grad 1: Novizengrad, 0 Expertise, +0 SP</p>
             <p class="small-text dim-text">Grad 2: Gesellengrad, 10 Expertise, +2 SP</p>
             <p class="small-text dim-text">Grad 3: Expertengrad, 20 Expertise, +3 SP</p>
@@ -740,6 +740,7 @@
           <p>Suche:</p>
           <input id="searchTalents" type="text" onkeyup="filterPanelTalents();">
         </div>
+        <p class="small-text dim-text">Halte "Shift", um mehrere Talente hinzuzufügen.</p>
         <div class="vertical-spacing"></div>
         <div id="fullTalentList">
 
@@ -749,59 +750,59 @@
       <div id="powerPanelPage" class="panel-content">
         <h2 class="panel-h2">Kraft:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
             <p id="genIDpowername"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p>Art:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
               <p id="genIDpowertype"></p>
             </div>
             <p>Aktionskosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
               <p id="genIDpowertime"></p>
             </div>
             <p>Kosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
               <p id="genIDpowercost"></p>
             </div>
             <p>Rang:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
               <p id="genIDpowerrank"></p>
             </div>
             <p>Meisterschaft:</p>
             <div>
-              <input type="checkbox" id="genIDpowermastery"></input>
+              <input type="checkbox" id="genIDpowermastery" tabindex="6"></input>
             </div>
             <p>Fertigkeit/Scherbe:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="7">
               <p id="genIDpowerskill"></p>
             </div>
             <p>Trefferwert:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="8">
               <p id="genIDpowerhit"></p>
             </div>
             <p>Schadenswert:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="9">
               <p id="genIDpowerdamage"></p>
             </div>
             <p>Cooldown:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="10">
               <p id="genIDpowercooldown"></p>
             </div>
             <p>Farbe:</p>
-            <div id="colorShow" class="editable-num-div" onclick="editText(event, this)">
+            <div id="colorShow" class="editable-num-div" onclick="editText(event, this)" tabindex="11">
               <p id="genIDpowercolor"></p>
             </div>
             <p class="grid-span-2">Beschreibung:</p>
           </div>
           <div class="growing-text-wrap">
-            <textarea id="genIDpowertext" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+            <textarea id="genIDpowertext" onInput="this.parentNode.dataset.replicatedValue = this.value" tabindex="12"></textarea>
           </div>
           <hr class="hr-width">
           <div class="horizontal-container">
-            <button class="in-panel-btn savebtn" onclick="savePower(getEntryIndex())">Speichern</button>
+            <button class="in-panel-btn savebtn" onclick="savePower(getEntryIndex())" tabindex="13">Speichern</button>
             <button class="in-panel-btn" onclick="openDeleteModal('deletePower(getEntryIndex())')">Löschen</button>
           </div>
           <hr class="hr-width">
@@ -813,32 +814,32 @@
       <div id="augmentPanelPage" class="panel-content">
         <h2 class="panel-h2">Augment:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
             <p id="genIDaugmentname"></p>
           </div>
           <div class="panel-main-grid">
             <p>Kosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
               <p id="genIDaugmentcost"></p>
             </div>
             <p>Rang:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
               <p id="genIDaugmentrank"></p>
             </div>
             <p>Art:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
               <p id="genIDaugmenttype"></p>
             </div>
             <p>Meisterschaft:</p>
             <div>
-              <input type="checkbox" id="genIDaugmentmastery"></input>
+              <input type="checkbox" id="genIDaugmentmastery" tabindex="5"></input>
             </div>
             <p class="grid-span-2">Beschreibung:</p>
           </div>
-          <textarea id="genIDaugmenttext"></textarea>
+          <textarea id="genIDaugmenttext" tabindex="6"></textarea>
           <hr class="hr-width">
           <div class="horizontal-container">
-            <button class="in-panel-btn savebtn" onclick="saveAugment(getEntryIndex(), getAugmentIndex())">Speichern</button>
+            <button class="in-panel-btn savebtn" onclick="saveAugment(getEntryIndex(), getAugmentIndex())" tabindex="7">Speichern</button>
             <button class="in-panel-btn" onclick="openDeleteModal('deleteAugment(getEntryIndex(), getAugmentIndex())')">Löschen</button>
           </div>
         </div>
@@ -847,31 +848,31 @@
       <div id="inventoryPanelPage" class="panel-content">
         <h2 class="panel-h2">Item:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
             <p id="genIDitemname"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p>Kurzbeschreibung:</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
               <p id="genIDitemshorttext"></p>
             </div>
             <p>Gewicht (pro Stück):</p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
               <p id="genIDitemweight"></p>
             </div>
             <p>Anzahl:</p>
             <div class="horizontal-container big-text">
               <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count--; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">-</button>
-              <div class="editable-num-div stretchy text-middle" onclick="editText(event, this)">
+              <div class="editable-num-div stretchy text-middle" onclick="editText(event, this)" tabindex="4">
                 <p id="genIDitemcount">0</p>
               </div>
               <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count++; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">+</button>
             </div>
             <p>Tasche wechseln:</p>
-            <select id="newBagChoice"></select>
+            <select id="newBagChoice" tabindex="5"></select>
             <p>Art:</p>
-            <select id="genIDitemtype" onchange="showItemExtra();">
+            <select id="genIDitemtype" onchange="showItemExtra();" tabindex="6">
               <option value="item">Gegenstand</option>
               <option value="armor">Rüstung</option>
               <option value="weapon">Waffe</option>
@@ -880,11 +881,11 @@
           <div id="weapon-extra" style="width: 100%;">
             <div class="panel-main-grid">
               <p>Waffenschaden:</p>
-              <div class="editable-num-div" onclick="editText(event, this)">
+              <div class="editable-num-div" onclick="editText(event, this)" tabindex="7">
                 <p id="genIDitemdamage"></p>
               </div>
               <p>Trefferwert:</p>
-              <div class="editable-num-div" onclick="editText(event, this)">
+              <div class="editable-num-div" onclick="editText(event, this)" tabindex="8">
                 <p id="genIDitemhit"></p>
               </div>
             </div>
@@ -892,7 +893,7 @@
           <div id="armor-extra" style="width: 100%;">
             <div class="panel-main-grid">
               <p>Rüstungswert:</p>
-              <div class="editable-num-div" onclick="editText(event, this)">
+              <div class="editable-num-div" onclick="editText(event, this)" tabindex="9">
                 <p id="genIDitemarmor"></p>
               </div>
             </div>
@@ -900,15 +901,15 @@
           <hr class="hr-width">
           <div id="itemFeaturesContainer" class="features-grid"></div>
           <div class="vertical-spacing"></div>
-          <button class="in-panel-btn" onclick="addItemFeature(getEntryIndex(), getAugmentIndex());">Eigenschaft hinzufügen +</button>
+          <button class="in-panel-btn" onclick="addItemFeature(getEntryIndex(), getAugmentIndex());" tabindex="10">Eigenschaft hinzufügen +</button>
           <hr class="hr-width">
           <div class="features-grid"><p>Beschreibung:</p></div>
           <div class="growing-text-wrap">
-            <textarea id="genIDitemlongtext" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+            <textarea id="genIDitemlongtext" onInput="this.parentNode.dataset.replicatedValue = this.value" tabindex="11"></textarea>
           </div>
           <div class="vertical-spacing"></div>
           <div class="horizontal-container">
-            <button class="in-panel-btn savebtn" onclick="saveItem(getEntryIndex(), getAugmentIndex());">Speichern</button>
+            <button class="in-panel-btn savebtn" onclick="saveItem(getEntryIndex(), getAugmentIndex());" tabindex="12">Speichern</button>
             <button class="in-panel-btn" onclick="openDeleteModal('deleteItem(getEntryIndex(), getAugmentIndex())');">Löschen</button>
           </div>
           <div class="vertical-spacing"></div>
