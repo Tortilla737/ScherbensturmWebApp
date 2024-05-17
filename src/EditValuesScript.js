@@ -3,6 +3,8 @@ function editText(e, t) {
   e.stopPropagation();
   var $el = $(t.firstElementChild);
   var $fieldID = t.firstElementChild.id;
+  var parentTabID = t.tabIndex;
+  t.tabIndex = -1; // to enable "shift+tab" navigation
   
   if(!isNaN($el.text())) { //if the content is a number we use the number input
     var $input = $(`<input id="${$fieldID}" onclick="event.stopPropagation();" class="num-input" type="numeric"/>`).val('');
@@ -25,6 +27,9 @@ function editText(e, t) {
     
     $input.replaceWith( $p );
     processInput($fieldID);
+    setTimeout(function() {
+      t.tabIndex = parentTabID;
+		}, 2);
     //resizeToFit($("#"+ $fieldID));
   };
 
@@ -34,7 +39,7 @@ function editText(e, t) {
     }
   });
   $input.on('keydown', function (e) {
-    if(e.keyCode === 9) {
+    if(e.key === 'Tab' || e.keyCode === 9) {
       save();
     }
   });
@@ -42,6 +47,9 @@ function editText(e, t) {
   $input.one('blur', save).focus();
 }
 
+$(".editable-num-div").click(function(e) {
+  editText(e, this);
+});
 $(".editable-num-div").focus(function(e) {
   editText(e, this);
 });
@@ -68,6 +76,38 @@ function isChecked(checkbox) {
   }
   else {
     return "";
+  }
+}
+//#region recover ressources
+$("#restPrompt").hide();
+function replenishRessouces() {
+  var maxHP = Number(charData.HPmaxMod) + (4 * attrTotal.con) + hpTalent - charData.exhaustion;
+  var maxMH = Number(charData.MHmaxMod) + (4 * attrTotal.wil) + mhTalent - charData.fatigue;
+  var maxEP = Number(charData.EPmaxMod) + epTalent + attrTotal.con;
+  var maxFP = Number(charData.FPmaxMod) + fpTalent + attrTotal.wil;
+  if(getCharData().rulesset == 1) {
+    charData.HPcurrent = maxHP;
+    charData.MHcurrent = maxMH;
+    charData.EPcurrent = maxEP;
+    charData.FPcurrent = maxFP;
+    repaintSecondaries();
+  }
+  else {
+    $("#restPrompt").show(150);
+    $("#restHours").text(1);
+    $("#restSituation").prop('checked', false);
+    $("#restButtonConfirm").click(function () {
+      var situationFactor = $("#restSituation").is(":checked") ? 2 : 1;
+      var healedHP = checkNumInput($("#restHP").text()) * checkNumInput($("#restHours").text()) * situationFactor * hpRegenTalent;
+      var healedMH = checkNumInput($("#restMH").text()) * checkNumInput($("#restHours").text()) * situationFactor * mhRegenTalent;
+      charData.HPcurrent = Math.min(charData.HPcurrent + healedHP, maxHP);
+      charData.MHcurrent = Math.min(charData.MHcurrent + healedMH, maxMH);
+      charData.EPcurrent = maxEP;
+      charData.FPcurrent = maxFP;
+      $("#restPrompt").hide();
+      repaintSecondaries();
+      $(this).unbind("click");
+    });
   }
 }
 //#region process indiv. Input
@@ -125,6 +165,11 @@ function processInput(fieldID){
     charData.magicBonusMod[fieldID.slice(4)] = checkNumInput($("#"+fieldID).text());
     repaintPowers();
     repaintActions();
+  }
+  else if(fieldID.startsWith('customOpacity')){
+    var opacity = checkNumInput($("#"+fieldID).text());
+    charData.customOpacity = Math.min(Math.max(opacity, 0), 10) / 10;
+    repaintCustomizations();
   }
   else if(fieldID.startsWith('customColor')){
     charData.customColor = $("#"+fieldID).html();
@@ -222,9 +267,19 @@ function processInput(fieldID){
     repaintConditions();
   }
   else if(fieldID.startsWith('tired')){
-    charData.exhaustion = checkNumInput($("#tiredExhaustion").html());
-    charData.fatigue = checkNumInput($("#tiredFatigue").html());
-    saveLocalData();
+    var exhaustionBefore = charData.exhaustion;
+    var fatigueBefore = charData.fatigue;
+    var exhaustionNow = checkNumInput($("#tiredExhaustion").html());
+    var fatigueNow = checkNumInput($("#tiredFatigue").html());
+    if((exhaustionNow - exhaustionBefore) > 0) {
+      charData.HPcurrent -= (exhaustionNow - exhaustionBefore);
+    }
+    if((fatigueNow - fatigueBefore) > 0) {
+      charData.MHcurrent -= (fatigueNow - fatigueBefore);
+    }
+    charData.exhaustion = exhaustionNow;
+    charData.fatigue = fatigueNow;
+    repaintSecondaries();
   }
   else if(fieldID.startsWith('maxSaves')){
     if(checkNumInput($("#"+fieldID).html()) > 1) {
@@ -237,14 +292,6 @@ function processInput(fieldID){
     charData.maxSaves = maxSaves;
     saveLocalData();
   }
-}
-//#region replenish ressources
-function replenishRessouces() {
-  charData.HPcurrent = Number(charData.HPmaxMod) + (4 * attrTotal.con) + hpTalent - charData.exhaustion;
-  charData.MHcurrent = Number(charData.MHmaxMod) + (4 * attrTotal.wil) + mhTalent - charData.fatigue;
-  charData.EPcurrent = Number(charData.EPmaxMod) + epTalent + attrTotal.con;
-  charData.FPcurrent = Number(charData.FPmaxMod) + fpTalent + attrTotal.wil;
-  repaintSecondaries();
 }
 
 //#region markdown converter

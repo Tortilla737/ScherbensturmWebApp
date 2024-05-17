@@ -13,7 +13,7 @@ Der Scherbensturm Charakterbogen als Webapp.
 
 ### Einträge verändern
 - Bei Zahlenfeldern könnt ihr entweder direkt die Zahl eingeben, oder mit - oder + Werte abziehen bzw. addieren.
-- Wenn ein Eintrag erstellt oder verändert wurde, nicht vergessen beim Eintrag auf **Speichern** zu drücken!
+- Wenn ein Eintrag erstellt oder verändert wurde, nicht vergessen beim jeweligen Eintrag auf **Speichern** zu drücken!
 - Bereiche, die durch obskure Regeln oder unvollständige Funktionen nicht vorhanden sind, können durch manuelle Modifikatoren gelöst werden.
   - z.B. für SP, PP, Bewegung, LP-Max. etc...
   - Nutze die Notizboxen, um die Quellen der Modifikatoren festzuhalten.
@@ -52,12 +52,11 @@ Der Scherbensturm Charakterbogen als Webapp.
 - "Werkstatt" ändert damit den Umgang mit Training, Expertise und Graden.
 
 ### Zur Sicherheit
-- Auch wenn ich bereits viel gestestet habe, rechne ich damit, dass Fehler auftreten.
-- Führt deshalb am Besten bei wichtigen Charakteren parallel ein Backup.
+- Auch wenn ich bereits viel gestestet habe, rechne ich damit, dass kleinere Fehler auftreten.
 - Schreibt mir zu Bugs, denen ihr begegnet, per Discord.
 
 ### Bekannte Fehler
-- Es ist nicht möglich mehrere Charakterbögen nebeneinander zu öffnen.
+- Wenn mehrere Charakterbögen in verschiedenen Tabs/Fenstern geöffnet sind sollte man die Seite nicht neu laden, bevor manuell gespeichert wurde.
 - Modulare Talente (z.B. Umgang \[Personengruppe\]) werden über custom Talente gelöst. Nutze den Eintrag in der Talentliste als Referenz.
 - Man kann mehr SP/PP/MsP augeben, als einem zur Verfügung stehen. (Die Levelanzeige wird dann rot)
 - Man kann einen höheren Talentgrad freischalten, bevor man den vorherigen freigeschaltet hat.
@@ -72,7 +71,7 @@ Der Scherbensturm Charakterbogen als Webapp.
 \
 *"Diese Kraft trifft auf AU + Exp(Feuer) und macht (ZBon(AU) / 2) + 5 Schaden."* => *Treffer: {{\[\[AU\]\] + \[\[Feuer\]\]}}, Schaden: {{(\[\[ZBAU\]\] / 2) + 5}}.*\
 \
-*"Kompliziertere Berechnung: 33-(ZBon(PR)/2)"* => *{{33-(\[\[zbpr\]\]/2)}}*\
+*"Weitere Berechnung: 33-(ZBon(PR)/2)"* => *{{33-(\[\[zbpr\]\]/2)}}*\
 \
 *"Schaden: St + mächtiger Schlag + 5 Schnittschaden + WK/2 Giftschaden"* => *Schaden: {{\[\[stbon\]\] + 5}} Schnittschaden + {{\[\[Wk\]\] / 2}} Giftschaden*\
 \

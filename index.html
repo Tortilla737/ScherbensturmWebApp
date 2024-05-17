@@ -53,21 +53,25 @@
         <hr>
         <div class="panel-main-grid">
           <p>Regelwerk:</p>
-          <select id="rulesChoice" onchange="getCharData().rulesset = Number(this.value); repaintAttributes(); repaintRulesDisplay(); filterPanelTalents(); saveLocalData();">
+          <select id="rulesChoice" onchange="getCharData().rulesset = Number(this.value); repaintAttributes(); repaintRulesDisplay(); filterPanelTalents(); saveLocalData();" tabindex="0">
             <option value="0">Offiziell</option>
             <option value="1">Enthrone Darkness</option>
             <option value="2">Werkstatt</option>
           </select>
-          <p>Nachtmodus:</p>
-          <div id="darkmodeContainer"></div>
           <p class="small-text">Fertigkeiten, Kräfte, Items alphabetisch sortieren:</p>
           <div id="sortContainer"></div>
+          <p>Nachtmodus:</p>
+          <div id="darkmodeContainer"></div>
+          <p>Transparenz (0-10):</p>
+          <div class="editable-num-div" tabindex="0">
+            <p id="customOpacity">00</p>
+          </div>
           <p>Akzentfarbe:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" tabindex="0">
             <p id="customColor">00</p>
           </div>
           <p>Hintergrundbild:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div" tabindex="0">
             <p id="customImageLink">www</p>
           </div>
         </div>
@@ -85,7 +89,7 @@
           <a href="javascript:void(0)" onclick="localStorage.removeItem('LocalCharacter');">Clear cache</a>
           <div class="flex-container">
             <p>Max. Zwischenspeicher: </p>
-            <div class="editable-num-div" onclick="editText(event, this)">
+            <div class="editable-num-div">
               <p id="maxSaves">10</p>
             </div>
           </div>
@@ -99,7 +103,7 @@
       <div id="levelPanelPage" class="panel-content">
         <h2 class="panel-h2">Charakterstufe</h2>
         <div class="vertical-container">
-          <div id="charLeveldiv" class="biggest-text editable-num-div" onclick="editText(event, this)">
+          <div id="charLeveldiv" class="biggest-text editable-num-div">
             <p id="CharLevel">0</p>
           </div>
           <div style="position: relative; height: 30px; width: 300px;">
@@ -109,7 +113,7 @@
           <div id="xpBarContainer">
             <div id="xpBar">
               <div class="xpLabel-div">
-                <div class="editable-num-div" onclick="editText(event, this)">
+                <div class="editable-num-div">
                   <p id="xpLabel">0</p>
                 </div>
               </div>
@@ -140,15 +144,15 @@
         <hr class="hr-width">
         <div class="panel-main-grid">
           <p>SP Modifikator:</p>
-          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div text-middle">
             <p id="CharLevelSPmod">00</p>
           </div>
           <p class="rulesOF rulesED">PP Modifikator:</p>
-          <div class="rulesOF rulesED editable-num-div text-middle" style="display: flex;" onclick="editText(event, this)">
+          <div class="rulesOF rulesED editable-num-div text-middle" style="display: flex;">
             <p id="CharLevelPPmod">00</p>
           </div>
           <p>MsP Modifikator:</p>
-          <div class="editable-num-div text-middle" onclick="editText(event, this)">
+          <div class="editable-num-div text-middle">
             <p id="CharLevelMSPmod">00</p>
           </div>
         </div>
@@ -160,24 +164,24 @@
         <h2 class="panel-h2">Stärke</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkStr">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialStr">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingStr">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankStr">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModStr">0</p>
           </div>
           <p>Notiz:</p>
@@ -205,24 +209,24 @@
         <h2 class="panel-h2">Konstitution</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkCon">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialCon">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingCon">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankCon">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModCon">0</p>
           </div>
           <p>Notiz:</p>
@@ -250,24 +254,24 @@
         <h2 class="panel-h2">Präzision</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkAcc">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialAcc">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingAcc">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankAcc">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModAcc">0</p>
           </div>
           <p>Notiz:</p>
@@ -295,24 +299,24 @@
         <h2 class="panel-h2">Gewandtheit</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkAgi">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialAgi">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingAgi">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankAgi">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModAgi">0</p>
           </div>
           <p>Notiz:</p>
@@ -340,24 +344,24 @@
         <h2 class="panel-h2">Wahrnehmung</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkPer">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialPer">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingPer">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankPer">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModPer">0</p>
           </div>
           <p>Notiz:</p>
@@ -385,24 +389,24 @@
         <h2 class="panel-h2">Ausdruck</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkExp">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialExp">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingExp">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankExp">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModExp">0</p>
           </div>
           <p>Notiz:</p>
@@ -430,24 +434,24 @@
         <h2 class="panel-h2">Intelligenz</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkInt">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialInt">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingInt">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankInt">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModInt">0</p>
           </div>
           <p>Notiz:</p>
@@ -475,24 +479,24 @@
         <h2 class="panel-h2">Willenskraft</h2>
         <div class="panel-main-grid">
           <p>Volkswert:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div" tabindex="1">
             <p id="attrFolkWil">0</p>
           </div>
           <p>Potential:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+          <div class="editable-num-div" tabindex="2">
             <p id="attrPotentialWil">0</p>
           </div>
           <p class="rulesOF rulesED">Training:</p>
-          <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="3">
+          <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="3">
             <p id="attrTrainingWil">0</p>
           </div>
           <p class="rulesOF rulesED">Grad:</p>
           <p class="rules02">Trainingsblöcke:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+          <div class="editable-num-div" tabindex="4">
             <p id="attrRankWil">1</p>
           </div>
           <p>Modifikatoren:</p>
-          <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+          <div class="editable-num-div" tabindex="5">
             <p id="attrModWil">0</p>
           </div>
           <p>Notiz:</p>
@@ -520,35 +524,35 @@
         <h2 class="panel-h2">Modifikatoren von Sekundärwerten:</h2>
         <div class="panel-main-grid">
           <p>LP Maximum Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDHPmaxMod">0</p>
           </div>
           <p>mLP Maximum Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDMHmaxMod">0</p>
           </div>
           <p>AP Maximum Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDEPmaxMod">0</p>
           </div>
           <p>FP Maximum Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDFPmaxMod">0</p>
           </div>
           <p>Verwundungsschwelle Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDwoundCapMod">0</p>
           </div>
           <p>Taumaschwelle Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDtraumaCapMod">0</p>
           </div>
           <p>Initiative Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDinitiativeMod">0</p>
           </div>
           <p>Bewegung Mod.:</p>
-          <div class="editable-num-div" onclick="editText(event, this)">
+          <div class="editable-num-div">
             <p id="modIDmovementMod">0</p>
           </div>
         </div>
@@ -571,7 +575,7 @@
           <div class="talent-grid StrContainer">
             <p id="mbTalentStr" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDstr">0</p>
             </div>
           </div>
@@ -579,7 +583,7 @@
           <div class="talent-grid ConContainer">
             <p id="mbTalentCon" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDcon">0</p>
             </div>
           </div>
@@ -587,7 +591,7 @@
           <div class="talent-grid AccContainer">
             <p id="mbTalentAcc" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDacc">0</p>
             </div>
           </div>
@@ -595,7 +599,7 @@
           <div class="talent-grid AgiContainer">
             <p id="mbTalentAgi" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDagi">0</p>
             </div>
           </div>
@@ -603,7 +607,7 @@
           <div class="talent-grid PerContainer">
             <p id="mbTalentPer" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDper">0</p>
             </div>
           </div>
@@ -611,7 +615,7 @@
           <div class="talent-grid ExpContainer">
             <p id="mbTalentExp" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDexp">0</p>
             </div>
           </div>
@@ -619,7 +623,7 @@
           <div class="talent-grid IntContainer">
             <p id="mbTalentInt" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDint">0</p>
             </div>
           </div>
@@ -627,7 +631,7 @@
           <div class="talent-grid WilContainer">
             <p id="mbTalentWil" class="non-breaking-text text-middle">0</p>
             <p>+</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle">
               <p id="mbIDwil">0</p>
             </div>
           </div>
@@ -638,29 +642,29 @@
       <div id="skillPanelPage" class="panel-content">
         <h2 class="panel-h2">Fertigkeit:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div biggest-text text-middle" tabindex="1">
             <p id="genIDskillname"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p class="rulesOF rulesED">Expertise:</p>
-            <div class="rulesOF rulesED editable-num-div" style="display: flex;" onclick="editText(event, this)" tabindex="2">
+            <div class="rulesOF rulesED editable-num-div" style="display: flex;" tabindex="2">
               <p id="genIDskillexpertise"></p>
             </div>
             <p>Kosten zum Erlernen:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
+            <div class="editable-num-div" tabindex="3">
               <p id="genIDskillbasecost"></p>
             </div>
             <p>Grad:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+            <div class="editable-num-div" tabindex="4">
               <p id="genIDskillrank"></p>
             </div>
             <p>Zugehörige Attribute:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+            <div class="editable-num-div" tabindex="5">
               <p id="genIDskillattributes"></p>
             </div>
             <p>Bonus/ Modifikatoren:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="6">
+            <div class="editable-num-div" tabindex="6">
               <p id="genIDskillmod"></p>
             </div>
             <div class="grid-span-2">
@@ -699,8 +703,8 @@
           <div id="customTalentContainer" class="collapsed-beneath">
             <div class="panel-main-grid">
               <p>Name:</p>
-              <div class="editable-num-div" onclick="editText(event, this)">
-                <p id="customTalentname"></p>
+              <div class="editable-num-div">
+                <p id="customTalentname">Neues Talent</p>
               </div>
               <p>Ränge:</p>
               <div class="grid-5 talent-ranks-wrapper" style="margin-right: 20px;">
@@ -719,8 +723,8 @@
                 <input id="customTalentmasteryrank5" type="checkbox"></input>
               </div>
               <p>Kurzbeschreibung:</p>
-              <div class="editable-num-div" onclick="editText(event, this)">
-                <p id="customTalentshorttext"></p>
+              <div class="editable-num-div">
+                <p id="customTalentshorttext">-</p>
               </div>
               <p class="grid-span-2">Volle Beschreibung:</p>
             </div>
@@ -758,25 +762,25 @@
       <div id="powerPanelPage" class="panel-content">
         <h2 class="panel-h2">Kraft:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div biggest-text text-middle" tabindex="1">
             <p id="genIDpowername"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p>Art:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+            <div class="editable-num-div" tabindex="2">
               <p id="genIDpowertype"></p>
             </div>
             <p>Aktionskosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
+            <div class="editable-num-div" tabindex="3">
               <p id="genIDpowertime"></p>
             </div>
             <p>Kosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+            <div class="editable-num-div" tabindex="4">
               <p id="genIDpowercost"></p>
             </div>
             <p>Rang:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="5">
+            <div class="editable-num-div" tabindex="5">
               <p id="genIDpowerrank"></p>
             </div>
             <p>Meisterschaft:</p>
@@ -784,23 +788,23 @@
               <input type="checkbox" id="genIDpowermastery" tabindex="6"></input>
             </div>
             <p>Fertigkeit/Scherbe:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="7">
+            <div class="editable-num-div" tabindex="7">
               <p id="genIDpowerskill"></p>
             </div>
             <p>Trefferwert:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="8">
+            <div class="editable-num-div" tabindex="8">
               <p id="genIDpowerhit"></p>
             </div>
             <p>Schadenswert:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="9">
+            <div class="editable-num-div" tabindex="9">
               <p id="genIDpowerdamage"></p>
             </div>
             <p>Cooldown:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="10">
+            <div class="editable-num-div" tabindex="10">
               <p id="genIDpowercooldown"></p>
             </div>
             <p>Farbe:</p>
-            <div id="colorShow" class="editable-num-div" onclick="editText(event, this)" tabindex="11">
+            <div id="colorShow" class="editable-num-div" tabindex="11">
               <p id="genIDpowercolor"></p>
             </div>
             <p class="grid-span-2">Beschreibung:</p>
@@ -822,20 +826,20 @@
       <div id="augmentPanelPage" class="panel-content">
         <h2 class="panel-h2">Augment:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div biggest-text text-middle" tabindex="1">
             <p id="genIDaugmentname"></p>
           </div>
           <div class="panel-main-grid">
             <p>Kosten:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+            <div class="editable-num-div" tabindex="2">
               <p id="genIDaugmentcost"></p>
             </div>
             <p>Rang:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
+            <div class="editable-num-div" tabindex="3">
               <p id="genIDaugmentrank"></p>
             </div>
             <p>Art:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="4">
+            <div class="editable-num-div" tabindex="4">
               <p id="genIDaugmenttype"></p>
             </div>
             <p>Meisterschaft:</p>
@@ -856,23 +860,23 @@
       <div id="inventoryPanelPage" class="panel-content">
         <h2 class="panel-h2">Item:</h2>
         <div class="vertical-container">
-          <div class="editable-num-div biggest-text text-middle" onclick="editText(event, this)" tabindex="1">
+          <div class="editable-num-div biggest-text text-middle" tabindex="1">
             <p id="genIDitemname"></p>
           </div>
           <div class="vertical-spacing"></div>
           <div class="panel-main-grid">
             <p>Kurzbeschreibung:</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="2">
+            <div class="editable-num-div" tabindex="2">
               <p id="genIDitemshorttext"></p>
             </div>
             <p>Gewicht (pro Stück):</p>
-            <div class="editable-num-div" onclick="editText(event, this)" tabindex="3">
+            <div class="editable-num-div" tabindex="3">
               <p id="genIDitemweight"></p>
             </div>
             <p>Anzahl:</p>
             <div class="horizontal-container big-text">
               <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count--; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">-</button>
-              <div class="editable-num-div stretchy text-middle" onclick="editText(event, this)" tabindex="4">
+              <div class="editable-num-div stretchy text-middle" tabindex="4">
                 <p id="genIDitemcount">0</p>
               </div>
               <button onclick="getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count++; $('#genIDitemcount').html(getCharData().bags[getEntryIndex()].items[getAugmentIndex()].count);" style="width: 30px;">+</button>
@@ -889,11 +893,11 @@
           <div id="weapon-extra" style="width: 100%;">
             <div class="panel-main-grid">
               <p>Waffenschaden:</p>
-              <div class="editable-num-div" onclick="editText(event, this)" tabindex="7">
+              <div class="editable-num-div" tabindex="7">
                 <p id="genIDitemdamage"></p>
               </div>
               <p>Trefferwert:</p>
-              <div class="editable-num-div" onclick="editText(event, this)" tabindex="8">
+              <div class="editable-num-div" tabindex="8">
                 <p id="genIDitemhit"></p>
               </div>
             </div>
@@ -901,7 +905,7 @@
           <div id="armor-extra" style="width: 100%;">
             <div class="panel-main-grid">
               <p>Rüstungswert:</p>
-              <div class="editable-num-div" onclick="editText(event, this)" tabindex="9">
+              <div class="editable-num-div" tabindex="9">
                 <p id="genIDitemarmor"></p>
               </div>
             </div>
@@ -923,7 +927,7 @@
           <div class="vertical-spacing"></div>
           <div class="border-item vertical-container">
             <img class="pointer-div" id="itemImage" src="https://cdn2.iconfinder.com/data/icons/video-game-items-concepts/128/loot-box-512.png" alt="Item Image URL" onclick="openBeneath(this)">
-            <div id="itemURLdiv" class="editable-num-div collapsed-beneath" onclick="editText(event, this)">
+            <div id="itemURLdiv" class="editable-num-div collapsed-beneath">
               <p id="itemImageURL">Bild URL einfügen</p>
             </div>
           </div>
@@ -980,10 +984,10 @@
         <!--Name and Level-->
         <div class="border-item first-box-container">
           <div class="name-grid">
-            <div class="editable-num-div name-container" onclick="editText(event, this)">
+            <div class="editable-num-div name-container" tabindex="0">
               <p id="CharName">Name</p>
             </div>
-            <div class="editable-num-div title-container" onclick="editText(event, this)">
+            <div class="editable-num-div title-container" tabindex="0">
               <p id="CharNameSub">Subtitle</p>
             </div>
           </div>
@@ -991,70 +995,70 @@
         </div>
         <!--Attribute Section-->
         <div class="attribute-row-box">
-          <div class="attribute-container StrContainer" onclick="openPanelPage('strengthPanelPage')">
+          <button class="attribute-container StrContainer" onclick="openPanelPage('strengthPanelPage')">
             <div class="attribute-name-div">
               <p>ST</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrStrTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container ConContainer" onclick="openPanelPage('constitutionPanelPage')">
+          </button>
+          <button class="attribute-container ConContainer" onclick="openPanelPage('constitutionPanelPage')">
             <div class="attribute-name-div">
               <p>KO</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrConTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container AccContainer" onclick="openPanelPage('accuracyPanelPage')">
+          </button>
+          <button class="attribute-container AccContainer" onclick="openPanelPage('accuracyPanelPage')">
             <div class="attribute-name-div">
               <p>PR</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrAccTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container AgiContainer" onclick="openPanelPage('agilityPanelPage')">
+          </button>
+          <button class="attribute-container AgiContainer" onclick="openPanelPage('agilityPanelPage')">
             <div class="attribute-name-div">
               <p>GW</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrAgiTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container PerContainer" onclick="openPanelPage('perceptionPanelPage')">
+          </button>
+          <button class="attribute-container PerContainer" onclick="openPanelPage('perceptionPanelPage')">
             <div class="attribute-name-div">
               <p>WA</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrPerTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container ExpContainer" onclick="openPanelPage('expressionPanelPage')">
+          </button>
+          <button class="attribute-container ExpContainer" onclick="openPanelPage('expressionPanelPage')">
             <div class="attribute-name-div">
               <p>AU</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrExpTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container IntContainer" onclick="openPanelPage('intelligencePanelPage')">
+          </button>
+          <button class="attribute-container IntContainer" onclick="openPanelPage('intelligencePanelPage')">
             <div class="attribute-name-div">
               <p>IN</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrIntTotal">00</p>
             </div>
-          </div>
-          <div class="attribute-container WilContainer" onclick="openPanelPage('willpowerPanelPage')">
+          </button>
+          <button class="attribute-container WilContainer" onclick="openPanelPage('willpowerPanelPage')">
             <div class="attribute-name-div">
               <p>WK</p>
             </div>
             <div class="attribute-num-div">
               <p id="attrWilTotal">00</p>
             </div>
-          </div>
+          </button>
         </div>
         <!--Token image and Secondary Attributes-->
         <div class="horizontal-container">
@@ -1063,10 +1067,28 @@
               <div class="icon-undo"></div>
               <p class="voltaire small-text">Rückgängig</p>
             </button>
-            <button class="border-item transpbtn round-box" onclick="replenishRessouces();">
+            <button id="restButton" class="border-item transpbtn round-box" onclick="replenishRessouces();">
               <div class="icon-campfire"></div>
               <p class="voltaire">Rast</p>
             </button>
+          </div>
+          <div id="restPrompt" class="border-item round-box" style="display: grid;">
+            <button id="restButtonConfirm">Rasten</button>
+            <button onclick="$('#restPrompt').hide();">Abbrechen</button>
+            <p>Stunden</p>
+            <div class="editable-num-div">
+              <p id="restHours">1</p>
+            </div>
+            <p>"gute Umstände"</p>
+            <input type="checkbox" id="restSituation"></input>
+            <p>Natürliche LP Heilrate</p>
+            <div class="editable-num-div">
+              <p id="restHP">5</p>
+            </div>
+            <p>Natürliche mLP Heilrate</p>
+            <div class="editable-num-div">
+              <p id="restMH">5</p>
+            </div>
           </div>
           <div>
             <a onclick="TokenImageLink.dispatchEvent(new MouseEvent('click', { bubbles: true }))">
@@ -1077,13 +1099,13 @@
           <div class="grid-HP border-item">
             <p class="voltaire grid-span-3">LEBENSPUNKTE</p>
             <p class="voltaire grid-span-3 non-breaking-text">MENTALE LEBENSP.</p>
-            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+            <div class="editable-num-div HP-number-current" tabindex="0">
               <p id="ressourceHPcurrent">00</p>
             </div>
             <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
               <p id="HPtotal">00</p>
             </div>
-            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+            <div class="editable-num-div HP-number-current" tabindex="0">
               <p id="ressourceMHcurrent">00</p>
             </div>
             <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
@@ -1091,13 +1113,13 @@
             </div>
             <p class="voltaire grid-span-3">AUSDAUERPUNKTE</p>
             <p class="voltaire grid-span-3">FOKUSPUNKTE</p>
-            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+            <div class="editable-num-div HP-number-current" tabindex="0">
               <p id="ressourceEPcurrent">00</p>
             </div>
             <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
               <p id="EPtotal">00</p>
             </div>
-            <div class="editable-num-div HP-number-current" onclick="editText(event, this)">
+            <div class="editable-num-div HP-number-current" tabindex="0">
               <p id="ressourceFPcurrent">00</p>
             </div>
             <div class="HP-number-total" style="cursor: pointer;" onclick="openPanelPage('secondaryPanelPage')">
@@ -1191,11 +1213,11 @@
               <p id="TraumaCap">00</p>
             </button>
             <p class="small-text voltaire">ERSCHÖPFUNG</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle" tabindex="0">
               <p id="tiredExhaustion">00</p>
             </div>
             <p class="small-text voltaire">ERMÜDUNG</p>
-            <div class="editable-num-div text-middle" onclick="editText(event, this)">
+            <div class="editable-num-div text-middle" tabindex="0">
               <p id="tiredFatigue">00</p>
             </div> 
             <div class="icon-line-seperator"></div>
@@ -1239,17 +1261,17 @@
           <!--powers / Kräfte-->
           <div id="PowersTab" class="tabcontent">
             <div class="horizontal-container" style="flex-wrap: wrap;">
-              <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this.parentNode); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate'); this.classList.toggle('open-sibling');">
+              <button class="flex-container entry-wrapper" onclick="openBeneath(this.parentNode); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate'); this.classList.toggle('open-sibling');">
                 <div><p class="transition-div">&#x2BC8;</p></div>
                 <p class="non-breaking-text">Beschreibung</p>
-              </div>
+              </button>
               <div class="entry-wrapper-non-click">
                 <input id="searchPowers" type="text" onkeyup="filterPowers();" placeholder="Suche">
               </div>
-              <div class="flex-container pointer-div entry-wrapper" onclick="openPanelPage('magicBonusPanelPage');">
+              <button class="flex-container entry-wrapper" onclick="openPanelPage('magicBonusPanelPage');">
                 <div class="icon-magic"></div>
                 Zauberbonus
-              </div>
+              </button>
             </div>
             <div class="growing-text-wrap collapsed-beneath">
               <textarea id="PowersTextArea" onInput="this.parentNode.dataset.replicatedValue = this.value;" onblur="getCharData().powersNote = this.value; saveLocalData();" placeholder="Beschreibe hier deine Kräfte oder Scherben."></textarea>
@@ -1296,36 +1318,35 @@
             </div>
             <hr>
             <div id="inventoryContainer">
-              
             </div>
           </div>
           <!--description / Beschreibung-->
           <div id="DescriptionTab" class="tabcontent">
             <div class="descriptions-grid">
               <p>Voller Name: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfullname">-</p></div>
+              <div class="editable-num-div"><p id="descIDfullname">-</p></div>
               <p>Herkunft/Volk: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDheritage">-</p></div>
+              <div class="editable-num-div"><p id="descIDheritage">-</p></div>
               <p>Volksscherben: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfolkshards">-</p></div>
+              <div class="editable-num-div"><p id="descIDfolkshards">-</p></div>
               <p>Geschlecht: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDgender">-</p></div>
+              <div class="editable-num-div"><p id="descIDgender">-</p></div>
               <p>Alter: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDage">-</p></div>
+              <div class="editable-num-div"><p id="descIDage">-</p></div>
               <p>Größe: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDheight">-</p></div>
+              <div class="editable-num-div"><p id="descIDheight">-</p></div>
               <p>Größenkategorie: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDsizeClass">-</p></div>
+              <div class="editable-num-div"><p id="descIDsizeClass">-</p></div>
               <p>Gewicht: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDweight">-</p></div>
+              <div class="editable-num-div"><p id="descIDweight">-</p></div>
               <p>Konfession: </p>
-              <div class="editable-num-div" onclick="editText(event, this)"><p id="descIDfaith">-</p></div>
+              <div class="editable-num-div"><p id="descIDfaith">-</p></div>
             </div>
             <hr>
-            <div class="flex-container pointer-div entry-wrapper" onclick="openBeneath(this); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate');">
+            <button class="flex-container entry-wrapper" onclick="openBeneath(this); this.firstElementChild.firstElementChild.classList.toggle('open-content-rotate');">
               <div><p class="transition-div">&#x2BC8;</p></div>
               <p class="non-breaking-text">Charakterbeschreibung</p>
-            </div>
+            </button>
             <div class="growing-text-wrap collapsed-beneath">
               <textarea id="txtDescPersonality" onInput="this.parentNode.dataset.replicatedValue = this.value" onblur="getCharData().personality = this.value; repaintDescription();"></textarea>
             </div>

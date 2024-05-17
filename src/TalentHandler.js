@@ -1,6 +1,3 @@
-let hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0;
-let mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
-
 /*
 Bereitschaft - Initiative - iniTalent
 Bewegen in Rüstung - BEW Abzug - moveReductionTalent
@@ -24,8 +21,11 @@ Tiefes Bewusstsein - ZBon WA - mbTalent.per
 Vitalität - LP - hpTalent
 Zaubermacht - ZBon alle - mbTalent.all
 */
+let hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0, hpRegenTalent = 1, mhRegenTalent = 1;
+let mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
+
 function clearTalentFactor() {
-    hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0;
+    hpTalent = 0, mhTalent = 0, epTalent = 0, fpTalent = 0, woundTalent = 0, traumaTalent = 0, iniTalent = 0, moveTalent = 0, moveReductionTalent = 0, armorTalent = 0, attrMaxTalent = 0, mspTalent = 0, stbTalent = 0, hpRegenTalent = 1, mhRegenTalent = 1;
     mbTalent = {"str": 0, "con": 0, "acc": 0, "agi": 0, "per": 0, "wil": 0, "int": 0, "exp": 0, "all": 0};
 }
 function repaintMBPanelTalents() {
@@ -95,6 +95,14 @@ function setTalentFactor(thisTalent) {
             }
         }
         repaintLevel();
+    }
+    else if("Erholung" == thisTalent.name) {
+        hpRegenTalent = 1;
+        for(let j = 0; j<5; j++) {
+            if(thisTalent.ranks[j]) {
+                hpRegenTalent += 1;
+            }
+        }
     }
     else if("Geschärfter Fokus" == thisTalent.name) {
         mbTalent.acc = 0;
@@ -253,6 +261,14 @@ function setTalentFactor(thisTalent) {
             }
         }
         repaintMBPanelTalents();
+    }
+    else if("Überwindung" == thisTalent.name) {
+        mhRegenTalent = 1;
+        for(let j = 0; j<5; j++) {
+            if(thisTalent.ranks[j]) {
+                mhRegenTalent += 1;
+            }
+        }
     }
     else if("Vitalität" == thisTalent.name) {
         hpTalent = 0;

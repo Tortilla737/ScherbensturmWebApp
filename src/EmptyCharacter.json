@@ -73,6 +73,7 @@
             "text": ""
         }
     ],
+    "customOpacity": 0.6,
     "darkmode": true,
     "sort": false,
     "customImageLink": "./src/img/BGimage1.jpg",

@@ -195,17 +195,33 @@ function loadImage() {
 		preview.src = "";
 	}
 }
+//#region Stylesheet setup
+const stylesheet = document.styleSheets[0];
+const darkmodeColors = [...stylesheet.cssRules].find(
+	(r) => r.selectorText === ".darkmode",
+);
+const lightmodeColors = [...stylesheet.cssRules].find(
+	(r) => r.selectorText === ".lightmode",
+);
+const rootValues = [...stylesheet.cssRules].find(
+	(r) => r.selectorText === ":root",
+);
 
 //#region repaint
 function repaintAll() {
 	if(!charData.hasOwnProperty('levelText')) { //remove later xxx
 		charData.levelText = "";
 	}
+
 	if(charData.rulesset === "of") { //remove later xxx
 		charData.rulesset = 0;
 	}
 	else if(charData.rulesset === "ed") {
 		charData.rulesset = 1;
+	}
+	
+	if(!charData.hasOwnProperty("customOpacity")) { //remove later xxx
+		charData.customOpacity = 0.6;
 	}
 
 	clearTalentFactor();
@@ -226,6 +242,7 @@ function repaintAll() {
 	repaintCustomizations();
 	repaintDescription();
 	repaintRulesDisplay();
+	$("#restHP").text(charData.sizeClass);
 	document.title = (charData.name + ' Character Sheet');
 	// Open first Tab on startup
 	openTabNr(0);
@@ -694,20 +711,30 @@ function repaintCustomizations() {
 
 	$("#sortContainer").html(`<input type="checkbox" onchange="getCharData().sort = !getCharData().sort; repaintSkills(); repaintPowers(); repaintInventory();" ${isChecked(charData.sort)}></input>`);
 
-	document.documentElement.style.setProperty('--accent-color', charData.customColor);
-
 	if (charData.darkmode) {
 		document.documentElement.className = "darkmode";
+		var bgColor = darkmodeColors.style.getPropertyValue('--box-fill-color');
 	}
 	else {
 		document.documentElement.className = "lightmode";
+		var bgColor = lightmodeColors.style.getPropertyValue('--box-fill-color');
 	}
 
+	if(bgColor.startsWith('#')) {
+		bgColor = bgColor.substring(1, 7);
+    bgColor = "#" + bgColor + Math.floor(charData.customOpacity * 255).toString(16).padStart(2, '0');
+	}
+	document.documentElement.style.setProperty('--box-fill-color', bgColor);
+
+	rootValues.style.setProperty('--accent-color', charData.customColor);
+
+	$("#customOpacity").html(charData.customOpacity * 10);
 	$("#customColor").html(charData.customColor);
 	document.getElementById("BackgroundImage").style.background = "url('" + charData.customImageLink + "') center/cover";
 	$("#customImageLink").html(charData.customImageLink);
 	document.getElementById('CharTokenImg').src = charData.characterToken;
 	saveLocalData();
+	//$('.border-item').css('opacity', 0.5); //funny, but not what i'm looking for
 }
 //#region repaint level
 function repaintLevel() {
