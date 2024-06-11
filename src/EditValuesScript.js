@@ -359,7 +359,12 @@ function getVarVal(input) {
   }
   else if(skillNames.includes(varText)) {
     let skillP = getCharData().skills[skillNames.indexOf(varText)];
-    return Number(skillP.expertise) + Number(skillP.mod);
+    if(getCharData().rulesset == "2") {
+      return Number(skillP.rank * 10) + Number(skillP.mod);
+    }
+    else {
+      return Number(skillP.expertise) + Number(skillP.mod);
+    }
   }
   else {
     return varText;

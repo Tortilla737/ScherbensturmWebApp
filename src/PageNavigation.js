@@ -175,6 +175,7 @@ function saveSkill(indexN) {
   getCharData().skills[indexN].mod = $("#genIDskillmod").text();
   getCharData().skills[indexN].text = $("#genIDskilltext").val();
   repaintSkills();
+  repaintActions();
   openNav(2, true);
 }
 function deleteSkill(indexN) {
@@ -186,7 +187,7 @@ function addNewSkill() {
   getCharData().skills.push({
     "name": "Neue Fertigkeit",
     "basecost": 0,
-    "rank": 1,
+    "rank": 0,
     "expertise": 0,
     "attributes": "",
     "mod": 0,
@@ -340,6 +341,7 @@ function savePower(indexN) {
   getCharData().powers[indexN].color = $("#genIDpowercolor").text();
   getCharData().powers[indexN].text = $("#genIDpowertext").val();
   repaintPowers();
+  repaintActions();
   openNav(2, true);
 }
 function deletePower(indexN) {
@@ -488,6 +490,7 @@ function saveItem(indexN, indexP) {
     getCharData().bags[indexN].items.splice(indexP, 1);
   }
   repaintInventory();
+  repaintActions();
   $("#newBagChoice").val(indexN);
   openNav(2, true);
   document.getElementById('scrollItem'+indexN+'_'+indexP).scrollIntoView({

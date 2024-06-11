@@ -329,7 +329,7 @@ function repaintSkills() {
 				return Number(charData.skills[i].expertise) + Number(charData.skills[i].mod);
 			}
 			else { //newer rank based expertise
-				return (charData.skills[i].rank - 1) * 10;
+				return charData.skills[i].rank * 10;
 			}
 		}
 		allSkills += `
@@ -742,12 +742,12 @@ function repaintLevel() {
 	let currentPPscore = 0;
 	let currentMSPscore = 0;
 	for (let i in charData.skills) {
-		for (let rc = charData.skills[i].rank; rc > 1; rc--) {
+		for (let rc = (Number(charData.skills[i].rank) + 1); rc > 1; rc--) {
 			currentSPscore += Number(rc);
 		}
 		currentSPscore += Number(charData.skills[i].basecost);
 		currentPPscore += Number(Math.floor(charData.skills[i].expertise / 2));
-		if (charData.skills[i].rank >= 4) { currentMSPscore++; }
+		if (charData.skills[i].rank >= 3) { currentMSPscore++; }
 	}
 	for (let attr in charData.attrRank) {
 		if(charData.rulesset <= 1) { //older system
