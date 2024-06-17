@@ -128,6 +128,7 @@ Storage.prototype.getObject = function (key) {
 //#region download charData
 /*function is getting called in index.html -> savebtn*/
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
+	updateSaveDate();
 	const blob = new Blob([JSON.stringify(dataObjToWrite)], { type: "application/json" });
 	const link = document.createElement("a");
 
@@ -144,6 +145,12 @@ const saveTemplateAsFile = (filename, dataObjToWrite) => {
 	link.dispatchEvent(evt);
 	link.remove()
 };
+function updateSaveDate() {
+	const date = new Date();
+	charData.lastSave = date.getDate() + "." + (Number(date.getMonth())+1) + "." + date.getFullYear() + " (" + date.getHours() + ":" + date.getMinutes() + ")";
+	$("#lastSave").html(charData.lastSave);
+	saveLocalData();
+}
 //#region load charData
 function loadFile() {
 	var input, file, fr;
@@ -222,6 +229,10 @@ function repaintAll() {
 	
 	if(!charData.hasOwnProperty("customOpacity")) { //remove later xxx
 		charData.customOpacity = 0.6;
+	}
+
+	if(!charData.hasOwnProperty('lastSave')) { //remove later xxx
+		charData.lastSave = "";
 	}
 
 	clearTalentFactor();
@@ -326,14 +337,17 @@ function repaintSkills() {
 		let asterisk = () => { if (charData.skills[i].mod > 0) { return "*"; } else { return ""; } };
 		let expertise = () => {
 			if(charData.rulesset <= 1) { //older rules with individual expertise
-				return Number(charData.skills[i].expertise) + Number(charData.skills[i].mod);
+				let newExpertise = charData.skills[i].expertise;
+				let newRank = charData.skills[i].rank;
+				if(newExpertise > ((newRank+1) * 10)) {newExpertise = (newRank+1) * 10;}
+				return Number(newExpertise) + Number(charData.skills[i].mod);
 			}
 			else { //newer rank based expertise
 				return charData.skills[i].rank * 10;
 			}
 		}
 		allSkills += `
-			<div class="entry-wrapper skill-grid roboto-300" onclick="openSkillPanel(${i})">
+			<div class="entry-wrapper skill-grid roboto-c-300" onclick="openSkillPanel(${i})">
 				<p>${charData.skills[i].name}</p>
 				<p class="text-middle">+${expertise()}${asterisk()/*maybe not? xxx*/}</p>
 				<p class="text-middle">${charData.skills[i].rank}</p>
@@ -382,7 +396,7 @@ function repaintTalents() {
 			}
 		}
 		paintTalents += `
-			<div id="scrollTalent${thisT.name}" class="entry-wrapper roboto-300" onclick="openBeneath(this.firstElementChild)">
+			<div id="scrollTalent${thisT.name}" class="entry-wrapper roboto-c-300" onclick="openBeneath(this.firstElementChild)">
 				<div class="talent-grid">
 					<div>${thisT.name}</div>
 					<div class="grid-5 talent-ranks-wrapper">${rankBoxes}</div>
@@ -420,7 +434,7 @@ function repaintPowers() {
 		let powerN = charData.powers[i];
 		allPowers += `
 		<div id="scrollIDpower${i}">
-			<div class="power-entry roboto-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
+			<div class="power-entry roboto-c-300" style="background-image: linear-gradient(110deg, #0000 65%, ${powerN.color});" onclick="openBeneath(this.firstElementChild)">
 				<div>
 					<div class="power-grid">
 						<p class="power-name">${powerN.name}</p>
@@ -445,7 +459,7 @@ function repaintPowers() {
 		for (let j in powerN.augments) {
 			let augmentN = powerN.augments[j];
 			allPowers += `
-				<div class="augment-entry roboto-300" onclick="openBeneath(this.firstElementChild)">
+				<div class="augment-entry roboto-c-300" onclick="openBeneath(this.firstElementChild)">
 					<div class="augment-grid gradient-line-top">
 						<p class="power-name">${augmentN.name}</p>
 						<p>${calcTextInput(augmentN.cost)}</p>
@@ -500,7 +514,7 @@ function repaintInventory() {
 			let itemN = charData.bags[i].items[j];
 			bagWeight += itemN.weight * itemN.count;
 			allItems += `
-				<div id="scrollItem${i}_${j}" class="entry-wrapper item-grid roboto-300" onclick="openItemsPanel(${i}, ${j});">
+				<div id="scrollItem${i}_${j}" class="entry-wrapper item-grid roboto-c-300" onclick="openItemsPanel(${i}, ${j});">
 					<p>${itemN.name}</p>
 					<p class="text-middle small-text">${itemN.count}</p>
 					<p class="text-middle small-text">${itemN.weight} kg</p>
@@ -556,7 +570,7 @@ function repaintGear() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.type == 'weapon') {
 				allWeapons += `
-					<div id="scrollIDweapon${i}_${j}" class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
+					<div id="scrollIDweapon${i}_${j}" class="entry-wrapper roboto-c-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 								<p class="power-name">${itemN.name}</p>
 								<p class="italic-text">${calcTextInput(itemN.damage)}</p>
@@ -580,7 +594,7 @@ function repaintGear() {
 			}
 			else if (itemN.type == 'armor') {
 				allArmor += `
-					<div class="entry-wrapper roboto-300" onclick="openItemsPanel(${i}, ${j});">
+					<div class="entry-wrapper roboto-c-300" onclick="openItemsPanel(${i}, ${j});">
 						<div class="horizontal-container stretchy">
 							<p class="power-name">${itemN.name}</p>
 							<p class="italic-text">Rüstung: ${calcTextInput(itemN.armor)}</p>
@@ -621,7 +635,7 @@ function repaintActions() {
 			itemN = charData.bags[i].items[j];
 			if (itemN.equipped && itemN.type == "weapon") {
 				weaponActions += `
-					<div class="action-grid roboto-300" onclick="openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
+					<div class="action-grid roboto-c-300" onclick="openTabPage('GearTab'); document.getElementById('scrollIDweapon${i}_${j}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
 						<p>${itemN.name}</p>
             <p class="small-text">&#128900;</p>
 						<p class="text-middle">${calcTextInput(itemN.hit)}</p>
@@ -637,7 +651,7 @@ function repaintActions() {
 		powerN = charData.powers[i];
 		if (powerN.equipped) {
 			powerActions += `
-				<div class="action-grid action-power-grid roboto-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild.firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
+				<div class="action-grid action-power-grid roboto-c-300" onclick="openTabPage('PowersTab'); openBeneath(document.getElementById('scrollIDpower${i}').firstElementChild.firstElementChild); document.getElementById('scrollIDpower${i}').scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});">
 					<p>${powerN.name}</p>
 					<p class="small-text">&#128900;</p>
 					<p class="text-middle">${calcTextInput(powerN.cost)}</p>
@@ -821,23 +835,34 @@ function repaintLevel() {
 }
 //#region repaint conditions
 function repaintConditions() {
+	let lightConditions = "";
 	let allConditions = "";
 	for (let i in charData.conditions) {
+		lightConditions += `
+		<div class="vertical-spacing"></div>
+		<div class="gradient-line-color"></div>
+		<p class="status-name">${charData.conditions[i].name}</p>
+		`;
+
 		allConditions += `
-		<div class="status-wrapper">
+		<div class="gradient-line-color">
 			<div class="status-grid">
-				<button onclick="openBeneath(this.parentNode); this.firstElementChild.classList.toggle('open-content-rotate');"><div class="transition-div"><p>&#x2BC8;</p></div></button>
-				<div class="editable-num-div status-name" onclick="editText(event, this)"><p id="condiIDname${i}">${charData.conditions[i].name}</p></div>
+				<div class="editable-num-div" onclick="editText(event, this)"><p id="condiIDname${i}">${charData.conditions[i].name}</p></div>
 				<button onclick="openDeleteModal('deleteCondition(${i})'); event.stopPropagation();"><div class="icon-trash smaller-text margin-center"></div></button>
 			</div>
-			<div class="collapsed-beneath">
-				<textarea id="condiIDtext${i}" onblur="getCharData().conditions[${i}].text = this.value; saveLocalData();" placeholder="Beschreibe den Statuseffekt.">${charData.conditions[i].text}</textarea>
+			<div class="growing-text-wrap">
+				<textarea id="condiIDtext${i}" onInput="this.parentNode.dataset.replicatedValue = this.value;" onblur="getCharData().conditions[${i}].text = this.value; saveLocalData();" placeholder="Beschreibe den Statuseffekt.">${charData.conditions[i].text}</textarea>
 			</div>
 		</div>
 		<div class="vertical-spacing"></div>
 		`;
 	}
-	$("#conditionsContainer").html(allConditions);
+	$("#conditionsContainer").html(lightConditions);
+	$("#conditionsPanelContainer").html(allConditions);
+	let event = new Event('input', { bubbles: true });
+	for (let i in charData.conditions) {
+		document.getElementById("condiIDtext"+i).dispatchEvent(event);
+	}
 	saveLocalData();
 }
 function repaintConditionChoices() {
@@ -874,9 +899,9 @@ function fillEditables() {
 	$("#secondaryNote").val(charData.secondaryNote);
 	$("#maxSaves").html(charData.maxSaves);
 	maxSaves = charData.maxSaves;
-	let event = new Event('input', { bubbles: true });
-	document.getElementById("secondaryNote").dispatchEvent(event);
+	$("#lastSave").html(charData.lastSave);
 	$("#PowersTextArea").html(charData.powersNote);
+	let event = new Event('input', { bubbles: true });
 	document.getElementById("PowersTextArea").dispatchEvent(event);
 }
 //#region repaint rules

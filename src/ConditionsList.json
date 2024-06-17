@@ -1,7 +1,7 @@
 [
     {
         "name": "Brand X",
-        "text": "Einmal pro Runde, entweder beim zugefügtem Brand, oder am Ende des Zuges, verliert das betroffene Ziel LP in Höhe des Brands. Am Ende des Zuges steigt der Brand um die Zehnerstelle +1.\n Wenn ein Charakter brennt, so muss er zu Beginn seines Zuges einen Test auf die Fertigkeit Wille bestehen gegen die Schwierigkeit 40. Gelingt dieser nicht, so muss sich der Charakter löschen! Um sich vom Brand zu befreien kann man entweder eine volle Aktion aufwenden, oder in einer Standardaktion mit Agilität gegen die Schwierigkeit 40 testen.\nBrand kann nur maximal 100 sein. "
+        "text": "Einmal pro Runde, entweder beim zugefügtem Brand, oder am Ende des Zuges, verliert das betroffene Ziel LP in Höhe des Brands. Am Ende des Zuges steigt der Brand um die Zehnerstelle +1.\nWenn ein Charakter brennt, so muss er zu Beginn seines Zuges einen Test auf die Fertigkeit Wille bestehen gegen die Schwierigkeit 40. Gelingt dieser nicht, so muss sich der Charakter löschen! Um sich vom Brand zu befreien kann man entweder eine volle Aktion aufwenden, oder in einer Standardaktion mit Agilität gegen die Schwierigkeit 40 testen.\nBrand kann nur maximal 100 sein. "
     },
     {
         "name": "Eingeschüchtert",

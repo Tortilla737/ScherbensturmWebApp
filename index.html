@@ -52,8 +52,10 @@
         </div>
         <hr>
         <div class="panel-main-grid">
+          <p>Zuletzt gespeichert:</p>
+          <p id="lastSave">-</p>
           <p>Regelwerk:</p>
-          <select id="rulesChoice" onchange="getCharData().rulesset = Number(this.value); repaintAttributes(); repaintRulesDisplay(); filterPanelTalents(); saveLocalData();" tabindex="0">
+          <select id="rulesChoice" onchange="getCharData().rulesset = Number(this.value); repaintAll(); filterPanelTalents(); saveLocalData();" tabindex="0">
             <option value="0">Offiziell</option>
             <option value="1">Enthrone Darkness</option>
             <option value="2">Werkstatt</option>
@@ -80,7 +82,7 @@
         <a class="rulesED" href="https://docs.google.com/document/d/1bGxPNrDozp0PAeE6GktE6ikESHS4IRTxdggvKE2wTN8/edit?usp=sharing" target="_blank"><u>Enthrone Regelungen</u> &#11127;</a>
         <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank"><u>Farbenfinder</u> &#11127;</a>
         <a href="https://github.com/Tortilla737/ScherbensturmWebApp" target="_blank"><u>Git-Page</u> &#11127;</a>
-        <div class="openBeneath" style="margin-top: 200px;">
+        <div class="openBeneath" style="margin-top: 180px;">
           <button class="transpbtn" onclick="openBeneath(this.parentNode); this.firstElementChild.classList.toggle('open-content-rotate');"><p class="transition-div dark-text">&#x2BC8;</p></button>
         </div>
         <div class="collapsed-beneath">
@@ -157,7 +159,7 @@
           </div>
         </div>
         <hr class="hr-width">
-        <textarea id="levelText" onblur="getCharData().levelText = this.value; saveLocalData();" placeholder="Notiere, welche Faktoren deine SP/PP/MsP beeinflussen."></textarea>
+        <textarea class="panel-textarea-height" id="levelText" onblur="getCharData().levelText = this.value; saveLocalData();" placeholder="Notiere, welche Faktoren deine SP/PP/MsP beeinflussen."></textarea>
       </div>
       <!--MARK: Strength panel-->
       <div id="strengthPanelPage" class="panel-content StrContainer">
@@ -186,7 +188,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteStr" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.str = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -231,7 +233,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteCon" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.con = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -276,7 +278,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteAcc" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.acc = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -321,7 +323,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteAgi" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.agi = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -366,7 +368,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNotePer" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.per = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -411,7 +413,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteExp" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.exp = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -456,7 +458,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteInt" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.int = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -501,7 +503,7 @@
           </div>
           <p>Notiz:</p>
         </div>
-        <textarea id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();" tabindex="6"></textarea>
+        <textarea class="panel-textarea-height" id="attrNoteWil" placeholder="Quellen für Modifikatoren/Boni." onblur="getCharData().attrNote.wil = this.value; saveLocalData();" tabindex="6"></textarea>
         <hr class="hr-width">
         <div class="rulesOF rulesED">
           <p class="small-text dim-text">Grad 0: 10 Trainingsmaximum, +0 SP</p>
@@ -557,7 +559,7 @@
           </div>
         </div>
         <hr class="hr-width">
-        <textarea id="secondaryNote" onblur="getCharData().secondaryNote = this.value; saveLocalData();" placeholder="Beschreibe welche Effekte welchen Bonus oder Malus ausmachen."></textarea>
+        <textarea class="panel-textarea-height" id="secondaryNote" onblur="getCharData().secondaryNote = this.value; saveLocalData();" placeholder="Beschreibe welche Effekte welchen Bonus oder Malus ausmachen."></textarea>
       </div>
       <!--MARK: Magic Bonus panel-->
       <div id="magicBonusPanelPage" class="panel-content">
@@ -636,7 +638,7 @@
             </div>
           </div>
         </div>
-        <textarea id="mbNote" onblur="getCharData().magicBonusMod.mbNote = this.value; saveLocalData();" placeholder="Notiere zusätzliche Infos zu deinen Boni."></textarea>
+        <textarea class="panel-textarea-height" id="mbNote" onblur="getCharData().magicBonusMod.mbNote = this.value; saveLocalData();" placeholder="Notiere zusätzliche Infos zu deinen Boni."></textarea>
       </div>
       <!--MARK: Skill Panel-->
       <div id="skillPanelPage" class="panel-content">
@@ -671,7 +673,9 @@
               <p>Beschreibung:</p>
             </div>
           </div>
-          <textarea id="genIDskilltext" tabindex="7"></textarea>
+          <div>
+            <textarea class="panel-textarea-height" id="genIDskilltext" tabindex="7"></textarea>
+          </div>
           <hr class="hr-width">
           <div class="horizontal-container big-text">
             <button class="in-panel-btn savebtn" onclick="saveSkill(getEntryIndex())" tabindex="8">Speichern</button>
@@ -696,7 +700,7 @@
       <div id="talentPanelPage" class="panel-content">
         <h2 class="panel-h2">Talente:</h2>
         <div class="custom-talent-wrapper">
-          <div class="status-grid pointer-div" onclick="this.nextElementSibling.classList.toggle('open-custom-talent'); this.firstElementChild.classList.toggle('open-content-rotate');">
+          <div class="custom-talent-open  pointer-div" onclick="this.nextElementSibling.classList.toggle('open-custom-talent'); this.firstElementChild.classList.toggle('open-content-rotate');">
             <p id="customTalentTri" class="text-middle transition-div">&#x2BC8;</p>
             <p>Eigenes Talent</p>
           </div>
@@ -728,7 +732,9 @@
               </div>
               <p class="grid-span-2">Volle Beschreibung:</p>
             </div>
-            <textarea id="customTalentlongtext"></textarea>
+            <div>
+              <textarea class="panel-textarea-height" id="customTalentlongtext"></textarea>
+            </div>
             <button class="add-entry-btn" onclick="addNewCustomTalent();">+ hinzufügen</button>
           </div>
         </div>
@@ -848,7 +854,9 @@
             </div>
             <p class="grid-span-2">Beschreibung:</p>
           </div>
-          <textarea id="genIDaugmenttext" tabindex="6"></textarea>
+          <div>
+            <textarea class="panel-textarea-height" id="genIDaugmenttext" tabindex="6"></textarea>
+          </div>
           <hr class="hr-width">
           <div class="horizontal-container">
             <button class="in-panel-btn savebtn" onclick="saveAugment(getEntryIndex(), getAugmentIndex())" tabindex="7">Speichern</button>
@@ -974,6 +982,14 @@
           <div id="hitzonesGridContent" class="money-main-grid">
             
           </div>
+        </div>
+      </div>
+      <!--MARK: Conditions Panel-->
+      <div id="conditionsPanelPage" class="panel-content">
+        <h2 class="panel-h2">Statuseffekte:</h2>
+        <select style="width: 100%;" id="conditionChoice" onchange="addNewCondition(this.value); this.value = '-'"></select>
+        <div class="vertical-spacing"></div>
+        <div id="conditionsPanelContainer">
         </div>
       </div>
     </div>
@@ -1160,14 +1176,12 @@
         </div>
         <!--Conditions and ShortNote-->
         <div class="equal-flex-row stretchy">
-          <div class="border-item">
+          <div class="border-item pointer-div" onclick="openPanelPage('conditionsPanelPage')">
             <div class="voltaire">
               <p>STATUSEFFEKTE</p>
             </div>
             <div id="conditionsContainer">
-  
             </div>
-            <select style="width: 100%;" id="conditionChoice" onchange="addNewCondition(this.value); this.value = '-'"></select>
           </div>
           <div class="border-item">
             <div class="voltaire">

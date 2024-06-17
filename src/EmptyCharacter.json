@@ -79,5 +79,6 @@
     "customImageLink": "./src/img/BGimage1.jpg",
     "customColor": "#ffcc6e",
     "characterToken": "./src/img/Token-image.png",
-    "maxSaves": 10
+    "maxSaves": 10,
+    "lastSave": "-"
 }

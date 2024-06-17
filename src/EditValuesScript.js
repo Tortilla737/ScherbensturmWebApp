@@ -47,9 +47,9 @@ function editText(e, t) {
   $input.one('blur', save).focus();
 }
 
-$(".editable-num-div").click(function(e) {
+/* $(".editable-num-div").click(function(e) {
   editText(e, this);
-});
+}); */
 $(".editable-num-div").focus(function(e) {
   editText(e, this);
 });

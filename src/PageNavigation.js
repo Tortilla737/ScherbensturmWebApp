@@ -164,13 +164,10 @@ function openSkillPanel(indexN){
 }
 
 function saveSkill(indexN) {
-  let newExpertise = $("#genIDskillexpertise").text();
-  let newRank = $("#genIDskillrank").text();
-  if(newExpertise > (newRank * 10)) {newExpertise = newRank * 10;}
   getCharData().skills[indexN].name = $("#genIDskillname").text();
   getCharData().skills[indexN].basecost = $("#genIDskillbasecost").text();
-  getCharData().skills[indexN].rank = newRank;
-  getCharData().skills[indexN].expertise = newExpertise;
+  getCharData().skills[indexN].rank = $("#genIDskillrank").text();
+  getCharData().skills[indexN].expertise = $("#genIDskillexpertise").text();
   getCharData().skills[indexN].attributes = $("#genIDskillattributes").text();
   getCharData().skills[indexN].mod = $("#genIDskillmod").text();
   getCharData().skills[indexN].text = $("#genIDskilltext").val();
