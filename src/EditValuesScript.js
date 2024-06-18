@@ -50,7 +50,7 @@ function editText(e, t) {
 /* $(".editable-num-div").click(function(e) {
   editText(e, this);
 }); */
-$(".editable-num-div").focus(function(e) {
+$(".editable-num-div").focus(function(e) { //needs tabindex to be clickable
   editText(e, this);
 });
 
